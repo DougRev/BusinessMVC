@@ -27,16 +27,48 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OwnerId)
+            @Html.DisplayNameFor(model => model.State)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OwnerId)
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calculation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calculation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Num1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Num2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoMath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoMath)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BusinessId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

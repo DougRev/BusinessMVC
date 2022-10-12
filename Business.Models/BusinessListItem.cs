@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessData.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace BusinessModels
     {
         public int BusinessId { get; set; }
         public string BusinessName { get; set; }
+        public State State { get; set; }
         public Guid OwnerId { get; set; }
     }
 }

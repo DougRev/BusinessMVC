@@ -70,7 +70,10 @@ namespace BusinessMVC2.Controllers
             {
                 BusinessId = detail.BusinessId,
                 BusinessName = detail.BusinessName,
+                State = detail.State,
                 FranchiseeId = detail.FranchiseeId,
+                Num1 = detail.Num1,
+                Num2 = detail.Num2,
             };
             return View(model);
         }
