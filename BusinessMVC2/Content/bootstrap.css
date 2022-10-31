@@ -1444,12 +1444,17 @@ dl {
 dt,
 dd {
   line-height: 1.42857143;
+  padding-top: 5px;
 }
 dt {
   font-weight: 700;
 }
 dd {
   margin-left: 0;
+}
+
+dt::after {
+    content: ":";
 }
 @media (min-width: 768px) {
   .dl-horizontal dt {

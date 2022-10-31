@@ -80,14 +80,36 @@
   <ItemGroup>
     <Compile Include="Business.cs" />
     <Compile Include="BusinesssFranchisee.cs" />
+    <Compile Include="Enum\State.cs" />
     <Compile Include="Franchisee.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202210102331106_init.cs" />
     <Compile Include="Migrations\202210102331106_init.designer.cs">
       <DependentUpon>202210102331106_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210112321211_addCalculation.cs" />
+    <Compile Include="Migrations\202210112321211_addCalculation.designer.cs">
+      <DependentUpon>202210112321211_addCalculation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210112338257_addMath.cs" />
+    <Compile Include="Migrations\202210112338257_addMath.designer.cs">
+      <DependentUpon>202210112338257_addMath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210120025289_addStateEnum.cs" />
+    <Compile Include="Migrations\202210120025289_addStateEnum.designer.cs">
+      <DependentUpon>202210120025289_addStateEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210311259450_addKeyDataPoints.cs" />
+    <Compile Include="Migrations\202210311259450_addKeyDataPoints.designer.cs">
+      <DependentUpon>202210311259450_addKeyDataPoints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210311436435_changeIntToFloat.cs" />
+    <Compile Include="Migrations\202210311436435_changeIntToFloat.designer.cs">
+      <DependentUpon>202210311436435_changeIntToFloat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateBusinesses.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -96,6 +118,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202210102331106_init.resx">
       <DependentUpon>202210102331106_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210112321211_addCalculation.resx">
+      <DependentUpon>202210112321211_addCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210112338257_addMath.resx">
+      <DependentUpon>202210112338257_addMath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210120025289_addStateEnum.resx">
+      <DependentUpon>202210120025289_addStateEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210311259450_addKeyDataPoints.resx">
+      <DependentUpon>202210311259450_addKeyDataPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210311436435_changeIntToFloat.resx">
+      <DependentUpon>202210311436435_changeIntToFloat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

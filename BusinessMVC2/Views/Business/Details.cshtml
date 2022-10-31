@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>BusinessDetails</h4>
+    <h4>Franchise Information</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,16 +27,88 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OwnerId)
+            @Html.DisplayNameFor(model => model.State)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OwnerId)
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XferStation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XferStation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientDist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientDist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HaulerDist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HaulerDist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LandfillDist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LandfillDist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearlySmashes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearlySmashes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calculation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calculation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Num1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Num2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Num2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoMath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoMath)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BusinessId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

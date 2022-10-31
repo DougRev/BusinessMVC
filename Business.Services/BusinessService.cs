@@ -25,6 +25,7 @@ namespace BusinessServices
                 OwnerId = _userId,
                 BusinessId = model.BusinessId,
                 BusinessName = model.BusinessName,
+                State = model.State,
                 FranchiseeId = model.FranchiseeId,
 
             };
@@ -44,6 +45,7 @@ namespace BusinessServices
                     {
                         BusinessId = e.BusinessId,
                         BusinessName = e.BusinessName,
+                        State = e.State,
                     });
                 return query.ToArray();
             }
@@ -62,8 +64,18 @@ namespace BusinessServices
                 {
                     BusinessId = entity.BusinessId,
                     BusinessName = entity.BusinessName,
+                    State = entity.State,
                     FranchiseeId = entity.FranchiseeId,
                     FranchiseeName = entity.Franchisee.FranchiseeName,
+                    XferStation = entity.XferStation,
+                    ClientDist = entity.ClientDist,
+                    HaulerDist = entity.HaulerDist,
+                    LandfillDist = entity.LandfillDist,
+                    YearlySmashes = entity.YearlySmashes,
+                    Calculation = entity.Calculation,
+                    Num1 = entity.Num1,
+                    Num2 = entity.Num2,
+                    DoMath = entity.DoMath,
                 };
             }
         }
@@ -77,6 +89,14 @@ namespace BusinessServices
                     .Single(e => e.BusinessId == model.BusinessId);
                 entity.BusinessName = model.BusinessName;
                 entity.Franchisee.FranchiseeId = model.FranchiseeId;
+                entity.State = model.State;
+                entity.XferStation = model.XferStation;
+                entity.ClientDist = model.ClientDist;
+                entity.HaulerDist = model.HaulerDist;
+                entity.LandfillDist = model.LandfillDist;
+                entity.YearlySmashes = model.YearlySmashes;
+                entity.Num1 = model.Num1;
+                entity.Num2 = model.Num2;
 
                 return ctx.SaveChanges() == 1;
             }
