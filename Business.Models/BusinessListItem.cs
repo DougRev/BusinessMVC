@@ -10,11 +10,12 @@ namespace BusinessModels
 {
     public class BusinessListItem
     {
-        [Display(Name = "Franchise ID")]
+        [Display(Name = "Client ID")]
         public int BusinessId { get; set; }
 
-        [Display(Name = "Franchise Name")]
+        [Display(Name = "Client Name")]
         public string BusinessName { get; set; }
+        public string FranchiseName { get; set; }
         public State State { get; set; }
         public Guid OwnerId { get; set; }
     }

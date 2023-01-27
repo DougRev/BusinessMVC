@@ -1,0 +1,43 @@
+﻿@model BusinessModels.Franchise.FranchiseDetails
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FranchiseDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FranchiseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FranchiseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FranchiseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FranchiseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmissionsTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmissionsTotal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.FranchiseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

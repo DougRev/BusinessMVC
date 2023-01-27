@@ -20,7 +20,7 @@ namespace BusinessServices
 
         public bool CreateFranchisee(FranchiseeCreate model)
         {
-            var entity = new Franchisee()
+            var entity = new FranchiseOwner()
             {
                 FranchiseeId = model.FranchiseeId,
                 FranchiseeName = model.FranchiseeName,
@@ -60,6 +60,7 @@ namespace BusinessServices
                 {
                    FranchiseeId = entity.FranchiseeId,
                    FranchiseeName = entity.FranchiseeName,
+                   
                 };
             }
         }

@@ -9,14 +9,14 @@ using System.Web.Mvc;
 
 namespace BusinessMVC2.Controllers
 {
-    public class BusinessController : Controller
+    public class ClientController : Controller
     {
-        // GET: Business
+        // GET: Clients
         public ActionResult Index()
         {
             //This Method will display races for a specific user.
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new BusinessService(userId);
+            var service = new ClientService(userId);
             var model = service.GetBusinesses();
 
             return View(model);
@@ -28,10 +28,10 @@ namespace BusinessMVC2.Controllers
         {
             return View();
         }
-        private BusinessService CreateBusinessService()
+        private ClientService CreateBusinessService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var businessService = new BusinessService(userId);
+            var businessService = new ClientService(userId);
             return businessService;
         }
 
@@ -44,14 +44,14 @@ namespace BusinessMVC2.Controllers
                 return View(model);
             }
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new BusinessService(userId);
+            var service = new ClientService(userId);
             service.CreateBusiness(model);
 
             return RedirectToAction("Index");
         }
 
         //GET: Details
-        //Race/Details/{id}
+        //Client/Details/{id}
         public ActionResult Details(int id)
         {
             var svc = CreateBusinessService();
@@ -61,7 +61,7 @@ namespace BusinessMVC2.Controllers
 
 
         //GET: Edit
-        //Race/Edit/{id}
+        //Client/Edit/{id}
         public ActionResult Edit(int id)
         {
             var svc = CreateBusinessService();
@@ -73,18 +73,20 @@ namespace BusinessMVC2.Controllers
                 State = detail.State,
                 FranchiseeId = detail.FranchiseeId,
                 XferStation = detail.XferStation,
-                ClientDist = detail.ClientDist,
-                HaulerDist = detail.HaulerDist,
-                LandfillDist = detail.HaulerDist,
-                YearlySmashes = detail.YearlySmashes,
-                Num1 = detail.Num1,
+                ToClientDist = detail.ToClientDist,
+                FromClientDist = detail.FromClientDist,
+                ToHaulerDist = detail.ToHaulerDist,
+                FromHaulerDist = detail.FromHaulerDist,
+                LandfillDist = detail.LandfillDist,
+                HaulsPerDay = detail.HaulsPerDay,
                 Num2 = detail.Num2,
+                
             };
             return View(model);
         }
 
         //POST: Edit
-        //Race/Edit/{id}
+        //Client/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, BusinessEdit model)
@@ -105,16 +107,16 @@ namespace BusinessMVC2.Controllers
 
             if (service.UpdateBusinesses(model))
             {
-                TempData["SaveResult"] = "Your business has been updated.";
+                TempData["SaveResult"] = "Your Client has been updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your business could not be updated.");
+            ModelState.AddModelError("", "Your Client could not be updated.");
             return View(model);
         }
 
         //GET: Delete
-        //Race/Delete/{id}
+        //Client/Delete/{id}
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -124,7 +126,7 @@ namespace BusinessMVC2.Controllers
         }
 
         //POST: Delete
-        //Race/Delete/{id}
+        //Client/Delete/{id}
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -132,7 +134,7 @@ namespace BusinessMVC2.Controllers
         {
             var service = CreateBusinessService();
             service.DeleteBusiness(id);
-            TempData["SaveResult"] = "Your Business has been deleted.";
+            TempData["SaveResult"] = "Your Client has been deleted.";
 
             return RedirectToAction("Index");
         }

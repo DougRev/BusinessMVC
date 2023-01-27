@@ -27,6 +27,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.FranchiseeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FranchiseeName)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.State)
         </dt>
 
@@ -34,6 +42,20 @@
             @Html.DisplayFor(model => model.State)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.FranchiseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FranchiseId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FranchiseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FranchiseName)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.XferStation)
         </dt>
@@ -43,19 +65,27 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ClientDist)
+            @Html.DisplayNameFor(model => model.ToClientDist)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ClientDist)
+            @Html.DisplayFor(model => model.ToClientDist)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HaulerDist)
+            @Html.DisplayNameFor(model => model.ToHaulerDist)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HaulerDist)
+            @Html.DisplayFor(model => model.ToHaulerDist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromHaulerDist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromHaulerDist)
         </dd>
 
         <dt>
@@ -66,20 +96,21 @@
             @Html.DisplayFor(model => model.LandfillDist)
         </dd>
 
+
         <dt>
-            @Html.DisplayNameFor(model => model.YearlySmashes)
+            @Html.DisplayNameFor(model => model.HaulsPerDay)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.YearlySmashes)
+            @Html.DisplayFor(model => model.HaulsPerDay)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Calculation)
+            @Html.DisplayNameFor(model => model.PreSMTYearlyHauls)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Calculation)
+            @Html.DisplayFor(model => model.PreSMTYearlyHauls)
         </dd>
 
         <dt>
@@ -105,6 +136,31 @@
         <dd>
             @Html.DisplayFor(model => model.DoMath)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmissionsMath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmissionsMath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaselineHaulerTruckRunningEmissions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaselineHaulerTruckRunningEmissions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaselineHaulerTruckIdlingEmissions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaselineHaulerTruckIdlingEmissions)
+        </dd>
+
 
     </dl>
 </div>

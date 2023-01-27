@@ -17,10 +17,10 @@ namespace BusinessData
         [Column(Order = 2)]
         public int BusinessId { get; set; }
 
-        public virtual Franchisee Franchisee { get; set; }
-        public virtual Business Business { get; set; }
+        public virtual FranchiseOwner Franchisee { get; set; }
+        public virtual Client Business { get; set; }
 
-        public virtual ICollection<Franchisee> Franchisees { get; set; }
+        public virtual ICollection<FranchiseOwner> Franchisees { get; set; }
 
     }
 }

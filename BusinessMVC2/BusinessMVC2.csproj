@@ -169,7 +169,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\FranchiseController.cs" />
     <Compile Include="Controllers\FranchiseeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -239,11 +240,19 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Franchisee\Index.cshtml" />
     <Content Include="Views\Franchisee\Create.cshtml" />
-    <Content Include="Views\Business\Index.cshtml" />
-    <Content Include="Views\Business\Create.cshtml" />
-    <Content Include="Views\Business\Delete.cshtml" />
-    <Content Include="Views\Business\Details.cshtml" />
-    <Content Include="Views\Business\Edit.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Franchisee\Details.cshtml" />
+    <Content Include="Views\Franchisee\Edit.cshtml" />
+    <Content Include="Views\Franchisee\Delete.cshtml" />
+    <Content Include="Views\Franchise\Index.cshtml" />
+    <Content Include="Views\Franchise\Create.cshtml" />
+    <Content Include="Views\Franchise\Edit.cshtml" />
+    <Content Include="Views\Franchise\DeleteFranchise.cshtml" />
+    <Content Include="Views\Franchise\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

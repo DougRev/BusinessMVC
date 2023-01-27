@@ -45,6 +45,14 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(model => model.FranchiseId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FranchiseId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FranchiseId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(model => model.XferStation, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.XferStation, new { htmlAttributes = new { @class = "form-control" } })
@@ -53,18 +61,34 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ClientDist, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ToClientDist, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ClientDist, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ClientDist, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.ToClientDist, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ToClientDist, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.HaulerDist, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.FromClientDist, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.HaulerDist, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HaulerDist, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.FromClientDist, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FromClientDist, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ToHaulerDist, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ToHaulerDist, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ToHaulerDist, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FromHaulerDist, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FromHaulerDist, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FromHaulerDist, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -77,10 +101,18 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.YearlySmashes, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.HaulsPerDay, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.YearlySmashes, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.YearlySmashes, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.HaulsPerDay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HaulsPerDay, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PreSMTYearlyHauls, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PreSMTYearlyHauls, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PreSMTYearlyHauls, "", new { @class = "text-danger" })
         </div>
     </div>
 

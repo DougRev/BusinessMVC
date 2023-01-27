@@ -98,16 +98,16 @@ namespace BusinessMVC2.Controllers
 
             if (service.UpdateFranchisee(model))
             {
-                TempData["SaveResult"] = "Your race has been updated.";
+                TempData["SaveResult"] = "Your Franchisee has been updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your race could not be updated.");
+            ModelState.AddModelError("", "Your Franchisee could not be updated.");
             return View(model);
         }
 
         //GET: Delete
-        //Race/Delete/{id}
+        //Franchisee/Delete/{id}
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -117,15 +117,15 @@ namespace BusinessMVC2.Controllers
         }
 
         //POST: Delete
-        //Race/Delete/{id}
+        //Franchisee/Delete/{id}
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteRace(int id)
+        public ActionResult DeleteFranchisee(int id)
         {
             var service = CreateFranchiseeService();
             service.DeleteFranchisee(id);
-            TempData["SaveResult"] = "Your Race has been deleted.";
+            TempData["SaveResult"] = "Your Franchisee has been deleted.";
 
             return RedirectToAction("Index");
         }

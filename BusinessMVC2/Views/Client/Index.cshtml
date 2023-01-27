@@ -20,6 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.State)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FranchiseName)
+        </th>
 
 
         <th></th>
@@ -33,9 +36,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.BusinessName)
         </td>
-
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BusinessId }) |
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FranchiseName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.BusinessId }) |
             @Html.ActionLink("Details", "Details", new { id = item.BusinessId }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.BusinessId })
         </td>

@@ -65,6 +65,10 @@
     <Compile Include="FranchiseeDetails.cs" />
     <Compile Include="FranchiseeEdit.cs" />
     <Compile Include="FranchiseeListItem.cs" />
+    <Compile Include="Franchise\FranchiseCreate.cs" />
+    <Compile Include="Franchise\FranchiseDetails.cs" />
+    <Compile Include="Franchise\FranchiseEdit.cs" />
+    <Compile Include="Franchise\FranchiseListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateBusinessesListItem.cs" />
   </ItemGroup>

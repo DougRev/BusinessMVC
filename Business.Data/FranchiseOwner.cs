@@ -7,14 +7,14 @@ using System.Web;
 
 namespace BusinesssData
 {
-    public class Franchisee
+    public class FranchiseOwner
     {
         [Key]
         public int FranchiseeId { get; set; }
         public string FranchiseeName { get; set; }
 
         public Guid OwnerId { get; set; }
-        public virtual ICollection<Business> Businesses { get; set; }
+        public virtual ICollection<Client> Businesses { get; set; }
 
     }
 }

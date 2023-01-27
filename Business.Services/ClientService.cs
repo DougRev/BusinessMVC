@@ -9,29 +9,30 @@ using System.Threading.Tasks;
 
 namespace BusinessServices
 {
-    public class BusinessService
+    public class ClientService
     {
         private readonly Guid _userId;
 
-        public BusinessService(Guid userId)
+        public ClientService(Guid userId)
         {
             _userId = userId;
         }
 
         public bool CreateBusiness(BusinessCreate model)
         {
-            var entity = new Business()
+            var entity = new Client()
             {
                 OwnerId = _userId,
                 BusinessId = model.BusinessId,
                 BusinessName = model.BusinessName,
                 State = model.State,
+                FranchiseId = model.FranchiseId,
                 FranchiseeId = model.FranchiseeId,
 
             };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Businesses.Add(entity);
+                ctx.Clients.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -40,12 +41,13 @@ namespace BusinessServices
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Businesses
+                var query = ctx.Clients
                     .Select(e => new BusinessListItem
                     {
                         BusinessId = e.BusinessId,
                         BusinessName = e.BusinessName,
                         State = e.State,
+                        FranchiseName = e.Franchise.FranchiseName,
                     });
                 return query.ToArray();
             }
@@ -57,7 +59,7 @@ namespace BusinessServices
             {
                 var entity =
                     ctx
-                    .Businesses
+                    .Clients
                     .Single(e => e.BusinessId == businessId);
                 return
                 new BusinessDetails
@@ -67,15 +69,20 @@ namespace BusinessServices
                     State = entity.State,
                     FranchiseeId = entity.FranchiseeId,
                     FranchiseeName = entity.Franchisee.FranchiseeName,
+                    FranchiseId = entity.Franchise.FranchiseId,
+                    FranchiseName = entity.Franchise.FranchiseName,
                     XferStation = entity.XferStation,
-                    ClientDist = entity.ClientDist,
-                    HaulerDist = entity.HaulerDist,
+                    ToClientDist = entity.ToClientDist,
+                    FromClientDist = entity.FromClientDist,
+                    ToHaulerDist = entity.ToHaulerDist,
+                    FromHaulerDist = entity.FromHaulerDist,
                     LandfillDist = entity.LandfillDist,
-                    YearlySmashes = entity.YearlySmashes,
-                    Calculation = entity.Calculation,
+                    HaulsPerDay = entity.HaulsPerDay,
+                    PreSMTYearlyHauls = entity.PreSMTYearlyHauls,
                     Num1 = entity.Num1,
-                    Num2 = entity.Num2,
-                    DoMath = entity.DoMath,
+                    EmissionsMath = entity.EmissionsMath,
+                    BaselineHaulerTruckRunningEmissions = entity.BaselineHaulerTruckRunningEmissions,
+                    BaselineHaulerTruckIdlingEmissions = entity.BaslineHaulerTruckIdlingEmissions,
                 };
             }
         }
@@ -85,18 +92,21 @@ namespace BusinessServices
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
-                    .Businesses
+                    .Clients
                     .Single(e => e.BusinessId == model.BusinessId);
                 entity.BusinessName = model.BusinessName;
                 entity.Franchisee.FranchiseeId = model.FranchiseeId;
+                entity.Franchise.FranchiseId = model.FranchiseId;
+                entity.Franchise.FranchiseName = model.FranchiseName;
                 entity.State = model.State;
                 entity.XferStation = model.XferStation;
-                entity.ClientDist = model.ClientDist;
-                entity.HaulerDist = model.HaulerDist;
+                entity.ToClientDist = model.ToClientDist;
+                entity.FromClientDist = model.FromClientDist;
+                entity.ToHaulerDist = model.ToHaulerDist;
+                entity.FromHaulerDist = model.FromHaulerDist;
                 entity.LandfillDist = model.LandfillDist;
-                entity.YearlySmashes = model.YearlySmashes;
-                entity.Num1 = model.Num1;
-                entity.Num2 = model.Num2;
+                entity.HaulsPerDay = model.HaulsPerDay;
+
 
                 return ctx.SaveChanges() == 1;
             }
@@ -108,10 +118,10 @@ namespace BusinessServices
             {
                 var entity =
                     ctx
-                    .Businesses
+                    .Clients
                     .Single(e => e.BusinessId == businessId);
 
-                ctx.Businesses.Remove(entity);
+                ctx.Clients.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

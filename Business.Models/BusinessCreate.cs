@@ -1,4 +1,5 @@
-﻿using BusinessData.Enum;
+﻿using BusinessData;
+using BusinessData.Enum;
 using BusinesssData;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,9 @@ namespace BusinessModels
     {
         public int BusinessId { get; set; }
         public string BusinessName { get; set; }
+        public int FranchiseId { get; set; }
         public Guid OwnerId { get; set; }
         public State State { get; set; }
-        public virtual Franchisee Franchisee { get; set; }
-        public ICollection<Franchisee> Franchisees { get; set; }
         public int FranchiseeId { get; set; }
     }
 }

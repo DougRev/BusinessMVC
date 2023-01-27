@@ -33,10 +33,11 @@ namespace BusinessData
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Business> Businesses { get; set; }
-        public DbSet<Franchisee> Franchisees { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<FranchiseOwner> Franchisees { get; set; }
         public DbSet<BusinesssFranchisee> BusinesssFranchisees { get; set; }
-
+        public DbSet<Franchise> Franchises { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
@@ -47,6 +48,12 @@ namespace BusinessData
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            modelBuilder.Entity<Franchise>()
+                .HasMany(f => f.Clients)
+                .WithRequired(c => c.Franchise)
+                .HasForeignKey(c => c.FranchiseId);
+
         }
     }
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>

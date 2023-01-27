@@ -78,10 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="BusinesssFranchisee.cs" />
     <Compile Include="Enum\State.cs" />
-    <Compile Include="Franchisee.cs" />
+    <Compile Include="Franchise.cs" />
+    <Compile Include="FranchiseOwner.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202210102331106_init.cs" />
     <Compile Include="Migrations\202210102331106_init.designer.cs">
@@ -106,6 +107,18 @@
     <Compile Include="Migrations\202210311436435_changeIntToFloat.cs" />
     <Compile Include="Migrations\202210311436435_changeIntToFloat.designer.cs">
       <DependentUpon>202210311436435_changeIntToFloat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301131802444_AddFranchise.cs" />
+    <Compile Include="Migrations\202301131802444_AddFranchise.designer.cs">
+      <DependentUpon>202301131802444_AddFranchise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301181438524_AddModelBuilder.cs" />
+    <Compile Include="Migrations\202301181438524_AddModelBuilder.designer.cs">
+      <DependentUpon>202301181438524_AddModelBuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301271410279_addEmissionsMathToClient.cs" />
+    <Compile Include="Migrations\202301271410279_addEmissionsMathToClient.designer.cs">
+      <DependentUpon>202301271410279_addEmissionsMathToClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +146,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210311436435_changeIntToFloat.resx">
       <DependentUpon>202210311436435_changeIntToFloat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301131802444_AddFranchise.resx">
+      <DependentUpon>202301131802444_AddFranchise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301181438524_AddModelBuilder.resx">
+      <DependentUpon>202301181438524_AddModelBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301271410279_addEmissionsMathToClient.resx">
+      <DependentUpon>202301271410279_addEmissionsMathToClient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
