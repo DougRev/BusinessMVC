@@ -82,7 +82,7 @@ namespace BusinessServices
                     Num1 = entity.Num1,
                     EmissionsMath = entity.EmissionsMath,
                     BaselineHaulerTruckRunningEmissions = entity.BaselineHaulerTruckRunningEmissions,
-                    BaselineHaulerTruckIdlingEmissions = entity.BaslineHaulerTruckIdlingEmissions,
+                    BaselineHaulerTruckIdlingEmissions = entity.BaselineHaulerTruckIdlingEmissions,
                 };
             }
         }

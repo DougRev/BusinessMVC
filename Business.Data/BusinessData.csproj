@@ -80,6 +80,8 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="BusinesssFranchisee.cs" />
+    <Compile Include="Emissions.cs" />
+    <Compile Include="Enum\Compactibility.cs" />
     <Compile Include="Enum\State.cs" />
     <Compile Include="Franchise.cs" />
     <Compile Include="FranchiseOwner.cs" />
