@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Helpers;
 
 namespace BusinessMVC2.Controllers
 {
@@ -79,7 +80,7 @@ namespace BusinessMVC2.Controllers
                 FromHaulerDist = detail.FromHaulerDist,
                 LandfillDist = detail.LandfillDist,
                 HaulsPerDay = detail.HaulsPerDay,
-                Num2 = detail.Num2,
+                
                 
             };
             return View(model);

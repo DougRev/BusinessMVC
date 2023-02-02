@@ -22,6 +22,7 @@ namespace BusinessModels
         public int FranchiseId { get; set; }
         public string FranchiseName { get; set; }
         public int FranchiseeId { get; set; }
+        public Compactibility Compactibility { get; set; }
 
         [Display(Name = "Transfer Station")]
         public bool XferStation { get; set; }

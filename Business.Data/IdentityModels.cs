@@ -49,10 +49,10 @@ namespace BusinessData
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
 
-            modelBuilder.Entity<Franchise>()
+            /*modelBuilder.Entity<Franchise>()
                 .HasMany(f => f.Clients)
                 .WithRequired(c => c.Franchise)
-                .HasForeignKey(c => c.FranchiseId);
+                .HasForeignKey(c => c.FranchiseId);*/
 
         }
     }

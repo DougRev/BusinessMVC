@@ -24,6 +24,7 @@ namespace BusinessModels
         public string FranchiseName { get; set; }
         public int FranchiseeId { get; set; }
         public string FranchiseeName { get; set; }
+        public Compactibility Compactibility { get; set; }
 
         [Display(Name = "Transfer Station")]
         public bool XferStation { get; set; }
@@ -48,13 +49,107 @@ namespace BusinessModels
 
         [Display(Name = "Pre-SMT Est. Yearly Hauls")]
         public int PreSMTYearlyHauls { get; set; }
-        public int Num1 { get; set; }
-        public int Num2 { get; set; }
-        public int DoMath { get; set; }
-        public float EmissionsMath { get; set; }
-        public double BaselineHaulerTruckRunningEmissions { get; set; }
-        public double BaselineHaulerTruckIdlingEmissions { get; set; }
+        
+       
+        public double NOXBaselineHaulerTruckRunningEmissions { get; set; }
+        public double NOXBaselineHaulerTruckIdlingEmissions { get; set; }
+        public double NOXSmashingEmissions { get; set; }
+        public double NOXSMTRunningEmissions { get; set; }
+        public double NOXSMTIdlingEmissions { get; set; }
+        public double NOXHaulerRunningEmissionsWithCompactibility { get; set; }
+        public double NOXHaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalNOXBaselineTruckEmissions { get; set; }
+        public double TotalNOXEmissionsWithSmash { get; set; }
+        public string NOXPercentSaved { get; set; }
 
+        public double N20BaselineHaulerTruckRunningEmissions { get; set; }
+        public double N20BaselineHaulerTruckIdlingEmissions { get; set; }
+        public double N20SmashingEmissions { get; set; }
+        public double N20SMTRunningEmissions { get; set; }
+        public double N20SMTIdlingEmissions { get; set; }
+        public double N20HaulerRunningEmissionsWithCompactibility { get; set; }
+        public double N20HaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalN20BaselineTruckEmissions { get; set; }
+        public double TotalN20EmissionsWithSmash { get; set; }
+        public string N20PercentSaved { get; set; }
+
+        public double PM25BaselineHaulerTruckRunningEmissions { get; set; }
+        public double PM25BaselineHaulerTruckIdlingEmissions { get; set; }
+        public double PM25SmashingEmissions { get; set; }
+        public double PM25SMTRunningEmissions { get; set; }
+        public double PM25SMTIdlingEmissions { get; set; }
+        public double PM25HaulerRunningEmissionsWithCompactibility { get; set; }
+        public double PM25HaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalPM25BaselineTruckEmissions { get; set; }
+        public double TotalPM25EmissionsWithSmash { get; set; }
+        public string PM25PercentSaved { get; set; }
+
+        public double PM10BaselineHaulerTruckRunningEmissions { get; set; }
+        public double PM10BaselineHaulerTruckIdlingEmissions { get; set; }
+        public double PM10SmashingEmissions { get; set; }
+        public double PM10SMTRunningEmissions { get; set; }
+        public double PM10SMTIdlingEmissions { get; set; }
+        public double PM10HaulerRunningEmissionsWithCompactibility { get; set; }
+        public double PM10HaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalPM10BaselineTruckEmissions { get; set; }
+        public double TotalPM10EmissionsWithSmash { get; set; }
+        public string PM10PercentSaved { get; set; }
+
+        public double SO2BaselineHaulerTruckRunningEmissions { get; set; }
+        public double SO2BaselineHaulerTruckIdlingEmissions { get; set; }
+        public double SO2SmashingEmissions { get; set; }
+        public double SO2SMTRunningEmissions { get; set; }
+        public double SO2SMTIdlingEmissions { get; set; }
+        public double SO2HaulerRunningEmissionsWithCompactibility { get; set; }
+        public double SO2HaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalSO2BaselineTruckEmissions { get; set; }
+        public double TotalSO2EmissionsWithSmash { get; set; }
+        public string SO2PercentSaved { get; set; }
+
+        public double CH4BaselineHaulerTruckRunningEmissions { get; set; }
+        public double CH4BaselineHaulerTruckIdlingEmissions { get; set; }
+        public double CH4SmashingEmissions { get; set; }
+        public double CH4SMTRunningEmissions { get; set; }
+        public double CH4SMTIdlingEmissions { get; set; }
+        public double CH4HaulerRunningEmissionsWithCompactibility { get; set; }
+        public double CH4HaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalCH4BaselineTruckEmissions { get; set; }
+        public double TotalCH4EmissionsWithSmash { get; set; }
+        public string CH4PercentSaved { get; set; }
+
+        public double VOCBaselineHaulerTruckRunningEmissions { get; set; }
+        public double VOCBaselineHaulerTruckIdlingEmissions { get; set; }
+        public double VOCSmashingEmissions { get; set; }
+        public double VOCSMTRunningEmissions { get; set; }
+        public double VOCSMTIdlingEmissions { get; set; }
+        public double VOCHaulerRunningEmissionsWithCompactibility { get; set; }
+        public double VOCHaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalVOCBaselineTruckEmissions { get; set; }
+        public double TotalVOCEmissionsWithSmash { get; set; }
+        public string VOCPercentSaved { get; set; }
+
+        public double CO2BaselineHaulerTruckRunningEmissions { get; set; }
+        public double CO2BaselineHaulerTruckIdlingEmissions { get; set; }
+        public double CO2SmashingEmissions { get; set; }
+        public double CO2SMTRunningEmissions { get; set; }
+        public double CO2SMTIdlingEmissions { get; set; }
+        public double CO2HaulerRunningEmissionsWithCompactibility { get; set; }
+        public double CO2HaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalCO2BaselineTruckEmissions { get; set; }
+        public double TotalCO2EmissionsWithSmash { get; set; }
+        public string CO2PercentSaved { get; set; }
+
+
+        public double CO2EQBaselineHaulerTruckRunningEmissions { get; set; }
+        public double CO2EQBaselineHaulerTruckIdlingEmissions { get; set; }
+        public double CO2EQSmashingEmissions { get; set; }
+        public double CO2EQSMTRunningEmissions { get; set; }
+        public double CO2EQSMTIdlingEmissions { get; set; }
+        public double CO2EQHaulerRunningEmissionsWithCompactibility { get; set; }
+        public double CO2EQHaulerIdlingEmissionsWithCompactibility { get; set; }
+        public double TotalCO2EQBaselineTruckEmissions { get; set; }
+        public double TotalCO2EQEmissionsWithSmash { get; set; }
+        public string CO2EQPercentSaved { get; set; }
 
     }
 }

@@ -16,6 +16,7 @@
     white-space: normal;
 }
 
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -28,3 +29,46 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+
+#client-details{
+    display: inline-block;
+}
+
+#client-emissions{
+    position: absolute;
+    display: inline-block;
+
+}
+
+#client-emissions dt{
+    border: 1px solid black;
+}
+
+#client-emissions dd{
+display: inline-block;
+
+}
+
+/**Open AI Provided CSS**/
+
+#client-emissions {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#emissions {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #emissions th, #emissions td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    #emissions th {
+        background-color: #ddd;
+        color: black;
+    }

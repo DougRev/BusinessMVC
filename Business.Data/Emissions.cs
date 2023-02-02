@@ -20,7 +20,7 @@ namespace BusinessData
         public double IdlePM25 = 2.119249541;
         public double SmashPM25 = .0252910911;
         public double SmashRunPM25 = .004991296616;
-        public double SmashIdlePM25 = 02074328728;
+        public double SmashIdlePM25 = .02074328728;
 
         public double RunningPM10 = .2283619498;
         public double IdlePM10 = 2.303537878;

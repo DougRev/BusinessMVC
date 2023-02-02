@@ -21,8 +21,16 @@
             @Html.DisplayNameFor(model => model.State)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FranchiseName)
+            @Html.DisplayNameFor(model => model.TestTotal)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalNOXBaselineTruckEmissions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOXBaselineHaulerTruckRunningEmissions)
+        </th>
+ 
+        
 
 
         <th></th>
@@ -40,8 +48,9 @@
             @Html.DisplayFor(modelItem => item.State)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FranchiseName)
+            @Html.DisplayFor(modelItem => item.TestTotal)
         </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.BusinessId }) |
             @Html.ActionLink("Details", "Details", new { id = item.BusinessId }) |

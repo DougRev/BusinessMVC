@@ -18,5 +18,9 @@ namespace BusinessModels
         public string FranchiseName { get; set; }
         public State State { get; set; }
         public Guid OwnerId { get; set; }
+        public double TotalNOXBaselineTruckEmissions { get; set; }
+        public double TotalNOXEmissionsWithSmash { get; set; }
+        public double TestTotal { get; set; }
+        public double NOXBaselineHaulerTruckRunningEmissions { get; set; }
     }
 }

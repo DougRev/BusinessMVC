@@ -1,13 +1,6 @@
 ﻿using BusinessData.Enum;
-using BusinesssData;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
 
 namespace BusinessData
 {
@@ -18,16 +11,15 @@ namespace BusinessData
         public string BusinessName { get; set; }
         public State State { get; set; }
         public Guid OwnerId { get; set; }
-        public int FranchiseeId { get; set; }
-        public virtual FranchiseOwner Franchisee { get; set; }
 
-        public int FranchiseId { get; set; }
+        //public int FranchiseeId { get; set; }
+        //public virtual FranchiseOwner Franchisee { get; set; }
+        //public int FranchiseId { get; set; }
+        //[ForeignKey(nameof(Franchise))]
+        //public virtual Franchise Franchise { get; set; }
 
-        [ForeignKey(nameof(Franchise))]
-        public virtual Franchise Franchise { get; set; }
 
-
-        [Display(Name ="Transfer Station")]
+        [Display(Name = "Transfer Station")]
         public bool XferStation { get; set; }
 
         [Display(Name = "SMT Distance to Client")]
@@ -49,7 +41,14 @@ namespace BusinessData
         public int HaulsPerDay { get; set; }
 
         [Display(Name = "Pre-SMT Est. Yearly Hauls ")]
-        public int PreSMTYearlyHauls { get; set; }
+        public int PreSMTYearlyHauls
+        {
+            get
+            {
+                int preSmtYearlyHauls = HaulsPerDay * 260; //Assuming 260 work days
+                return preSmtYearlyHauls;
+            }
+        }
 
         public Compactibility Compactibility { get; set; }
         public double CompactibilityValue
@@ -60,8 +59,8 @@ namespace BusinessData
                 return value = GetCompactibility(Compactibility);
             }
         }
-        
-        
+
+
         private double GetCompactibility(Compactibility compactibility)
         {
             switch (compactibility)
@@ -79,29 +78,6 @@ namespace BusinessData
             }
         }
 
-        public int Num1 
-        { 
-            get
-            {
-                int preSmtYearlyHauls = HaulsPerDay * 260; //Assuming 260 work days
-                return PreSMTYearlyHauls = preSmtYearlyHauls;
-
-            }
-        }
-        public float EmissionsMath
-        {
-            get
-            {
-                float smtRoundTripDist = ToClientDist + FromClientDist;
-                float haulerRoundTripDist = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-
-
-
-
-
-                return smtRoundTripDist;
-            }
-        }
 
         // NOx Emissions
 
@@ -210,6 +186,17 @@ namespace BusinessData
             }
         }
 
+        public string NOXPercentSaved
+        {
+            get
+            {
+                double saved = TotalNOXBaselineTruckEmissions - TotalNOXEmissionsWithSmash;
+                double percent = saved / TotalNOXBaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
+            }
+        }
+
         // N20 Emissions
         public double N20BaselineHaulerTruckRunningEmissions
         {
@@ -311,6 +298,16 @@ namespace BusinessData
             {
                 double c02SmashTotal = N20SmashingEmissions + N20SMTRunningEmissions + N20SMTIdlingEmissions + N20HaulerRunningEmissionsWithCompactibility + N20HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
+            }
+        }
+        public string N20PercentSaved
+        {
+            get
+            {
+                double saved = TotalN20BaselineTruckEmissions - TotalN20EmissionsWithSmash;
+                double percent = saved / TotalN20BaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
             }
         }
 
@@ -415,6 +412,16 @@ namespace BusinessData
             {
                 double c02SmashTotal = PM25SmashingEmissions + PM25SMTRunningEmissions + PM25SMTIdlingEmissions + PM25HaulerRunningEmissionsWithCompactibility + PM25HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
+            }
+        }
+        public string PM25PercentSaved
+        {
+            get
+            {
+                double saved = TotalPM25BaselineTruckEmissions - TotalPM25EmissionsWithSmash;
+                double percent = saved / TotalPM25BaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
             }
         }
 
@@ -522,6 +529,17 @@ namespace BusinessData
             }
         }
 
+        public string PM10PercentSaved
+        {
+            get
+            {
+                double saved = TotalPM10BaselineTruckEmissions - TotalPM10EmissionsWithSmash;
+                double percent = saved / TotalPM10BaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
+            }
+        }
+
         // SO2 Emissions
         public double SO2BaselineHaulerTruckRunningEmissions
         {
@@ -623,6 +641,17 @@ namespace BusinessData
             {
                 double c02SmashTotal = SO2SmashingEmissions + SO2SMTRunningEmissions + SO2SMTIdlingEmissions + SO2HaulerRunningEmissionsWithCompactibility + SO2HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
+            }
+        }
+
+        public string SO2PercentSaved
+        {
+            get
+            {
+                double saved = TotalSO2BaselineTruckEmissions - TotalSO2EmissionsWithSmash;
+                double percent = saved / TotalSO2BaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
             }
         }
 
@@ -730,6 +759,17 @@ namespace BusinessData
             }
         }
 
+        public string CH4PercentSaved
+        {
+            get
+            {
+                double saved = TotalCH4BaselineTruckEmissions - TotalCH4EmissionsWithSmash;
+                double percent = saved / TotalCH4BaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
+            }
+        }
+
         // CO Emissions
         public double COBaselineHaulerTruckRunningEmissions
         {
@@ -834,6 +874,17 @@ namespace BusinessData
             }
         }
 
+        public string COPercentSaved
+        {
+            get
+            {
+                double saved = TotalCOBaselineTruckEmissions - TotalCOEmissionsWithSmash;
+                double percent = saved / TotalCOBaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
+            }
+        }
+
         // VOC Emissions
         public double VOCBaselineHaulerTruckRunningEmissions
         {
@@ -935,6 +986,17 @@ namespace BusinessData
             {
                 double c02SmashTotal = VOCSmashingEmissions + VOCSMTRunningEmissions + VOCSMTIdlingEmissions + VOCHaulerRunningEmissionsWithCompactibility + VOCHaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
+            }
+        }
+
+        public string VOCPercentSaved
+        {
+            get
+            {
+                double saved = TotalVOCBaselineTruckEmissions - TotalVOCEmissionsWithSmash;
+                double percent = saved / TotalVOCBaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
             }
         }
 
@@ -1043,6 +1105,17 @@ namespace BusinessData
             }
         }
 
+        public string CO2PercentSaved
+        {
+            get
+            {
+                double saved = TotalCO2BaselineTruckEmissions - TotalCO2EmissionsWithSmash;
+                double percent = saved / TotalCO2BaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
+            }
+        }
+
         // CO2 eq Emissions
         public double CO2EQBaselineHaulerTruckRunningEmissions
         {
@@ -1147,6 +1220,17 @@ namespace BusinessData
             {
                 double c02SmashTotal = CO2EQSmashingEmissions + CO2EQSMTRunningEmissions + CO2EQSMTIdlingEmissions + CO2EQHaulerRunningEmissionsWithCompactibility + CO2EQHaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
+            }
+        }
+
+        public string CO2EQPercentSaved
+        {
+            get
+            {
+                double saved = TotalCO2EQBaselineTruckEmissions - TotalCO2EQEmissionsWithSmash;
+                double percent = saved / TotalCO2BaselineTruckEmissions;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
             }
         }
 

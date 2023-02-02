@@ -107,3 +107,10 @@ C:\Users\Doug Revell\Source\Repos\BusinessMVC\Business.Data\obj\Debug\BusinessDa
 C:\Users\Doug Revell\Source\Repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddFranchise.resources
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddModelBuilder.resources
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addEmissionsMathToClient.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddFranchise.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddModelBuilder.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.addEmissionsMathToClient.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.smallfix.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.test.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.addTestTotal.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.addEmissionsToClientService.resources

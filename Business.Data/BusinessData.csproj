@@ -122,6 +122,22 @@
     <Compile Include="Migrations\202301271410279_addEmissionsMathToClient.designer.cs">
       <DependentUpon>202301271410279_addEmissionsMathToClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302011522112_smallfix.cs" />
+    <Compile Include="Migrations\202302011522112_smallfix.designer.cs">
+      <DependentUpon>202302011522112_smallfix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302011535252_test.cs" />
+    <Compile Include="Migrations\202302011535252_test.designer.cs">
+      <DependentUpon>202302011535252_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302011615048_addTestTotal.cs" />
+    <Compile Include="Migrations\202302011615048_addTestTotal.designer.cs">
+      <DependentUpon>202302011615048_addTestTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302020024210_addEmissionsToClientService.cs" />
+    <Compile Include="Migrations\202302020024210_addEmissionsToClientService.designer.cs">
+      <DependentUpon>202302020024210_addEmissionsToClientService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateBusinesses.cs" />
@@ -157,6 +173,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301271410279_addEmissionsMathToClient.resx">
       <DependentUpon>202301271410279_addEmissionsMathToClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302011522112_smallfix.resx">
+      <DependentUpon>202302011522112_smallfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302011535252_test.resx">
+      <DependentUpon>202302011535252_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302011615048_addTestTotal.resx">
+      <DependentUpon>202302011615048_addTestTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302020024210_addEmissionsToClientService.resx">
+      <DependentUpon>202302020024210_addEmissionsToClientService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
