@@ -1,4 +1,5 @@
 ﻿@model BusinessModels.BusinessDetails
+    @using System.ComponentModel.DataAnnotations
 
 @{
     ViewBag.Title = "Details";
@@ -11,7 +12,8 @@
     <div id="client-details">
         <h4>Client Information</h4>
         <hr />
-        <dl>
+        <dl id="client-inputs">
+            <h4 id="input-header">Client Inputs</h4>
             <dt>
                 @Html.DisplayNameFor(model => model.BusinessId)
             </dt>
@@ -26,14 +28,6 @@
 
             <dd>
                 @Html.DisplayFor(model => model.BusinessName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.FranchiseeName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FranchiseeName)
             </dd>
 
             <dt>
@@ -113,15 +107,7 @@
     <div id="client-emissions">
         <h4 id="emissions-header">Emissions Information</h4>
         <hr />
-        <button id="NOXEmissions">NOX</button>
-        <button id="N20Emissions">N20</button>
-        <button id="PM25Emissions">PM25</button>
-        <button id="PM10Emissions">PM10</button>
-        <button id="SO2Emissions">SO2</button>
-        <button id="CH4Emissions">CH4</button>
-        <button id="COEmissions">CO</button>
-        <button id="VOCEmissions">VOC</button>
-        <button id="CO2Emissions">CO2</button>
+
 
         <table id="emissions">
             <thead>
@@ -133,13 +119,31 @@
             <tbody id="emissionsBody">
                 @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("NOX")))
                 {
+                    var displayName = prop.Name;
+                    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+                    if (displayAttributes.Length > 0)
+                    {
+                        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+                        displayName = displayAttribute.Name;
+                    }
                     <tr>
-                        <td>@prop.Name</td>
+                        <td>@displayName</td>
                         <td>@prop.GetValue(Model, null)</td>
                     </tr>
                 }
+
+
             </tbody>
         </table>
+        <button id="NOXEmissions" class="emissions-btn">NOX</button>
+        <button id="N20Emissions" class="emissions-btn">N20</button>
+        <button id="PM25Emissions" class="emissions-btn">PM25</button>
+        <button id="PM10Emissions" class="emissions-btn">PM10</button>
+        <button id="SO2Emissions" class="emissions-btn">SO2</button>
+        <button id="CH4Emissions" class="emissions-btn">CH4</button>
+        <button id="COEmissions" class="emissions-btn">CO</button>
+        <button id="VOCEmissions" class="emissions-btn">VOC</button>
+        <button id="CO2Emissions" class="emissions-btn">CO2</button>
     </div>
 
 </div>
@@ -166,20 +170,35 @@
     function changeNOX() {
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("NOX")))
-        {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
-        }
+{
+    var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
+}
+
     }
 
     function changeN20() {
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("N20")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+            var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
 
@@ -187,9 +206,16 @@
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("PM25")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+           var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
 
@@ -197,9 +223,16 @@
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("PM10")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+           var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
 
@@ -207,9 +240,16 @@
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("SO2")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+           var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
 
@@ -217,9 +257,16 @@
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("CH4")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+           var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
 
@@ -227,9 +274,16 @@
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("CO")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+           var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
 
@@ -237,18 +291,32 @@
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("VOC")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+            var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
     function changeCO2() {
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("CO2")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+           var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
 
@@ -256,9 +324,16 @@
         emissionsBody.innerHTML = "";
         @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("CO2EQ")))
         {
-            <text>
-            emissionsBody.innerHTML += '<tr><td>@prop.Name</td><td>@prop.GetValue(Model, null)</td></tr>';
-            </text>
+           var displayName = prop.Name;
+    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+    if (displayAttributes.Length > 0)
+    {
+        var displayAttribute = displayAttributes[0] as DisplayAttribute;
+        displayName = displayAttribute.Name;
+    }
+    <text>
+    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
+    </text>
         }
     }
 
@@ -282,28 +357,28 @@
         changePM10();
     });
 
-    SO2Button.addEventListener("click", function () {
+    so2Button.addEventListener("click", function () {
         emissionsData = emissionsData === "SO2" ? "CH4" : "SO2";
         changeSO2();
     });
 
-    CH4Button.addEventListener("click", function () {
+    ch4Button.addEventListener("click", function () {
         emissionsData = emissionsData === "CH4" ? "CO" : "CH4";
         changeCH4();
     });
 
-    COButton.addEventListener("click", function () {
-        emissionsData = emissionsData === "NOX" ? "N20" : "NOX";
+    coButton.addEventListener("click", function () {
+        emissionsData = emissionsData === "CO" ? "VOC" : "CO";
         changeCO();
     });
 
-    VOCButton.addEventListener("click", function () {
-        emissionsData = emissionsData === "NOX" ? "N20" : "NOX";
+    vocButton.addEventListener("click", function () {
+        emissionsData = emissionsData === "VOC" ? "CO2" : "VOC";
         changeVOC();
     });
 
-    CO2Button.addEventListener("click", function () {
-        emissionsData = emissionsData === "NOX" ? "N20" : "NOX";
+    co2Button.addEventListener("click", function () {
+        emissionsData = emissionsData === "CO2" ? "NOX" : "CO2";
         changeCO2();
     });
 

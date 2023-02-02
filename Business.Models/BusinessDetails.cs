@@ -49,9 +49,13 @@ namespace BusinessModels
 
         [Display(Name = "Pre-SMT Est. Yearly Hauls")]
         public int PreSMTYearlyHauls { get; set; }
-        
-       
+
+        //NOX
+
+        [Display(Name = "Hauler Running Emissions")]
         public double NOXBaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double NOXBaselineHaulerTruckIdlingEmissions { get; set; }
         public double NOXSmashingEmissions { get; set; }
         public double NOXSMTRunningEmissions { get; set; }
@@ -62,7 +66,10 @@ namespace BusinessModels
         public double TotalNOXEmissionsWithSmash { get; set; }
         public string NOXPercentSaved { get; set; }
 
+        [Display(Name = "Hauler Running Emissions")]
         public double N20BaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double N20BaselineHaulerTruckIdlingEmissions { get; set; }
         public double N20SmashingEmissions { get; set; }
         public double N20SMTRunningEmissions { get; set; }
@@ -73,7 +80,10 @@ namespace BusinessModels
         public double TotalN20EmissionsWithSmash { get; set; }
         public string N20PercentSaved { get; set; }
 
+        [Display(Name = "Hauler Running Emissions")]
         public double PM25BaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double PM25BaselineHaulerTruckIdlingEmissions { get; set; }
         public double PM25SmashingEmissions { get; set; }
         public double PM25SMTRunningEmissions { get; set; }
@@ -84,7 +94,11 @@ namespace BusinessModels
         public double TotalPM25EmissionsWithSmash { get; set; }
         public string PM25PercentSaved { get; set; }
 
+
+        [Display(Name = "Hauler Running Emissions")]
         public double PM10BaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double PM10BaselineHaulerTruckIdlingEmissions { get; set; }
         public double PM10SmashingEmissions { get; set; }
         public double PM10SMTRunningEmissions { get; set; }
@@ -95,7 +109,11 @@ namespace BusinessModels
         public double TotalPM10EmissionsWithSmash { get; set; }
         public string PM10PercentSaved { get; set; }
 
+
+        [Display(Name = "Hauler Running Emissions")]
         public double SO2BaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double SO2BaselineHaulerTruckIdlingEmissions { get; set; }
         public double SO2SmashingEmissions { get; set; }
         public double SO2SMTRunningEmissions { get; set; }
@@ -106,7 +124,11 @@ namespace BusinessModels
         public double TotalSO2EmissionsWithSmash { get; set; }
         public string SO2PercentSaved { get; set; }
 
+
+        [Display(Name = "Hauler Running Emissions")]
         public double CH4BaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double CH4BaselineHaulerTruckIdlingEmissions { get; set; }
         public double CH4SmashingEmissions { get; set; }
         public double CH4SMTRunningEmissions { get; set; }
@@ -117,7 +139,11 @@ namespace BusinessModels
         public double TotalCH4EmissionsWithSmash { get; set; }
         public string CH4PercentSaved { get; set; }
 
+
+        [Display(Name = "Hauler Running Emissions")]
         public double VOCBaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double VOCBaselineHaulerTruckIdlingEmissions { get; set; }
         public double VOCSmashingEmissions { get; set; }
         public double VOCSMTRunningEmissions { get; set; }
@@ -128,7 +154,11 @@ namespace BusinessModels
         public double TotalVOCEmissionsWithSmash { get; set; }
         public string VOCPercentSaved { get; set; }
 
+
+        [Display(Name = "Hauler Running Emissions")]
         public double CO2BaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double CO2BaselineHaulerTruckIdlingEmissions { get; set; }
         public double CO2SmashingEmissions { get; set; }
         public double CO2SMTRunningEmissions { get; set; }
@@ -140,7 +170,10 @@ namespace BusinessModels
         public string CO2PercentSaved { get; set; }
 
 
+        [Display(Name = "Hauler Running Emissions")]
         public double CO2EQBaselineHaulerTruckRunningEmissions { get; set; }
+
+        [Display(Name = "Hauler Idling Emissions")]
         public double CO2EQBaselineHaulerTruckIdlingEmissions { get; set; }
         public double CO2EQSmashingEmissions { get; set; }
         public double CO2EQSMTRunningEmissions { get; set; }

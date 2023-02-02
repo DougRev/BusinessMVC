@@ -80,7 +80,6 @@ namespace BusinessData
 
 
         // NOx Emissions
-
         public double NOXBaselineHaulerTruckRunningEmissions
         {
             get

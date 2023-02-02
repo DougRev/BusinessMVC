@@ -5,12 +5,6 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-#client-details{
-    font-size: 14px;
-    
-}
-
-
 
 
 html {
@@ -1457,6 +1451,8 @@ dd {
 }
 dt {
   font-weight: 700;
+  float:left;
+  padding-right: 5px;
 }
 dd {
   margin-left: 0;

@@ -40,6 +40,21 @@ textarea {
 
 }
 
+.emissions-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
 #client-emissions dt{
     border: 1px solid black;
 }
@@ -49,10 +64,34 @@ display: inline-block;
 
 }
 
+#client-inputs {
+    width: 235px;
+    height: 500px;
+}
+
+#client-inputs dl {
+    overflow: hidden;
+}
+
+#input-header {
+    background-color: #ddd;
+    padding: .5em;
+    margin-top: 19px;
+}
+#client-inputs dt {
+    font-size: 12px;
+    float: left;
+    padding-right: 5px;
+}
+
+#client-inputs dd {
+    font-size: 12px;
+}
+
 /**Open AI Provided CSS**/
 
 #client-emissions {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     text-align: center;
 }
