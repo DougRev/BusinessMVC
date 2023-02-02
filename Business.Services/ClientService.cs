@@ -147,6 +147,17 @@ namespace BusinessServices
                     TotalCH4EmissionsWithSmash = entity.TotalCH4EmissionsWithSmash,
                     CH4PercentSaved = entity.CH4PercentSaved,
 
+                    COBaselineHaulerTruckRunningEmissions = entity.COBaselineHaulerTruckRunningEmissions,
+                    COBaselineHaulerTruckIdlingEmissions = entity.COBaselineHaulerTruckIdlingEmissions,
+                    COSmashingEmissions = entity.COSmashingEmissions,
+                    COSMTRunningEmissions = entity.COSMTRunningEmissions,
+                    COSMTIdlingEmissions = entity.COSMTIdlingEmissions,
+                    COHaulerRunningEmissionsWithCompactibility = entity.COHaulerRunningEmissionsWithCompactibility,
+                    COHaulerIdlingEmissionsWithCompactibility = entity.COHaulerIdlingEmissionsWithCompactibility,
+                    TotalCOBaselineTruckEmissions = entity.TotalCOBaselineTruckEmissions,
+                    TotalCOEmissionsWithSmash = entity.TotalCOEmissionsWithSmash,
+                    COPercentSaved = entity.COPercentSaved,
+
                     VOCBaselineHaulerTruckRunningEmissions = entity.VOCBaselineHaulerTruckRunningEmissions,
                     VOCBaselineHaulerTruckIdlingEmissions = entity.VOCBaselineHaulerTruckIdlingEmissions,
                     VOCSmashingEmissions = entity.VOCSmashingEmissions,
@@ -169,16 +180,7 @@ namespace BusinessServices
                     TotalCO2EmissionsWithSmash = entity.TotalCO2EmissionsWithSmash,
                     CO2PercentSaved = entity.CO2PercentSaved,
 
-                    CO2EQBaselineHaulerTruckRunningEmissions = entity.CO2EQBaselineHaulerTruckRunningEmissions,
-                    CO2EQBaselineHaulerTruckIdlingEmissions = entity.CO2EQBaselineHaulerTruckIdlingEmissions,
-                    CO2EQSmashingEmissions = entity.CO2EQSmashingEmissions,
-                    CO2EQSMTRunningEmissions = entity.CO2EQSMTRunningEmissions,
-                    CO2EQSMTIdlingEmissions = entity.CO2EQSMTIdlingEmissions,
-                    CO2EQHaulerRunningEmissionsWithCompactibility = entity.CO2EQHaulerRunningEmissionsWithCompactibility,
-                    CO2EQHaulerIdlingEmissionsWithCompactibility = entity.CO2EQHaulerIdlingEmissionsWithCompactibility,
-                    TotalCO2EQBaselineTruckEmissions = entity.TotalCO2EQBaselineTruckEmissions,
-                    TotalCO2EQEmissionsWithSmash = entity.TotalCO2EQEmissionsWithSmash,
-                    CO2EQPercentSaved = entity.CO2EQPercentSaved,
+                    
 
                 };
             }

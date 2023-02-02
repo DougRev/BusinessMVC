@@ -272,7 +272,7 @@
 
     function changeCO() {
         emissionsBody.innerHTML = "";
-        @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("CO")))
+        @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("CO") && !p.Name.Contains("2")))
         {
            var displayName = prop.Name;
     var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
