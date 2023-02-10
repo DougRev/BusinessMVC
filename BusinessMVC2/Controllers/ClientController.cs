@@ -73,7 +73,6 @@ namespace BusinessMVC2.Controllers
                 BusinessName = detail.BusinessName,
                 State = detail.State,
                 FranchiseeId = detail.FranchiseeId,
-                XferStation = detail.XferStation,
                 ToClientDist = detail.ToClientDist,
                 FromClientDist = detail.FromClientDist,
                 ToHaulerDist = detail.ToHaulerDist,

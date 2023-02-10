@@ -336,6 +336,9 @@ namespace BusinessModels
 
         [Display(Name = "CO2 Percent Saved using SMT")]
         public string CO2PercentSaved { get; set; }
+        public double BaselineTotals { get; set; }
+        public double EmissionsWithSmashTotals { get; set; }
+        public string SavingsTotals { get; set; }
 
 
         /* This is CO2EQ not sure this will be used at all

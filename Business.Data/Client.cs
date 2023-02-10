@@ -45,7 +45,7 @@ namespace BusinessData
         {
             get
             {
-                int preSmtYearlyHauls = HaulsPerDay * 260; //Assuming 260 work days
+                int preSmtYearlyHauls = HaulsPerDay * 100; //Assuming 260 work days
                 return preSmtYearlyHauls;
             }
         }
@@ -78,6 +78,37 @@ namespace BusinessData
             }
         }
 
+        //Emissions Added Totals
+
+        public double BaselineTotals
+        {
+            get
+            {
+                double total = TotalNOXBaselineTruckEmissions + TotalN20BaselineTruckEmissions + TotalPM25BaselineTruckEmissions + TotalPM10BaselineTruckEmissions + TotalSO2BaselineTruckEmissions + TotalCH4BaselineTruckEmissions + TotalCOBaselineTruckEmissions + TotalVOCBaselineTruckEmissions + TotalCO2BaselineTruckEmissions;
+                return total;
+            }
+        }
+
+        public double EmissionsWithSmashTotals
+        {
+            get
+            {
+                double total = TotalNOXEmissionsWithSmash + TotalN20EmissionsWithSmash + TotalPM25EmissionsWithSmash + TotalPM10EmissionsWithSmash + TotalSO2EmissionsWithSmash + TotalCH4EmissionsWithSmash + TotalCOEmissionsWithSmash + TotalVOCEmissionsWithSmash + TotalCO2EmissionsWithSmash;
+                return total;
+            }
+        }
+
+        public string SavingsTotal
+        {
+            get
+            {
+                double total = BaselineTotals - EmissionsWithSmashTotals;
+                double percent = total / BaselineTotals;
+                string changed = string.Format("{0:P2}", percent);
+                return changed;
+            }
+        }
+
 
         // NOx Emissions
         public double NOXBaselineHaulerTruckRunningEmissions
@@ -86,7 +117,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningNOX;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -129,7 +161,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunNOX;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -203,7 +236,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningN20;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -245,7 +279,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunN20;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -317,7 +352,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningPM25;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -359,7 +395,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunPM25;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -431,7 +468,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningPM10;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -473,7 +511,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunPM10;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -546,7 +585,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningSO2;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -588,7 +628,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunSO2;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -661,7 +702,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningCH4;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -703,7 +745,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunCH4;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -776,7 +819,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningCO;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -818,7 +862,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunCO;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -891,7 +936,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningVOC;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -933,7 +979,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunVOC;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -1006,7 +1053,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningCO2;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -1049,7 +1097,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunCO2;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
@@ -1122,7 +1171,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = 34;
                 double emissionFactor = emissions.RunningCO2EQ;
                 double conversionFactor = .002204622622;
                 double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
@@ -1165,7 +1215,8 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
+                //double roundTrip = ToClientDist + FromClientDist;
+                double roundTrip = 2;
                 double emissionFactor = emissions.SmashRunCO2EQ;
                 double conversionFactor = .002204622622;
                 double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;

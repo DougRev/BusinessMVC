@@ -47,47 +47,6 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.XferStation)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.XferStation)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ToClientDist)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ToClientDist)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ToHaulerDist)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ToHaulerDist)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.FromHaulerDist)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FromHaulerDist)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.LandfillDist)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.LandfillDist)
-            </dd>
-
-
-            <dt>
                 @Html.DisplayNameFor(model => model.HaulsPerDay)
             </dt>
 
@@ -131,7 +90,16 @@
                         <td>@prop.GetValue(Model, null)</td>
                     </tr>
                 }
-
+                <tr>
+                    <th>Baseline Totals</th>
+                    <th>Emissions With Smash Totals</th>
+                    <th>Savings Totals</th>
+                </tr>
+                <tr>
+                    <td>@Model.BaselineTotals</td>
+                    <td>@Model.EmissionsWithSmashTotals</td>
+                    <td>@Model.SavingsTotals</td>
+                </tr>
 
             </tbody>
         </table>

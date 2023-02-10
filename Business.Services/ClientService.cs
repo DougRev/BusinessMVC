@@ -72,7 +72,6 @@ namespace BusinessServices
                     //FranchiseId = entity.Franchise.FranchiseId,
                     //FranchiseName = entity.Franchise.FranchiseName,
                     Compactibility = entity.Compactibility,
-                    XferStation = entity.XferStation,
                     ToClientDist = entity.ToClientDist,
                     FromClientDist = entity.FromClientDist,
                     ToHaulerDist = entity.ToHaulerDist,
@@ -80,6 +79,10 @@ namespace BusinessServices
                     LandfillDist = entity.LandfillDist,
                     HaulsPerDay = entity.HaulsPerDay,
                     PreSMTYearlyHauls = entity.PreSMTYearlyHauls,
+
+                    BaselineTotals = entity.BaselineTotals,
+                    EmissionsWithSmashTotals = entity.EmissionsWithSmashTotals,
+                    SavingsTotals = entity.SavingsTotal,
 
                     NOXBaselineHaulerTruckRunningEmissions = entity.NOXBaselineHaulerTruckRunningEmissions,
                     NOXBaselineHaulerTruckIdlingEmissions = entity.NOXBaselineHaulerTruckIdlingEmissions,
