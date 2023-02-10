@@ -90,16 +90,6 @@
                         <td>@prop.GetValue(Model, null)</td>
                     </tr>
                 }
-                <tr>
-                    <th>Baseline Totals</th>
-                    <th>Emissions With Smash Totals</th>
-                    <th>Savings Totals</th>
-                </tr>
-                <tr>
-                    <td>@Model.BaselineTotals</td>
-                    <td>@Model.EmissionsWithSmashTotals</td>
-                    <td>@Model.SavingsTotals</td>
-                </tr>
 
             </tbody>
         </table>
@@ -112,6 +102,23 @@
         <button id="COEmissions" class="emissions-btn">CO</button>
         <button id="VOCEmissions" class="emissions-btn">VOC</button>
         <button id="CO2Emissions" class="emissions-btn">CO2</button>
+
+        <table id="emissions">
+            <thead>
+                <tr>
+                    <th>Baseline Totals</th>
+                    <th>Emissions With Smash Totals</th>
+                    <th>Savings Totals</th>
+                </tr>
+            </thead>
+            <tbody id="emissionsBody">
+                <tr>
+                    <td>@Model.BaselineTotals</td>
+                    <td>@Model.EmissionsWithSmashTotals</td>
+                    <td>@Model.SavingsTotals</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 </div>
