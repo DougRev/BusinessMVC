@@ -70,7 +70,6 @@
     <Compile Include="Franchise\FranchiseEdit.cs" />
     <Compile Include="Franchise\FranchiseListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StateBusinessesListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

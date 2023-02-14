@@ -118,3 +118,6 @@ C:\Users\Doug Revell\Source\Repos\BusinessMVC\Business.Data\obj\Debug\BusinessDa
 C:\Users\Doug Revell\Source\Repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.test.resources
 C:\Users\Doug Revell\Source\Repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addTestTotal.resources
 C:\Users\Doug Revell\Source\Repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addEmissionsToClientService.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.test5.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addModelBuilderAgain.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addClientsToFranchise.resources

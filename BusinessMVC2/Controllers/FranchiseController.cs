@@ -1,4 +1,5 @@
-﻿using BusinessModels.Franchise;
+﻿using BusinessData;
+using BusinessModels.Franchise;
 using BusinessServices;
 using Microsoft.AspNet.Identity;
 using System;
@@ -11,6 +12,7 @@ namespace BusinessMVC2.Controllers
 {
     public class FranchiseController : Controller
     {
+        
         // GET: Franchise
         public ActionResult Index()
         {
@@ -51,8 +53,10 @@ namespace BusinessMVC2.Controllers
         //Franchise/Details/{id}
         public ActionResult Details(int id)
         {
+            var franchiseId = id;
             var svc = CreateFranchiseService();
             var model = svc.GetFranchiseById(id);
+            //var model = _franchise.Clients.Where(c => c.Franchise.FranchiseId == franchiseId);
             return View(model);
         }
 

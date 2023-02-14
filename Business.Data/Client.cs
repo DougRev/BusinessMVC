@@ -1,6 +1,7 @@
 ﻿using BusinessData.Enum;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusinessData
 {
@@ -14,9 +15,11 @@ namespace BusinessData
 
         //public int FranchiseeId { get; set; }
         //public virtual FranchiseOwner Franchisee { get; set; }
-        //public int FranchiseId { get; set; }
-        //[ForeignKey(nameof(Franchise))]
-        //public virtual Franchise Franchise { get; set; }
+        public int FranchiseId { get; set; }
+        public string FranchiseName { get; set; }
+
+        [ForeignKey(nameof(Franchise))]
+        public virtual Franchise Franchise { get; set; }
 
 
         [Display(Name = "Transfer Station")]
@@ -45,7 +48,7 @@ namespace BusinessData
         {
             get
             {
-                int preSmtYearlyHauls = HaulsPerDay * 100; //Assuming 260 work days
+                int preSmtYearlyHauls = HaulsPerDay * 260; //Assuming 260 work days
                 return preSmtYearlyHauls;
             }
         }

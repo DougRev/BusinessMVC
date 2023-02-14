@@ -15,7 +15,14 @@ namespace BusinessData
         public Guid OwnerId { get; set; }
         public string FranchiseName { get; set; }
         public virtual State State { get; set; }
-        public List<Client> Clients { get; set; }
+
+        public List<Client> Clients { get; } = new List<Client>();
+
+        public List<Client> GetClientsByFranchiseId(int franchiseId)
+        {
+            return Clients.Where(c => c.FranchiseId == franchiseId).ToList();
+        }
+
 
     }
 }

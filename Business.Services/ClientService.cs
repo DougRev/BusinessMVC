@@ -26,7 +26,7 @@ namespace BusinessServices
                 BusinessId = model.BusinessId,
                 BusinessName = model.BusinessName,
                 State = model.State,
-                //FranchiseId = model.FranchiseId,
+                FranchiseId = model.FranchiseId,
                 //FranchiseeId = model.FranchiseeId,
 
             };
@@ -47,7 +47,7 @@ namespace BusinessServices
                         BusinessId = e.BusinessId,
                         BusinessName = e.BusinessName,
                         State = e.State,
-                        //FranchiseName = e.Franchise.FranchiseName,
+                        FranchiseName = e.Franchise.FranchiseName,
                     });
                 return query.ToArray();
             }
@@ -69,8 +69,8 @@ namespace BusinessServices
                     State = entity.State,
                     //FranchiseeId = entity.FranchiseeId,
                     //FranchiseeName = entity.Franchisee.FranchiseeName,
-                    //FranchiseId = entity.Franchise.FranchiseId,
-                    //FranchiseName = entity.Franchise.FranchiseName,
+                    FranchiseId = entity.Franchise.FranchiseId,
+                    FranchiseName = entity.Franchise.FranchiseName,
                     Compactibility = entity.Compactibility,
                     ToClientDist = entity.ToClientDist,
                     FromClientDist = entity.FromClientDist,

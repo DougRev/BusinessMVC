@@ -138,9 +138,20 @@
     <Compile Include="Migrations\202302020024210_addEmissionsToClientService.designer.cs">
       <DependentUpon>202302020024210_addEmissionsToClientService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302131319184_test5.cs" />
+    <Compile Include="Migrations\202302131319184_test5.designer.cs">
+      <DependentUpon>202302131319184_test5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302131322512_addModelBuilderAgain.cs" />
+    <Compile Include="Migrations\202302131322512_addModelBuilderAgain.designer.cs">
+      <DependentUpon>202302131322512_addModelBuilderAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302131350496_addClientsToFranchise.cs" />
+    <Compile Include="Migrations\202302131350496_addClientsToFranchise.designer.cs">
+      <DependentUpon>202302131350496_addClientsToFranchise.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StateBusinesses.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -185,6 +196,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302020024210_addEmissionsToClientService.resx">
       <DependentUpon>202302020024210_addEmissionsToClientService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302131319184_test5.resx">
+      <DependentUpon>202302131319184_test5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302131322512_addModelBuilderAgain.resx">
+      <DependentUpon>202302131322512_addModelBuilderAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302131350496_addClientsToFranchise.resx">
+      <DependentUpon>202302131350496_addClientsToFranchise.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

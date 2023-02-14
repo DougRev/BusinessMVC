@@ -43,10 +43,13 @@ namespace BusinessServices
                         FranchiseId = e.FranchiseId,
                         FranchiseName = e.FranchiseName,
                         State = e.State,
+
+
                     });
                 return query.ToArray();
             }
         }
+
 
         public FranchiseDetails GetFranchiseById(int franchiseId)
         {
@@ -62,6 +65,7 @@ namespace BusinessServices
                     };
             }
         }
+
 
         public bool UpdateFranchise(FranchiseEdit model)
         {

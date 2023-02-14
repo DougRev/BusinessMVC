@@ -72,6 +72,8 @@ namespace BusinessMVC2.Controllers
                 BusinessId = detail.BusinessId,
                 BusinessName = detail.BusinessName,
                 State = detail.State,
+                FranchiseId = detail.FranchiseId,
+                Compactibility = detail.Compactibility,
                 FranchiseeId = detail.FranchiseeId,
                 ToClientDist = detail.ToClientDist,
                 FromClientDist = detail.FromClientDist,

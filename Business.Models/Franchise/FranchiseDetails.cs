@@ -14,7 +14,6 @@ namespace BusinessModels.Franchise
         public string FranchiseName { get; set; }
         public State State { get; set; }
         public float EmissionsTotal { get; set; }
-        public virtual Client Client { get; set; }
         public List<Client> ClientList { get; set; }
     }
 }
