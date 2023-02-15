@@ -23,6 +23,5 @@ namespace BusinessData
             return Clients.Where(c => c.FranchiseId == franchiseId).ToList();
         }
 
-
     }
 }

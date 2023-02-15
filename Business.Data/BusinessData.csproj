@@ -150,6 +150,22 @@
     <Compile Include="Migrations\202302131350496_addClientsToFranchise.designer.cs">
       <DependentUpon>202302131350496_addClientsToFranchise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302151341049_RelationDBFixes.cs" />
+    <Compile Include="Migrations\202302151341049_RelationDBFixes.designer.cs">
+      <DependentUpon>202302151341049_RelationDBFixes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302151353535_TestingE.cs" />
+    <Compile Include="Migrations\202302151353535_TestingE.designer.cs">
+      <DependentUpon>202302151353535_TestingE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302151410408_testingF.cs" />
+    <Compile Include="Migrations\202302151410408_testingF.designer.cs">
+      <DependentUpon>202302151410408_testingF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302151435448_testingF1.cs" />
+    <Compile Include="Migrations\202302151435448_testingF1.designer.cs">
+      <DependentUpon>202302151435448_testingF1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -205,6 +221,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302131350496_addClientsToFranchise.resx">
       <DependentUpon>202302131350496_addClientsToFranchise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302151341049_RelationDBFixes.resx">
+      <DependentUpon>202302151341049_RelationDBFixes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302151353535_TestingE.resx">
+      <DependentUpon>202302151353535_TestingE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302151410408_testingF.resx">
+      <DependentUpon>202302151410408_testingF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302151435448_testingF1.resx">
+      <DependentUpon>202302151435448_testingF1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

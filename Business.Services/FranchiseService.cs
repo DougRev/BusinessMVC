@@ -50,6 +50,53 @@ namespace BusinessServices
             }
         }
 
+        /*public FranchiseDetails GetClientsByFranchiseId(int franchiseId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var franchise = ctx.Franchises
+                    .Single(f => f.FranchiseId == franchiseId);
+
+                var clients = franchise.Clients
+                    .Where(c => c.FranchiseId == franchiseId) // Filter the clients by franchise ID
+                    .ToList();
+
+                return new FranchiseDetails
+                {
+                    FranchiseId = franchise.FranchiseId,
+                    FranchiseName = franchise.FranchiseName,
+                    State = franchise.State,
+                    Clients = clients // Set the clients for the franchise
+                };
+            }
+        }*/
+
+        public FranchiseDetails GetClientsByFranchiseId(int franchiseId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var franchise = ctx.Franchises
+                    .SingleOrDefault(f => f.FranchiseId == franchiseId);
+
+                if (franchise == null)
+                {
+                    return null;
+                }
+
+                var clients = ctx.Clients
+                    .Where(c => c.FranchiseId == franchiseId)
+                    .ToList();
+
+                return new FranchiseDetails
+                {
+                    FranchiseId = franchise.FranchiseId,
+                    FranchiseName = franchise.FranchiseName,
+                    Clients = clients
+                };
+            }
+        }
+
+
 
         public FranchiseDetails GetFranchiseById(int franchiseId)
         {
@@ -73,7 +120,6 @@ namespace BusinessServices
             {
                 var entity = ctx.Franchises.Single(e => e.FranchiseId == model.FranchiseId);
                 entity.FranchiseName = model.FranchiseName;
-                entity.State = model.State;
                 return ctx.SaveChanges() == 1;
             }
         }

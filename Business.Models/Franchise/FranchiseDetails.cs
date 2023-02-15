@@ -14,6 +14,8 @@ namespace BusinessModels.Franchise
         public string FranchiseName { get; set; }
         public State State { get; set; }
         public float EmissionsTotal { get; set; }
-        public List<Client> ClientList { get; set; }
+        public List<Client> Clients { get; set; }
+        public double EmissionsSavedWithSmash { get; set; }
+
     }
 }

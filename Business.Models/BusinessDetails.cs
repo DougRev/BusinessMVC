@@ -79,7 +79,7 @@ namespace BusinessModels
         [Display(Name = "NOX Total SMT Emissions")]
         public double TotalNOXEmissionsWithSmash { get; set; }
         
-        [Display(Name = "N20 Percent Saved using SMT")]
+        [Display(Name = "NOX Percent Saved using SMT")]
         public string NOXPercentSaved { get; set; }
 
         [Display(Name = "N20Hauler Running Emissions")]

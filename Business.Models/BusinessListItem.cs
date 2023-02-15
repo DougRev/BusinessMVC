@@ -15,6 +15,8 @@ namespace BusinessModels
 
         [Display(Name = "Client Name")]
         public string BusinessName { get; set; }
+
+        [Display(Name = "Franchise Name")]
         public string FranchiseName { get; set; }
         public State State { get; set; }
         public Guid OwnerId { get; set; }

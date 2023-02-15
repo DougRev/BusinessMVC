@@ -83,7 +83,7 @@ namespace BusinessData
 
         //Emissions Added Totals
 
-        public double BaselineTotals
+        public double AllEmissionsBaselineTotals
         {
             get
             {
@@ -92,7 +92,7 @@ namespace BusinessData
             }
         }
 
-        public double EmissionsWithSmashTotals
+        public double AllEmissionsWithSmashTotals
         {
             get
             {
@@ -101,12 +101,20 @@ namespace BusinessData
             }
         }
 
-        public string SavingsTotal
+        public double AllEmissionsSavedWithSmash
         {
             get
             {
-                double total = BaselineTotals - EmissionsWithSmashTotals;
-                double percent = total / BaselineTotals;
+                double saved = AllEmissionsBaselineTotals - AllEmissionsWithSmashTotals;
+                return saved;
+            }
+        }
+
+        public string AllSavingsTotal
+        {
+            get
+            {
+                double percent = AllEmissionsSavedWithSmash / AllEmissionsBaselineTotals;
                 string changed = string.Format("{0:P2}", percent);
                 return changed;
             }
@@ -1156,6 +1164,15 @@ namespace BusinessData
             }
         }
 
+        public double TotalCO2Saved
+        {
+            get
+            {
+                double total = TotalCO2BaselineTruckEmissions - TotalCO2EmissionsWithSmash;
+                return total;
+            }
+        }
+
         public string CO2PercentSaved
         {
             get
@@ -1276,12 +1293,20 @@ namespace BusinessData
             }
         }
 
+        public double TotalCO2EQSaved
+        {
+            get
+            {
+                double total = TotalCO2BaselineTruckEmissions - TotalCO2EmissionsWithSmash;
+                return total;
+            }
+        }
+
         public string CO2EQPercentSaved
         {
             get
             {
-                double saved = TotalCO2EQBaselineTruckEmissions - TotalCO2EQEmissionsWithSmash;
-                double percent = saved / TotalCO2BaselineTruckEmissions;
+                double percent = TotalCO2EQSaved / TotalCO2BaselineTruckEmissions;
                 string changed = string.Format("{0:P2}", percent);
                 return changed;
             }

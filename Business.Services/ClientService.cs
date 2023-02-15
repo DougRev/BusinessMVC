@@ -27,6 +27,8 @@ namespace BusinessServices
                 BusinessName = model.BusinessName,
                 State = model.State,
                 FranchiseId = model.FranchiseId,
+                HaulsPerDay = model.HaulsPerDay,
+                Compactibility = model.Compactibility,
                 //FranchiseeId = model.FranchiseeId,
 
             };
@@ -80,9 +82,9 @@ namespace BusinessServices
                     HaulsPerDay = entity.HaulsPerDay,
                     PreSMTYearlyHauls = entity.PreSMTYearlyHauls,
 
-                    BaselineTotals = entity.BaselineTotals,
-                    EmissionsWithSmashTotals = entity.EmissionsWithSmashTotals,
-                    SavingsTotals = entity.SavingsTotal,
+                    BaselineTotals = entity.AllEmissionsBaselineTotals,
+                    EmissionsWithSmashTotals = entity.AllEmissionsWithSmashTotals,
+                    SavingsTotals = entity.AllSavingsTotal,
 
                     NOXBaselineHaulerTruckRunningEmissions = entity.NOXBaselineHaulerTruckRunningEmissions,
                     NOXBaselineHaulerTruckIdlingEmissions = entity.NOXBaselineHaulerTruckIdlingEmissions,
@@ -188,6 +190,7 @@ namespace BusinessServices
                 };
             }
         }
+
 
         public bool UpdateBusinesses(BusinessEdit model)
         {

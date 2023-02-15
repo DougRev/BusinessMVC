@@ -11,6 +11,5 @@ namespace BusinessModels
         public int FranchiseeId { get; set; }
         public string FranchiseeName { get; set; }
         public Guid OwnerId { get; set; }
-
     }
 }

@@ -55,8 +55,7 @@ namespace BusinessMVC2.Controllers
         {
             var franchiseId = id;
             var svc = CreateFranchiseService();
-            var model = svc.GetFranchiseById(id);
-            //var model = _franchise.Clients.Where(c => c.Franchise.FranchiseId == franchiseId);
+            var model = svc.GetClientsByFranchiseId(id);
             return View(model);
         }
 

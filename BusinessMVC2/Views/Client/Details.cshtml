@@ -5,7 +5,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Model.BusinessName</h2>
 
 <div id="details-container">
 
@@ -79,8 +79,8 @@
         <table id="emissions">
             <thead>
                 <tr>
-                    <th>Property Name</th>
-                    <th>Value</th>
+                    <th>Emission Type</th>
+                    <th>Value (lbs)</th>
                 </tr>
             </thead>
             <tbody id="emissionsBody">
@@ -121,8 +121,8 @@
             </thead>
             <tbody id="emissionsBody">
                 <tr>
-                    <td>@Model.BaselineTotals</td>
-                    <td>@Model.EmissionsWithSmashTotals</td>
+                    <td>@Model.BaselineTotals.ToString("N2")</td>
+                    <td>@Model.EmissionsWithSmashTotals.ToString("N2")</td>
                     <td>@Model.SavingsTotals</td>
                 </tr>
             </tbody>

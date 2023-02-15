@@ -12,7 +12,10 @@ namespace BusinessModels.Franchise
     public class FranchiseCreate
     {
         [Key]
+        [Display(Name = "Franchise ID")]
         public int FranchiseId { get; set; }
+
+        [Display(Name = "Franchise Name")]
         public string FranchiseName { get; set; }
         public Guid OwnerId { get; set; }
         public State State { get; set; }
