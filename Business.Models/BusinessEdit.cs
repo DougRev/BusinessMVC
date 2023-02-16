@@ -47,8 +47,6 @@ namespace BusinessModels
 
         [Display(Name = "Pre-SMT Est. Yearly Hauls ")]
         public int PreSMTYearlyHauls { get; set; }
-        public int Num1 { get; set; }
-        public int Num2 { get; set; }
         //public virtual Franchisee Franchisee { get; set; }
     }
 }
