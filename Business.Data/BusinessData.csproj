@@ -166,6 +166,10 @@
     <Compile Include="Migrations\202302151435448_testingF1.designer.cs">
       <DependentUpon>202302151435448_testingF1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302171535564_zyz.cs" />
+    <Compile Include="Migrations\202302171535564_zyz.designer.cs">
+      <DependentUpon>202302171535564_zyz.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -234,6 +238,12 @@
     <EmbeddedResource Include="Migrations\202302151435448_testingF1.resx">
       <DependentUpon>202302151435448_testingF1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302171535564_zyz.resx">
+      <DependentUpon>202302171535564_zyz.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\202302171535285_02\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

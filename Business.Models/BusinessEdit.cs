@@ -45,8 +45,13 @@ namespace BusinessModels
         [Display(Name = "Pre-SMT Hauls per Day")]
         public int HaulsPerDay { get; set; }
 
+        [Display(Name = "Number of Dumpsters")]
+        public int NumberOfDumpsters { get; set; }
+
         [Display(Name = "Pre-SMT Est. Yearly Hauls ")]
         public int PreSMTYearlyHauls { get; set; }
+
+
         //public virtual Franchisee Franchisee { get; set; }
     }
 }

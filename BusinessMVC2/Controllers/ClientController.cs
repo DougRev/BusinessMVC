@@ -81,6 +81,7 @@ namespace BusinessMVC2.Controllers
                 FromHaulerDist = detail.FromHaulerDist,
                 LandfillDist = detail.LandfillDist,
                 HaulsPerDay = detail.HaulsPerDay,
+                NumberOfDumpsters = detail.NumberOfDumpsters,
                 
                 
             };

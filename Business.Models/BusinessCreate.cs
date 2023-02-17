@@ -30,5 +30,11 @@ namespace BusinessModels
 
         [Display(Name = "Hauls Per Day")]
         public int HaulsPerDay { get; set; }
+
+        [Display(Name = "Distance to Landfill")]
+        public float LandfillDist { get; set; }
+
+        [Display(Name = "Number of Dumpsters")]
+        public int NumberOfDumpsters { get; set; }
     }
 }

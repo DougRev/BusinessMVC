@@ -43,6 +43,9 @@ namespace BusinessData
         [Display(Name = "Pre-SMT Hauls per Day")]
         public int HaulsPerDay { get; set; }
 
+        [Display(Name = "Number of Dumpsters")]
+        public int NumberOfDumpsters { get; set; }
+
         [Display(Name = "Pre-SMT Est. Yearly Hauls ")]
         public int PreSMTYearlyHauls
         {
@@ -83,29 +86,12 @@ namespace BusinessData
 
         //Emissions Added Totals
 
-        public double AllEmissionsBaselineTotals
-        {
-            get
-            {
-                double total = TotalNOXBaselineTruckEmissions + TotalN20BaselineTruckEmissions + TotalPM25BaselineTruckEmissions + TotalPM10BaselineTruckEmissions + TotalSO2BaselineTruckEmissions + TotalCH4BaselineTruckEmissions + TotalCOBaselineTruckEmissions + TotalVOCBaselineTruckEmissions + TotalCO2BaselineTruckEmissions;
-                return total;
-            }
-        }
 
         public double AllEmissionsBaselineTotalsV2
         {
             get
             {
-                double total = TotalNOXBaselineTruckEmissionsV2 + TotalN20BaselineTruckEmissionsV2 + TotalPM25BaselineTruckEmissionsV2 + TotalPM10BaselineTruckEmissionsV2 + TotalSO2BaselineTruckEmissionsV2 + TotalCH4BaselineTruckEmissionsV2 + TotalCOBaselineTruckEmissionsV2 + TotalVOCBaselineTruckEmissionsV2 + TotalCO2BaselineTruckEmissionsV2;
-                return total;
-            }
-        }
-
-        public double AllEmissionsWithSmashTotals
-        {
-            get
-            {
-                double total = TotalNOXEmissionsWithSmash + TotalN20EmissionsWithSmash + TotalPM25EmissionsWithSmash + TotalPM10EmissionsWithSmash + TotalSO2EmissionsWithSmash + TotalCH4EmissionsWithSmash + TotalCOEmissionsWithSmash + TotalVOCEmissionsWithSmash + TotalCO2EmissionsWithSmash;
+                double total = TotalNOXBaselineTruckEmissionsV2 + TotalN20BaselineTruckEmissionsV2 + TotalPM25BaselineTruckEmissionsV2 + TotalPM10BaselineTruckEmissionsV2 + TotalSO2BaselineTruckEmissionsV2 + TotalCH4BaselineTruckEmissionsV2 + TotalCOBaselineTruckEmissionsV3 + TotalVOCBaselineTruckEmissionsV2 + TotalCO2BaselineTruckEmissionsV2;
                 return total;
             }
         }
@@ -114,17 +100,8 @@ namespace BusinessData
         {
             get
             {
-                double total = TotalNOXEmissionsWithSmashV2 + TotalN20EmissionsWithSmashV2 + TotalPM25EmissionsWithSmashV2 + TotalPM10EmissionsWithSmashV2 + TotalSO2EmissionsWithSmashV2 + TotalCH4EmissionsWithSmashV2 + TotalCOEmissionsWithSmashV2 + TotalVOCEmissionsWithSmashV2 + TotalCO2EmissionsWithSmashV2;
+                double total = TotalNOXEmissionsWithSmashV2 + TotalN20EmissionsWithSmashV2 + TotalPM25EmissionsWithSmashV2 + TotalPM10EmissionsWithSmashV2 + TotalSO2EmissionsWithSmashV2 + TotalCH4EmissionsWithSmashV2 + TotalCOEmissionsWithSmashV3 + TotalVOCEmissionsWithSmashV2 + TotalCO2EmissionsWithSmashV2;
                 return total;
-            }
-        }
-
-        public double AllEmissionsSavedWithSmash
-        {
-            get
-            {
-                double saved = AllEmissionsBaselineTotals - AllEmissionsWithSmashTotals;
-                return saved;
             }
         }
 
@@ -134,16 +111,6 @@ namespace BusinessData
             {
                 double saved = AllEmissionsBaselineTotalsV2 - AllEmissionsWithSmashTotalsV2;
                 return saved;
-            }
-        }
-
-        public string AllSavingsTotal
-        {
-            get
-            {
-                double percent = AllEmissionsSavedWithSmash / AllEmissionsBaselineTotals;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 
@@ -159,20 +126,6 @@ namespace BusinessData
 
 
         // NOx Emissions
-        public double NOXBaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningNOX;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double NOXBaselineHaulerTruckRunningEmissionsV2
         {
@@ -180,7 +133,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningNOX;
                 double conversionFactor = .002204622622;
@@ -233,20 +186,6 @@ namespace BusinessData
             }
         }
 
-        public double NOXSMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunNOX;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double NOXSMTIdlingEmissions
         {
             get
@@ -258,14 +197,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double NOXHaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = NOXBaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -286,17 +217,7 @@ namespace BusinessData
                 return total;
             }
         }
-
-        public double TotalNOXBaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = NOXBaselineHaulerTruckRunningEmissions + NOXBaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
-
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public double TotalNOXBaselineTruckEmissionsV2
         {
             get
@@ -306,33 +227,13 @@ namespace BusinessData
                 return c02Total;
             }
         }
-
-        public double TotalNOXEmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = NOXSmashingEmissions + NOXSMTRunningEmissions + NOXSMTIdlingEmissions + NOXHaulerRunningEmissionsWithCompactibility + NOXHaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
-
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         public double TotalNOXEmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = NOXSmashingEmissions + NOXSMTRunningEmissionsV2 + NOXSMTIdlingEmissions + NOXHaulerRunningEmissionsWithCompactibilityV2 + NOXHaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = NOXSmashingEmissions + NOXSMTRunningEmissions + NOXSMTIdlingEmissions + NOXHaulerRunningEmissionsWithCompactibilityV2 + NOXHaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
-            }
-        }
-
-        public string NOXPercentSaved
-        {
-            get
-            {
-                double saved = TotalNOXBaselineTruckEmissions - TotalNOXEmissionsWithSmash;
-                double percent = saved / TotalNOXBaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 
@@ -348,20 +249,6 @@ namespace BusinessData
         }
 
         // N20 Emissions
-        public double N20BaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningN20;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double N20BaselineHaulerTruckRunningEmissionsV2
         {
@@ -369,7 +256,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningN20;
                 double conversionFactor = .002204622622;
@@ -420,21 +307,6 @@ namespace BusinessData
                 return runningEmissions;
             }
         }
-
-        public double N20SMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunN20;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double N20SMTIdlingEmissions
         {
             get
@@ -446,14 +318,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double N20HaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = N20BaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -473,15 +337,6 @@ namespace BusinessData
                 return total;
             }
         }
-        public double TotalN20BaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = N20BaselineHaulerTruckRunningEmissions + N20BaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
 
         public double TotalN20BaselineTruckEmissionsV2
         {
@@ -493,31 +348,12 @@ namespace BusinessData
             }
         }
 
-        public double TotalN20EmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = N20SmashingEmissions + N20SMTRunningEmissions + N20SMTIdlingEmissions + N20HaulerRunningEmissionsWithCompactibility + N20HaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
-
         public double TotalN20EmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = N20SmashingEmissions + N20SMTRunningEmissionsV2 + N20SMTIdlingEmissions + N20HaulerRunningEmissionsWithCompactibilityV2 + N20HaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = N20SmashingEmissions + N20SMTRunningEmissions + N20SMTIdlingEmissions + N20HaulerRunningEmissionsWithCompactibilityV2 + N20HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
-            }
-        }
-        public string N20PercentSaved
-        {
-            get
-            {
-                double saved = TotalN20BaselineTruckEmissions - TotalN20EmissionsWithSmash;
-                double percent = saved / TotalN20BaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 
@@ -533,20 +369,6 @@ namespace BusinessData
         }
 
         // PM2.5 Emissions
-        public double PM25BaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningPM25;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double PM25BaselineHaulerTruckRunningEmissionsV2
         {
@@ -554,7 +376,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningPM25;
                 double conversionFactor = .002204622622;
@@ -605,21 +427,6 @@ namespace BusinessData
                 return runningEmissions;
             }
         }
-
-        public double PM25SMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunPM25;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double PM25SMTIdlingEmissions
         {
             get
@@ -631,14 +438,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double PM25HaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = PM25BaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -658,15 +457,6 @@ namespace BusinessData
                 return total;
             }
         }
-        public double TotalPM25BaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = PM25BaselineHaulerTruckRunningEmissions + PM25BaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
 
         public double TotalPM25BaselineTruckEmissionsV2
         {
@@ -677,31 +467,12 @@ namespace BusinessData
                 return c02Total;
             }
         }
-
-        public double TotalPM25EmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = PM25SmashingEmissions + PM25SMTRunningEmissions + PM25SMTIdlingEmissions + PM25HaulerRunningEmissionsWithCompactibility + PM25HaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
         public double TotalPM25EmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = PM25SmashingEmissions + PM25SMTRunningEmissionsV2 + PM25SMTIdlingEmissions + PM25HaulerRunningEmissionsWithCompactibilityV2 + PM25HaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = PM25SmashingEmissions + PM25SMTRunningEmissions + PM25SMTIdlingEmissions + PM25HaulerRunningEmissionsWithCompactibilityV2 + PM25HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
-            }
-        }
-        public string PM25PercentSaved
-        {
-            get
-            {
-                double saved = TotalPM25BaselineTruckEmissions - TotalPM25EmissionsWithSmash;
-                double percent = saved / TotalPM25BaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 
@@ -717,20 +488,6 @@ namespace BusinessData
         }
 
         // PM10 Emissions
-        public double PM10BaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningPM10;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double PM10BaselineHaulerTruckRunningEmissionsV2
         {
@@ -738,7 +495,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningPM10;
                 double conversionFactor = .002204622622;
@@ -790,20 +547,6 @@ namespace BusinessData
             }
         }
 
-        public double PM10SMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunPM10;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double PM10SMTIdlingEmissions
         {
             get
@@ -815,14 +558,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double PM10HaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = PM10BaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -842,15 +577,6 @@ namespace BusinessData
                 return total;
             }
         }
-        public double TotalPM10BaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = PM10BaselineHaulerTruckRunningEmissions + PM10BaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
 
         public double TotalPM10BaselineTruckEmissionsV2
         {
@@ -862,31 +588,12 @@ namespace BusinessData
             }
         }
 
-        public double TotalPM10EmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = PM10SmashingEmissions + PM10SMTRunningEmissions + PM10SMTIdlingEmissions + PM10HaulerRunningEmissionsWithCompactibility + PM10HaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
         public double TotalPM10EmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = PM10SmashingEmissions + PM10SMTRunningEmissionsV2 + PM10SMTIdlingEmissions + PM10HaulerRunningEmissionsWithCompactibilityV2 + PM10HaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = PM10SmashingEmissions + PM10SMTRunningEmissions + PM10SMTIdlingEmissions + PM10HaulerRunningEmissionsWithCompactibilityV2 + PM10HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
-            }
-        }
-
-        public string PM10PercentSaved
-        {
-            get
-            {
-                double saved = TotalPM10BaselineTruckEmissions - TotalPM10EmissionsWithSmash;
-                double percent = saved / TotalPM10BaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 
@@ -902,20 +609,6 @@ namespace BusinessData
         }
 
         // SO2 Emissions
-        public double SO2BaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningSO2;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double SO2BaselineHaulerTruckRunningEmissionsV2
         {
@@ -923,7 +616,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningSO2;
                 double conversionFactor = .002204622622;
@@ -975,20 +668,6 @@ namespace BusinessData
             }
         }
 
-        public double SO2SMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunSO2;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double SO2SMTIdlingEmissions
         {
             get
@@ -1000,14 +679,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double SO2HaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = SO2BaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -1027,15 +698,6 @@ namespace BusinessData
                 return total;
             }
         }
-        public double TotalSO2BaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = SO2BaselineHaulerTruckRunningEmissions + SO2BaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
 
         public double TotalSO2BaselineTruckEmissionsV2
         {
@@ -1047,32 +709,12 @@ namespace BusinessData
             }
         }
 
-        public double TotalSO2EmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = SO2SmashingEmissions + SO2SMTRunningEmissions + SO2SMTIdlingEmissions + SO2HaulerRunningEmissionsWithCompactibility + SO2HaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
-
         public double TotalSO2EmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = SO2SmashingEmissions + SO2SMTRunningEmissionsV2 + SO2SMTIdlingEmissions + SO2HaulerRunningEmissionsWithCompactibilityV2 + SO2HaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = SO2SmashingEmissions + SO2SMTRunningEmissions + SO2SMTIdlingEmissions + SO2HaulerRunningEmissionsWithCompactibilityV2 + SO2HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
-            }
-        }
-
-        public string SO2PercentSaved
-        {
-            get
-            {
-                double saved = TotalSO2BaselineTruckEmissions - TotalSO2EmissionsWithSmash;
-                double percent = saved / TotalSO2BaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 
@@ -1088,20 +730,6 @@ namespace BusinessData
         }
 
         // CH4 Emissions
-        public double CH4BaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningCH4;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double CH4BaselineHaulerTruckRunningEmissionsV2
         {
@@ -1109,7 +737,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningCH4;
                 double conversionFactor = .002204622622;
@@ -1160,21 +788,6 @@ namespace BusinessData
                 return runningEmissions;
             }
         }
-
-        public double CH4SMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunCH4;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double CH4SMTIdlingEmissions
         {
             get
@@ -1186,14 +799,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double CH4HaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = CH4BaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -1213,15 +818,6 @@ namespace BusinessData
                 return total;
             }
         }
-        public double TotalCH4BaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = CH4BaselineHaulerTruckRunningEmissions + CH4BaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
 
         public double TotalCH4BaselineTruckEmissionsV2
         {
@@ -1233,50 +829,27 @@ namespace BusinessData
             }
         }
 
-        public double TotalCH4EmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = CH4SmashingEmissions + CH4SMTRunningEmissions + CH4SMTIdlingEmissions + CH4HaulerRunningEmissionsWithCompactibility + CH4HaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
-
         public double TotalCH4EmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = CH4SmashingEmissions + CH4SMTRunningEmissionsV2 + CH4SMTIdlingEmissions + CH4HaulerRunningEmissionsWithCompactibilityV2 + CH4HaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = CH4SmashingEmissions + CH4SMTRunningEmissions + CH4SMTIdlingEmissions + CH4HaulerRunningEmissionsWithCompactibilityV2 + CH4HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
             }
         }
 
-        public string CH4PercentSaved
+        public string CH4PercentSavedV2
         {
             get
             {
-                double saved = TotalCH4BaselineTruckEmissions - TotalCH4EmissionsWithSmash;
-                double percent = saved / TotalCH4BaselineTruckEmissions;
+                double saved = TotalCH4BaselineTruckEmissionsV2 - TotalCH4EmissionsWithSmashV2;
+                double percent = saved / TotalCH4BaselineTruckEmissionsV2;
                 string changed = string.Format("{0:P2}", percent);
                 return changed;
             }
         }
 
         // CO Emissions
-        public double COBaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningCO;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double COBaselineHaulerTruckRunningEmissionsV2
         {
@@ -1284,7 +857,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningCO;
                 double conversionFactor = .002204622622;
@@ -1336,20 +909,6 @@ namespace BusinessData
             }
         }
 
-        public double COSMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunCO;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double COSMTIdlingEmissions
         {
             get
@@ -1361,14 +920,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double COHaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = COBaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -1388,17 +939,8 @@ namespace BusinessData
                 return total;
             }
         }
-        public double TotalCOBaselineTruckEmissions
-        {
-            get
-            {
 
-                double c02Total = COBaselineHaulerTruckRunningEmissions + COBaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
-
-        public double TotalCOBaselineTruckEmissionsV2
+        public double TotalCOBaselineTruckEmissionsV3
         {
             get
             {
@@ -1408,61 +950,27 @@ namespace BusinessData
             }
         }
 
-        public double TotalCOEmissionsWithSmash
+        public double TotalCOEmissionsWithSmashV3
         {
             get
             {
-                double c02SmashTotal = COSmashingEmissions + COSMTRunningEmissions + COSMTIdlingEmissions + COHaulerRunningEmissionsWithCompactibility + COHaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = COSmashingEmissions + COSMTRunningEmissions + COSMTIdlingEmissions + COHaulerRunningEmissionsWithCompactibilityV2 + COHaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
             }
         }
 
-        public double TotalCOEmissionsWithSmashV2
+        public string COPercentSavedV3
         {
             get
             {
-                double c02SmashTotal = COSmashingEmissions + COSMTRunningEmissionsV2 + COSMTIdlingEmissions + COHaulerRunningEmissionsWithCompactibilityV2 + COHaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
-
-        public string COPercentSaved
-        {
-            get
-            {
-                double saved = TotalCOBaselineTruckEmissions - TotalCOEmissionsWithSmash;
-                double percent = saved / TotalCOBaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
-            }
-        }
-
-        public string COPercentSavedV2
-        {
-            get
-            {
-                double saved = TotalCOBaselineTruckEmissionsV2 - TotalCOEmissionsWithSmashV2;
-                double percent = saved / TotalCOBaselineTruckEmissionsV2;
+                double saved = TotalCOBaselineTruckEmissionsV3 - TotalCOEmissionsWithSmashV3;
+                double percent = saved / TotalCOBaselineTruckEmissionsV3;
                 string changed = string.Format("{0:P2}", percent);
                 return changed;
             }
         }
 
         // VOC Emissions
-        public double VOCBaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningVOC;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double VOCBaselineHaulerTruckRunningEmissionsV2
         {
@@ -1470,7 +978,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningVOC;
                 double conversionFactor = .002204622622;
@@ -1521,21 +1029,6 @@ namespace BusinessData
                 return runningEmissions;
             }
         }
-
-        public double VOCSMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunVOC;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double VOCSMTIdlingEmissions
         {
             get
@@ -1547,14 +1040,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double VOCHaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = VOCBaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -1574,15 +1059,6 @@ namespace BusinessData
                 return total;
             }
         }
-        public double TotalVOCBaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = VOCBaselineHaulerTruckRunningEmissions + VOCBaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
 
         public double TotalVOCBaselineTruckEmissionsV2
         {
@@ -1594,32 +1070,12 @@ namespace BusinessData
             }
         }
 
-        public double TotalVOCEmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = VOCSmashingEmissions + VOCSMTRunningEmissions + VOCSMTIdlingEmissions + VOCHaulerRunningEmissionsWithCompactibility + VOCHaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
-
         public double TotalVOCEmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = VOCSmashingEmissions + VOCSMTRunningEmissionsV2 + VOCSMTIdlingEmissions + VOCHaulerRunningEmissionsWithCompactibilityV2 + VOCHaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = VOCSmashingEmissions + VOCSMTRunningEmissions + VOCSMTIdlingEmissions + VOCHaulerRunningEmissionsWithCompactibilityV2 + VOCHaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
-            }
-        }
-
-        public string VOCPercentSaved
-        {
-            get
-            {
-                double saved = TotalVOCBaselineTruckEmissions - TotalVOCEmissionsWithSmash;
-                double percent = saved / TotalVOCBaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 
@@ -1635,20 +1091,6 @@ namespace BusinessData
         }
 
         // CO2 Emissions
-        public double CO2BaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningCO2;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double CO2BaselineHaulerTruckRunningEmissionsV2
         {
@@ -1656,7 +1098,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningCO2;
                 double conversionFactor = .002204622622;
@@ -1709,20 +1151,6 @@ namespace BusinessData
             }
         }
 
-        public double CO2SMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunCO2;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
         public double CO2SMTIdlingEmissions
         {
             get
@@ -1734,14 +1162,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double CO2HaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = CO2BaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -1761,15 +1181,6 @@ namespace BusinessData
                 return total;
             }
         }
-        public double TotalCO2BaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = CO2BaselineHaulerTruckRunningEmissions + CO2BaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
 
         public double TotalCO2BaselineTruckEmissionsV2
         {
@@ -1781,30 +1192,12 @@ namespace BusinessData
             }
         }
 
-        public double TotalCO2EmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = CO2SmashingEmissions + CO2SMTRunningEmissions + CO2SMTIdlingEmissions + CO2HaulerRunningEmissionsWithCompactibility + CO2HaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
-
         public double TotalCO2EmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = CO2SmashingEmissions + CO2SMTRunningEmissionsV2 + CO2SMTIdlingEmissions + CO2HaulerRunningEmissionsWithCompactibilityV2 + CO2HaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = CO2SmashingEmissions + CO2SMTRunningEmissions + CO2SMTIdlingEmissions + CO2HaulerRunningEmissionsWithCompactibilityV2 + CO2HaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
-            }
-        }
-
-        public double TotalCO2Saved
-        {
-            get
-            {
-                double total = TotalCO2BaselineTruckEmissions - TotalCO2EmissionsWithSmash;
-                return total;
             }
         }
 
@@ -1814,17 +1207,6 @@ namespace BusinessData
             {
                 double total = TotalCO2BaselineTruckEmissionsV2 - TotalCO2EmissionsWithSmashV2;
                 return total;
-            }
-        }
-
-        public string CO2PercentSaved
-        {
-            get
-            {
-                double saved = TotalCO2BaselineTruckEmissions - TotalCO2EmissionsWithSmash;
-                double percent = saved / TotalCO2BaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 
@@ -1840,20 +1222,6 @@ namespace BusinessData
         }
 
         // CO2 eq Emissions
-        public double CO2EQBaselineHaulerTruckRunningEmissions
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                int yearlyHauls = PreSMTYearlyHauls;
-                //float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
-                float vmt = 34;
-                double emissionFactor = emissions.RunningCO2EQ;
-                double conversionFactor = .002204622622;
-                double baslineHaulerTruckRunningEmissions = yearlyHauls * vmt * emissionFactor * conversionFactor;
-                return baslineHaulerTruckRunningEmissions;
-            }
-        }
 
         public double CO2EQBaselineHaulerTruckRunningEmissionsV2
         {
@@ -1861,7 +1229,7 @@ namespace BusinessData
             {
                 Emissions emissions = new Emissions();
                 int yearlyHauls = PreSMTYearlyHauls;
-                float vmt = (LandfillDist * 2) + ToHaulerDist + FromHaulerDist;
+                float vmt = (LandfillDist * 2);// + ToHaulerDist + FromHaulerDist;
                 //float vmt = 34;
                 double emissionFactor = emissions.RunningCO2EQ;
                 double conversionFactor = .002204622622;
@@ -1914,21 +1282,6 @@ namespace BusinessData
             }
         }
 
-        public double CO2EQSMTRunningEmissionsV2
-        {
-            get
-            {
-                Emissions emissions = new Emissions();
-                double yearlyHauls = PreSMTYearlyHauls;
-                double roundTrip = ToClientDist + FromClientDist;
-                //double roundTrip = 2;
-                double emissionFactor = emissions.SmashRunCO2EQ;
-                double conversionFactor = .002204622622;
-                double runningEmissions = yearlyHauls * roundTrip * emissionFactor * conversionFactor;
-                return runningEmissions;
-            }
-        }
-
         public double CO2EQSMTIdlingEmissions
         {
             get
@@ -1940,14 +1293,6 @@ namespace BusinessData
                 double conversionFactor = .002204622622;
                 double idlingEmissions = yearlyHauls * idlingTime * emissionFactor * conversionFactor;
                 return idlingEmissions;
-            }
-        }
-        public double CO2EQHaulerRunningEmissionsWithCompactibility
-        {
-            get
-            {
-                double total = CO2EQBaselineHaulerTruckRunningEmissions * CompactibilityValue;
-                return total;
             }
         }
 
@@ -1968,16 +1313,6 @@ namespace BusinessData
             }
         }
 
-        public double TotalCO2EQBaselineTruckEmissions
-        {
-            get
-            {
-
-                double c02Total = CO2EQBaselineHaulerTruckRunningEmissions + CO2EQBaselineHaulerTruckIdlingEmissions;
-                return c02Total;
-            }
-        }
-
         public double TotalCO2EQBaselineTruckEmissionsV2
         {
             get
@@ -1988,30 +1323,12 @@ namespace BusinessData
             }
         }
 
-        public double TotalCO2EQEmissionsWithSmash
-        {
-            get
-            {
-                double c02SmashTotal = CO2EQSmashingEmissions + CO2EQSMTRunningEmissions + CO2EQSMTIdlingEmissions + CO2EQHaulerRunningEmissionsWithCompactibility + CO2EQHaulerIdlingEmissionsWithCompactibility;
-                return c02SmashTotal;
-            }
-        }
-
         public double TotalCO2EQEmissionsWithSmashV2
         {
             get
             {
-                double c02SmashTotal = CO2EQSmashingEmissions + CO2EQSMTRunningEmissionsV2 + CO2EQSMTIdlingEmissions + CO2EQHaulerRunningEmissionsWithCompactibilityV2 + CO2EQHaulerIdlingEmissionsWithCompactibility;
+                double c02SmashTotal = CO2EQSmashingEmissions + CO2EQSMTRunningEmissions + CO2EQSMTIdlingEmissions + CO2EQHaulerRunningEmissionsWithCompactibilityV2 + CO2EQHaulerIdlingEmissionsWithCompactibility;
                 return c02SmashTotal;
-            }
-        }
-
-        public double TotalCO2EQSaved
-        {
-            get
-            {
-                double total = TotalCO2BaselineTruckEmissions - TotalCO2EmissionsWithSmash;
-                return total;
             }
         }
 
@@ -2021,16 +1338,6 @@ namespace BusinessData
             {
                 double total = TotalCO2BaselineTruckEmissionsV2 - TotalCO2EmissionsWithSmashV2;
                 return total;
-            }
-        }
-
-        public string CO2EQPercentSaved
-        {
-            get
-            {
-                double percent = TotalCO2EQSaved / TotalCO2BaselineTruckEmissions;
-                string changed = string.Format("{0:P2}", percent);
-                return changed;
             }
         }
 

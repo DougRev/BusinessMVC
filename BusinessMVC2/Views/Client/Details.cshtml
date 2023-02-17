@@ -55,6 +55,14 @@
             </dd>
 
             <dt>
+                @Html.DisplayNameFor(model => model.NumberOfDumpsters)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NumberOfDumpsters)
+            </dd>
+
+            <dt>
                 @Html.DisplayNameFor(model => model.HaulsPerDay)
             </dt>
 
@@ -68,6 +76,13 @@
 
             <dd>
                 @Html.DisplayFor(model => model.PreSMTYearlyHauls)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.LandfillDist)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LandfillDist)
             </dd>
         </dl>
     </div>
@@ -95,7 +110,7 @@
                     }
                     <tr>
                         <td>@displayName</td>
-                        <td>@prop.GetValue(Model, null)</td>
+                        <td>@string.Format("{0:N2}",prop.GetValue(Model, null))</td>
                     </tr>
                 }
 
@@ -151,22 +166,22 @@
     var emissionsData = "NOX";
 
     function changeNOX() {
-        emissionsBody.innerHTML = "";
-        @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("NOX")))
-{
-    var displayName = prop.Name;
-    var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
-    if (displayAttributes.Length > 0)
+    emissionsBody.innerHTML = "";
+    @foreach (var prop in Model.GetType().GetProperties().Where(p => p.Name.Contains("NOX")))
     {
-        var displayAttribute = displayAttributes[0] as DisplayAttribute;
-        displayName = displayAttribute.Name;
+        var displayName = prop.Name;
+        var displayAttributes = prop.GetCustomAttributes(typeof(DisplayAttribute), false);
+        if (displayAttributes.Length > 0)
+        {
+            var displayAttribute = displayAttributes[0] as DisplayAttribute;
+            displayName = displayAttribute.Name;
+        }
+        <text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
     }
-    <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
 }
 
-    }
 
     function changeN20() {
         emissionsBody.innerHTML = "";
@@ -180,8 +195,8 @@
         displayName = displayAttribute.Name;
     }
     <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
 
@@ -197,8 +212,8 @@
         displayName = displayAttribute.Name;
     }
     <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
 
@@ -214,8 +229,8 @@
         displayName = displayAttribute.Name;
     }
     <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
 
@@ -231,8 +246,8 @@
         displayName = displayAttribute.Name;
     }
     <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
 
@@ -248,8 +263,8 @@
         displayName = displayAttribute.Name;
     }
     <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
 
@@ -265,8 +280,8 @@
         displayName = displayAttribute.Name;
     }
     <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
 
@@ -281,9 +296,9 @@
         var displayAttribute = displayAttributes[0] as DisplayAttribute;
         displayName = displayAttribute.Name;
     }
-    <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+   <text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
     function changeCO2() {
@@ -298,8 +313,8 @@
         displayName = displayAttribute.Name;
     }
     <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
 
@@ -314,9 +329,9 @@
         var displayAttribute = displayAttributes[0] as DisplayAttribute;
         displayName = displayAttribute.Name;
     }
-    <text>
-    emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@prop.GetValue(Model, null)</td></tr>';
-    </text>
+   <text>
+        emissionsBody.innerHTML += '<tr><td>@displayName</td><td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td></tr>';
+        </text>
         }
     }
 
