@@ -110,7 +110,7 @@
                     }
                     <tr>
                         <td>@displayName</td>
-                        <td>@string.Format("{0:N2}",prop.GetValue(Model, null))</td>
+                        <td>@string.Format("{0:N2}", prop.GetValue(Model, null))</td>
                     </tr>
                 }
 
@@ -145,6 +145,7 @@
     </div>
 
 </div>
+    <a href="@Url.Action("FranchiseDetailsToPdf", "Client")">Generate PDF</a>
 
 
 <p>
