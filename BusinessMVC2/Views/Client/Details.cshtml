@@ -1,5 +1,8 @@
 ﻿@model BusinessModels.BusinessDetails
-    @using System.ComponentModel.DataAnnotations
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNet.Identity;
+
+
 
 @{
     ViewBag.Title = "Details";
@@ -145,7 +148,28 @@
     </div>
 
 </div>
-    <a href="@Url.Action("FranchiseDetailsToPdf", "Client")">Generate PDF</a>
+@using (Html.BeginForm("SubmitAction", "Client", new { id = Model.BusinessId }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="TxtUrl">Enter URL:</label>
+        <input type="text" name="TxtUrl" id="TxtUrl" class="form-control" value="https://localhost:44394/Client/BusinessDetailsToPdf/@Model.BusinessId" required />
+    </div>
+
+    <input type="hidden" name="DdlPageSize" value="Letter" />
+    <input type="hidden" name="DdlPageOrientation" value="Portrait" />
+    <input type="hidden" name="TxtWidth" value="1024" />
+    <input type="hidden" name="TxtHeight" value="0" />
+    <input type="hidden" name="BusinessId" value="@Model.BusinessId" />
+    @Html.Hidden("UserId", User.Identity.GetUserId())
+
+    <button type="submit" class="btn btn-primary">
+        Generate PDF
+    </button>
+}
+
+
 
 
 <p>

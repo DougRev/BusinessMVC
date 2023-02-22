@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using System.Web.Helpers;
 using SelectPdf;
 using System.IO;
+using iTextSharp.text;
+using System.Drawing.Printing;
 
 namespace BusinessMVC2.Controllers
 {
@@ -145,16 +147,19 @@ namespace BusinessMVC2.Controllers
         }
 
         //Convert HTML to PDF
-        public ActionResult FranchiseDetailsToPdf()
+        public ActionResult BusinessDetailsToPdf(int id)
         {
-            var model = new BusinessModels.Franchise.FranchiseDetails();
-            // set model properties here, such as FranchiseName, Clients, etc.
+            var userId = User.Identity.GetUserId();
+            var svc = new ClientService(Guid.Parse(userId));
+            var model = svc.GetBusinessById(id);
 
-            // render view to string
-            string htmlString = RenderRazorViewToString("Details", model);
+            // generate HTML code for the business details
+            var htmlContent = this.RenderRazorViewToString("BusinessDetailsToPdf", model);
 
-            ViewData.Add("TxtHtmlCode", htmlString);
-            return View();
+            ViewData.Add("TxtHtmlCode", htmlContent);
+
+            return View(model);
+
         }
 
         [HttpPost]
@@ -162,43 +167,51 @@ namespace BusinessMVC2.Controllers
         public ActionResult SubmitAction(FormCollection collection)
         {
             // read parameters from the webpage
-            string htmlString = collection["TxtHtmlCode"];
-            string baseUrl = collection["TxtBaseUrl"];
+            string userId = collection["UserId"];
+            Guid userGuid = Guid.Parse(userId);
+            int businessId = Convert.ToInt32(collection["BusinessId"]);
 
-            string pdf_page_size = collection["DdlPageSize"];
-            PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize),
-                pdf_page_size, true);
+            var svc = new ClientService(userGuid);
+            var model = svc.GetBusinessById(businessId);
 
-            string pdf_orientation = collection["DdlPageOrientation"];
-            PdfPageOrientation pdfOrientation =
-                (PdfPageOrientation)Enum.Parse(typeof(PdfPageOrientation),
-                pdf_orientation, true);
+            // generate HTML code for the business details
+            string htmlString = RenderViewToString(ControllerContext, "~/Views/Client/BusinessDetailsToPdf.cshtml", model);
+
+            // instantiate a html to pdf converter object
+            HtmlToPdf converter = new HtmlToPdf();
+
+            string pdfPageSize = collection["DdlPageSize"];
+            PdfPageSize pageSize = (PdfPageSize)Enum.Parse(typeof(PdfPageSize), pdfPageSize, true);
+
+            string pdfOrientation = collection["DdlPageOrientation"];
+            PdfPageOrientation pdfOrientationEnum = (PdfPageOrientation)Enum.Parse(typeof(PdfPageOrientation), pdfOrientation, true);
 
             int webPageWidth = 1024;
             try
             {
                 webPageWidth = Convert.ToInt32(collection["TxtWidth"]);
             }
-            catch { }
+            catch
+            {
+            }
 
             int webPageHeight = 0;
             try
             {
                 webPageHeight = Convert.ToInt32(collection["TxtHeight"]);
             }
-            catch { }
-
-            // instantiate a html to pdf converter object
-            HtmlToPdf converter = new HtmlToPdf();
+            catch
+            {
+            }
 
             // set converter options
             converter.Options.PdfPageSize = pageSize;
-            converter.Options.PdfPageOrientation = pdfOrientation;
+            converter.Options.PdfPageOrientation = pdfOrientationEnum;
             converter.Options.WebPageWidth = webPageWidth;
             converter.Options.WebPageHeight = webPageHeight;
 
             // create a new pdf document converting an url
-            PdfDocument doc = converter.ConvertHtmlString(htmlString, baseUrl);
+            PdfDocument doc = converter.ConvertHtmlString(htmlString, "https://localhost:44394/");
 
             // save pdf document
             byte[] pdf = doc.Save();
@@ -212,21 +225,42 @@ namespace BusinessMVC2.Controllers
             return fileResult;
         }
 
-        // helper method to render view to string
-        public string RenderRazorViewToString(string viewName, object model)
+
+
+        protected string RenderRazorViewToString(string viewName, object model)
         {
             ViewData.Model = model;
             using (var sw = new StringWriter())
             {
-                var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext,
-                    viewName);
-                var viewContext = new ViewContext(ControllerContext, viewResult.View,
-                    ViewData, TempData, sw);
+                var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+                var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
                 viewResult.View.Render(viewContext, sw);
                 viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
                 return sw.GetStringBuilder().ToString();
             }
         }
+
+
+        // helper method to render view to string
+        protected string RenderViewToString(ControllerContext context, string viewName, object model)
+        {
+            ViewEngineResult result = ViewEngines.Engines.FindView(context, viewName, null);
+            if (result.View == null)
+            {
+                throw new FileNotFoundException("View cannot be found.");
+            }
+
+            string viewData = "";
+            using (var sw = new StringWriter())
+            {
+                var viewContext = new ViewContext(context, result.View, new ViewDataDictionary(model), new TempDataDictionary(), sw);
+                result.View.Render(viewContext, sw);
+                viewData = sw.ToString();
+            }
+
+            return viewData;
+        }
+
     }
 
 }

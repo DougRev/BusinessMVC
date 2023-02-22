@@ -358,3 +358,6 @@ C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\itextsharp.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Select.HtmlToPdf.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Select.HtmlToPdf.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Select.Html.dep
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Select.HtmlToPdf.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Select.HtmlToPdf.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Select.Html.dep
