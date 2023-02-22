@@ -45,7 +45,7 @@ namespace BusinessModels
         [Display(Name = "Distance to Landfill")]
         public float LandfillDist { get; set; }
 
-        [Display(Name = "Pre-SMT Hauls per Day")]
+        [Display(Name = "Hauls Per Week")]
         public int HaulsPerDay { get; set; }
 
         [Display(Name = "Number of Dumpsters")]
@@ -53,6 +53,15 @@ namespace BusinessModels
 
         [Display(Name = "Pre-SMT Est. Yearly Hauls")]
         public int PreSMTYearlyHauls { get; set; }
+
+        public double TotalCO2SavedV2 { get; set; }
+
+        public double AllEmissionsBaselineTotalsV2 { get; set; }
+        public double AllEmissionsWithSmashTotalsV2 { get; set; }
+        public double AllEmissionsSavedWithSmashV2 { get; set; }
+        public string AllSavingsTotalV2 { get; set; }
+
+
 
         //NOX
 
@@ -76,7 +85,7 @@ namespace BusinessModels
 
         [Display(Name = "NOX Hauler Idling Emissions w/ Smash Services")]
         public double NOXHaulerIdlingEmissionsWithCompactibility { get; set; }*/
-        
+
         [Display(Name = "NOX Total Hauler Emissions")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
         public double TotalNOXBaselineTruckEmissionsV2 { get; set; }

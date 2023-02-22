@@ -28,13 +28,15 @@ namespace BusinessModels
         public Compactibility Compactibility { get; set; }
         public int FranchiseeId { get; set; }
 
-        [Display(Name = "Hauls Per Day")]
+        [Display(Name = "Number of Dumpsters")]
+        public int NumberOfDumpsters { get; set; }
+
+        [Display(Name = "Hauls Per Week")]
         public int HaulsPerDay { get; set; }
 
         [Display(Name = "Distance to Landfill")]
         public float LandfillDist { get; set; }
 
-        [Display(Name = "Number of Dumpsters")]
-        public int NumberOfDumpsters { get; set; }
+
     }
 }

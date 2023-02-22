@@ -174,8 +174,12 @@ namespace BusinessMVC2.Controllers
             var svc = new ClientService(userGuid);
             var model = svc.GetBusinessById(businessId);
 
-            // generate HTML code for the business details
-            string htmlString = RenderViewToString(ControllerContext, "~/Views/Client/BusinessDetailsToPdf.cshtml", model);
+            // generate JavaScript to hide the navbar
+            string script = "function hideNavbar(){var e=document.getElementsByClassName('navbar')[0];if(e){e.style.display='none';}}; hideNavbar();";
+
+            // generate HTML code for the business details and inject JavaScript to hide the navbar
+            string htmlString = RenderViewToString(ControllerContext, "~/Views/Client/BusinessDetailsToPdf.cshtml", model, script);
+
 
             // instantiate a html to pdf converter object
             HtmlToPdf converter = new HtmlToPdf();
@@ -242,7 +246,7 @@ namespace BusinessMVC2.Controllers
 
 
         // helper method to render view to string
-        protected string RenderViewToString(ControllerContext context, string viewName, object model)
+        private string RenderViewToString(ControllerContext context, string viewName, object model, string script)
         {
             ViewEngineResult result = ViewEngines.Engines.FindView(context, viewName, null);
             if (result.View == null)
@@ -255,11 +259,17 @@ namespace BusinessMVC2.Controllers
             {
                 var viewContext = new ViewContext(context, result.View, new ViewDataDictionary(model), new TempDataDictionary(), sw);
                 result.View.Render(viewContext, sw);
-                viewData = sw.ToString();
+
+                // Add the JavaScript code to the end of the HTML body
+                var html = sw.ToString();
+                html = html.Replace("</body>", $"<script>{script}</script></body>");
+
+                viewData = html;
             }
 
             return viewData;
         }
+
 
     }
 

@@ -84,10 +84,12 @@ namespace BusinessServices
                     HaulsPerDay = entity.HaulsPerDay,
                     NumberOfDumpsters = entity.NumberOfDumpsters,
                     PreSMTYearlyHauls = entity.PreSMTYearlyHauls,
+                    TotalCO2SavedV2 = entity.TotalCO2SavedV2,
 
-                    BaselineTotals = entity.AllEmissionsBaselineTotalsV2,
-                    EmissionsWithSmashTotals = entity.AllEmissionsWithSmashTotalsV2,
-                    SavingsTotals = entity.AllSavingsTotalV2,
+                    AllEmissionsBaselineTotalsV2 = entity.AllEmissionsBaselineTotalsV2,
+                    AllEmissionsWithSmashTotalsV2 = entity.AllEmissionsWithSmashTotalsV2,
+                    AllEmissionsSavedWithSmashV2 = entity.AllEmissionsSavedWithSmashV2,
+                    AllSavingsTotalV2 = entity.AllSavingsTotalV2,
 
                     /*NOXBaselineHaulerTruckRunningEmissions = entity.NOXBaselineHaulerTruckRunningEmissionsV2,
                     NOXBaselineHaulerTruckIdlingEmissions = entity.NOXBaselineHaulerTruckIdlingEmissions,

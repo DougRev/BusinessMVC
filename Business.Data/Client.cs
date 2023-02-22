@@ -40,7 +40,7 @@ namespace BusinessData
         [Display(Name = "Hauler Distance to Next Customer")]
         public float FromHaulerDist { get; set; }
 
-        [Display(Name = "Pre-SMT Hauls per Day")]
+        [Display(Name = "Hauls Per Week")]
         public int HaulsPerDay { get; set; }
 
         [Display(Name = "Number of Dumpsters")]
@@ -51,7 +51,7 @@ namespace BusinessData
         {
             get
             {
-                int preSmtYearlyHauls = HaulsPerDay * 260; //Assuming 260 work days
+                int preSmtYearlyHauls =  NumberOfDumpsters * HaulsPerDay * 52; 
                 return preSmtYearlyHauls;
             }
         }

@@ -139,9 +139,9 @@
             </thead>
             <tbody id="emissionsBody">
                 <tr>
-                    <td>@Model.BaselineTotals.ToString("N2")</td>
-                    <td>@Model.EmissionsWithSmashTotals.ToString("N2")</td>
-                    <td>@Model.SavingsTotals</td>
+                    <td>@Model.AllEmissionsBaselineTotalsV2.ToString("N2")</td>
+                    <td>@Model.AllEmissionsWithSmashTotalsV2.ToString("N2")</td>
+                    <td>@Model.AllSavingsTotalV2</td>
                 </tr>
             </tbody>
         </table>
@@ -153,12 +153,12 @@
     @Html.AntiForgeryToken()
 
     <div class="form-group">
-        <label for="TxtUrl">Enter URL:</label>
-        <input type="text" name="TxtUrl" id="TxtUrl" class="form-control" value="https://localhost:44394/Client/BusinessDetailsToPdf/@Model.BusinessId" required />
+        <label for="TxtUrl"></label>
+        <input type="hidden" name="TxtUrl" id="TxtUrl" class="form-control" value="https://localhost:44394/Client/BusinessDetailsToPdf/@Model.BusinessId" required />
     </div>
 
     <input type="hidden" name="DdlPageSize" value="Letter" />
-    <input type="hidden" name="DdlPageOrientation" value="Portrait" />
+    <input type="hidden" name="DdlPageOrientation" value="Landscape" />
     <input type="hidden" name="TxtWidth" value="1024" />
     <input type="hidden" name="TxtHeight" value="0" />
     <input type="hidden" name="BusinessId" value="@Model.BusinessId" />

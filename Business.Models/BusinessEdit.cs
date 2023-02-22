@@ -42,7 +42,7 @@ namespace BusinessModels
         [Display(Name = "Hauler Distance to Next Customer")]
         public float FromHaulerDist { get; set; }
 
-        [Display(Name = "Pre-SMT Hauls per Day")]
+        [Display(Name = "Hauls Per Week")]
         public int HaulsPerDay { get; set; }
 
         [Display(Name = "Number of Dumpsters")]
