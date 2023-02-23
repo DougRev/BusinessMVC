@@ -31,6 +31,7 @@ namespace BusinessServices
                 NumberOfDumpsters = model.NumberOfDumpsters,
                 LandfillDist = model.LandfillDist,
                 Compactibility = model.Compactibility,
+                AddToDb = model.AddToDb,
                 //FranchiseeId = model.FranchiseeId,
 
             };
@@ -209,7 +210,6 @@ namespace BusinessServices
                 //entity.Franchise.FranchiseId = model.FranchiseId;
                 entity.Compactibility = model.Compactibility;
                 entity.State = model.State;
-                entity.XferStation = model.XferStation;
                 entity.ToClientDist = model.ToClientDist;
                 entity.FromClientDist = model.FromClientDist;
                 entity.ToHaulerDist = model.ToHaulerDist;

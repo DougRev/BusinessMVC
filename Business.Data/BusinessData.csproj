@@ -170,6 +170,10 @@
     <Compile Include="Migrations\202302171535564_zyz.designer.cs">
       <DependentUpon>202302171535564_zyz.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302222206571_AddingQuoteView.cs" />
+    <Compile Include="Migrations\202302222206571_AddingQuoteView.designer.cs">
+      <DependentUpon>202302222206571_AddingQuoteView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -240,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302171535564_zyz.resx">
       <DependentUpon>202302171535564_zyz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302222206571_AddingQuoteView.resx">
+      <DependentUpon>202302222206571_AddingQuoteView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

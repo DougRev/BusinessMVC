@@ -37,6 +37,9 @@ namespace BusinessModels
         [Display(Name = "Distance to Landfill")]
         public float LandfillDist { get; set; }
 
+        [Display(Name = "Save")]
+        public bool AddToDb { get; set; }
+
 
     }
 }

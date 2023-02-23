@@ -31,8 +31,46 @@ namespace BusinessMVC2.Controllers
 
         public ActionResult Create()
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var svc = new FranchiseService(userId);
+
+            ViewBag.Franchises = svc.GetFranchises().Select(f => new {
+                FranchiseId = f.FranchiseId,
+                FranchiseName = f.FranchiseName
+            }).ToList();
+
             return View();
         }
+
+        public ActionResult Quote()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ClientService(userId);
+            var svc = new FranchiseService(userId);
+
+            ViewBag.Franchises = svc.GetFranchises().Select(f => new {
+                FranchiseId = f.FranchiseId,
+                FranchiseName = f.FranchiseName
+            }).ToList();
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Quote(BusinessCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ClientService(userId);
+            service.CreateBusiness(model);
+
+            return RedirectToAction("Index");
+        }
+
         private ClientService CreateBusinessService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

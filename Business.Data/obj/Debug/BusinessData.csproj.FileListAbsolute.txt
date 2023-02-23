@@ -133,3 +133,4 @@ C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Mi
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.testingF.resources
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.testingF1.resources
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.zyz.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddingQuoteView.resources

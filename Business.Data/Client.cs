@@ -22,8 +22,8 @@ namespace BusinessData
         public virtual Franchise Franchise { get; set; }
 
 
-        [Display(Name = "Transfer Station")]
-        public bool XferStation { get; set; }
+        [Display(Name = "Save")]
+        public bool AddToDb { get; set; }
 
         [Display(Name = "SMT Distance to Client")]
         public float ToClientDist { get; set; }
