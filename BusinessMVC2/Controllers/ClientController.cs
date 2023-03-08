@@ -11,6 +11,10 @@ using SelectPdf;
 using System.IO;
 using iTextSharp.text;
 using System.Drawing.Printing;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Services;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
 
 namespace BusinessMVC2.Controllers
 {
@@ -28,6 +32,43 @@ namespace BusinessMVC2.Controllers
 
             //return View();
         }
+
+
+        public class GoogleSheetsApiHelper
+        {
+            private readonly UserCredential _credential;
+
+            public GoogleSheetsApiHelper(string clientId, string clientSecret, string[] scopes, string applicationName)
+            {
+                _credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    new ClientSecrets
+                    {
+                        ClientId = clientId,
+                        ClientSecret = clientSecret,
+                    },
+                    scopes,
+                    "user",
+                    System.Threading.CancellationToken.None).Result;
+
+                Service = new SheetsService(new BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = _credential,
+                    ApplicationName = applicationName,
+                });
+            }
+
+
+            public SheetsService Service { get; }
+
+            public List<IList<Object>> GetSheetData(string spreadsheetId, string range)
+            {
+                SpreadsheetsResource.ValuesResource.GetRequest getRequest = Service.Spreadsheets.Values.Get(spreadsheetId, range);
+                ValueRange response = getRequest.Execute();
+                List<IList<Object>> data = response.Values.ToList();
+                return data;
+            }
+        }
+
 
         public ActionResult Create()
         {
@@ -114,6 +155,9 @@ namespace BusinessMVC2.Controllers
                 BusinessId = detail.BusinessId,
                 BusinessName = detail.BusinessName,
                 State = detail.State,
+                City = detail.City,
+                Address = detail.Address,
+                ZipCode = detail.ZipCode,
                 FranchiseId = detail.FranchiseId,
                 Compactibility = detail.Compactibility,
                 FranchiseeId = detail.FranchiseeId,

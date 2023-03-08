@@ -18,13 +18,19 @@ namespace BusinessModels
         [Display(Name = "Client Name")]
         public string BusinessName { get; set; }
 
-        [Display(Name = "Franchise ID")]
+        [Display(Name = "Account")]
         public int FranchiseId { get; set; }
 
         [Display(Name = "Franchise Name")]
         public string FranchiseName { get; set; }
         public Guid OwnerId { get; set; }
+        [Display(Name = "Facility ID")]
+        public string FacilityID { get; set; }
         public State State { get; set; }
+        public string City { get; set; }
+        public string Address { get; set; }
+        [Display(Name = "Zip Code")]
+        public int ZipCode { get; set; }
         public Compactibility Compactibility { get; set; }
         public int FranchiseeId { get; set; }
 
@@ -34,7 +40,7 @@ namespace BusinessModels
         [Display(Name = "Hauls Per Week")]
         public int HaulsPerDay { get; set; }
 
-        [Display(Name = "Distance to Landfill")]
+        [Display(Name = "Distance to Landfill (One Way)")]
         public float LandfillDist { get; set; }
 
         [Display(Name = "Save")]

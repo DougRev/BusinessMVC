@@ -25,7 +25,11 @@ namespace BusinessServices
                 OwnerId = _userId,
                 BusinessId = model.BusinessId,
                 BusinessName = model.BusinessName,
+                FacilityID = model.FacilityID,
                 State = model.State,
+                City = model.City,
+                Address = model.Address,
+                ZipCode = model.ZipCode,
                 FranchiseId = model.FranchiseId,
                 HaulsPerDay = model.HaulsPerDay,
                 NumberOfDumpsters = model.NumberOfDumpsters,
@@ -51,6 +55,7 @@ namespace BusinessServices
                     {
                         BusinessId = e.BusinessId,
                         BusinessName = e.BusinessName,
+                        FacilityID=e.FacilityID,
                         State = e.State,
                         FranchiseName = e.Franchise.FranchiseName,
                     });
@@ -71,7 +76,11 @@ namespace BusinessServices
                 {
                     BusinessId = entity.BusinessId,
                     BusinessName = entity.BusinessName,
+                    FacilityID = entity.FacilityID,
                     State = entity.State,
+                    City = entity.City,
+                    Address = entity.Address,
+                    ZipCode = entity.ZipCode,
                     //FranchiseeId = entity.FranchiseeId,
                     //FranchiseeName = entity.Franchisee.FranchiseeName,
                     FranchiseId = entity.Franchise.FranchiseId,
@@ -206,10 +215,14 @@ namespace BusinessServices
                     .Clients
                     .Single(e => e.BusinessId == model.BusinessId);
                 entity.BusinessName = model.BusinessName;
+                entity.FacilityID = model.FacilityID;
                 //entity.Franchisee.FranchiseeId = model.FranchiseeId;
                 //entity.Franchise.FranchiseId = model.FranchiseId;
                 entity.Compactibility = model.Compactibility;
+                entity.Address = model.Address;
+                entity.City = model.City;
                 entity.State = model.State;
+                entity.ZipCode = model.ZipCode;
                 entity.ToClientDist = model.ToClientDist;
                 entity.FromClientDist = model.FromClientDist;
                 entity.ToHaulerDist = model.ToHaulerDist;

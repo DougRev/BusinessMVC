@@ -134,3 +134,12 @@ C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Mi
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.testingF1.resources
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.zyz.resources
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddingQuoteView.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddAddress.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.addFacilityID.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Core.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.pdb
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Core.pdb
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Core.xml
