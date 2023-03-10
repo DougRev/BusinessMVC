@@ -60,8 +60,7 @@ namespace BusinessModels
         [Display(Name = "Pre-SMT Est. Yearly Hauls")]
         public int PreSMTYearlyHauls { get; set; }
 
-        public double TotalCO2SavedV2 { get; set; }
-
+       
         public double AllEmissionsBaselineTotalsV2 { get; set; }
         public double AllEmissionsWithSmashTotalsV2 { get; set; }
         public double AllEmissionsSavedWithSmashV2 { get; set; }
@@ -356,6 +355,9 @@ namespace BusinessModels
 
         [Display(Name = "CO2 Total SMT Emissions")]
         public double TotalCO2EmissionsWithSmashV2 { get; set; }
+
+        [Display(Name = "Total CO2 Saved")]
+        public double TotalCO2SavedV2 { get; set; }
 
         [Display(Name = "CO2 Percent Saved using SMT")]
         public string CO2PercentSavedV2 { get; set; }

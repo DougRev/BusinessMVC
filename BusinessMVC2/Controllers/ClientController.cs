@@ -154,6 +154,7 @@ namespace BusinessMVC2.Controllers
             {
                 BusinessId = detail.BusinessId,
                 BusinessName = detail.BusinessName,
+                FacilityID = detail.FacilityID,
                 State = detail.State,
                 City = detail.City,
                 Address = detail.Address,
@@ -351,7 +352,6 @@ namespace BusinessMVC2.Controllers
 
             return viewData;
         }
-
 
     }
 

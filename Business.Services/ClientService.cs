@@ -55,7 +55,9 @@ namespace BusinessServices
                     {
                         BusinessId = e.BusinessId,
                         BusinessName = e.BusinessName,
-                        FacilityID=e.FacilityID,
+                        FacilityID = e.FacilityID,
+                        Address = e.Address,
+                        City = e.City,
                         State = e.State,
                         FranchiseName = e.Franchise.FranchiseName,
                     });

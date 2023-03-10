@@ -14,6 +14,7 @@
 <div class="form-horizontal">
     <h4></h4>
     <hr />
+    <div id="create-form">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.HiddenFor(model => model.BusinessId, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -71,7 +72,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.FranchiseId, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.FranchiseId, new SelectList(ViewBag.Franchises, "FranchiseId", "FranchiseName"), "Select a franchise", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.FranchiseId, new SelectList(ViewBag.Franchises, "FranchiseId", "FranchiseName"), "Select an Account", new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.FranchiseId, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -118,6 +119,7 @@
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-primary" />
         </div>
+    </div>
     </div>
 </div>
 }

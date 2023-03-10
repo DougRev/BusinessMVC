@@ -50,6 +50,8 @@ namespace BusinessServices
             }
         }
 
+
+
         /*public FranchiseDetails GetClientsByFranchiseId(int franchiseId)
         {
             using (var ctx = new ApplicationDbContext())
