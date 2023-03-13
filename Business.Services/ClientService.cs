@@ -213,18 +213,18 @@ namespace BusinessServices
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx
-                    .Clients
-                    .Single(e => e.BusinessId == model.BusinessId);
+                var entity =
+                    ctx
+                        .Clients
+                        .Single(e => e.BusinessId == model.BusinessId);
+
                 entity.BusinessName = model.BusinessName;
                 entity.FacilityID = model.FacilityID;
-                //entity.Franchisee.FranchiseeId = model.FranchiseeId;
-                //entity.Franchise.FranchiseId = model.FranchiseId;
-                entity.Compactibility = model.Compactibility;
-                entity.Address = model.Address;
-                entity.City = model.City;
                 entity.State = model.State;
+                entity.City = model.City;
+                entity.Address = model.Address;
                 entity.ZipCode = model.ZipCode;
+                entity.Compactibility = model.Compactibility;
                 entity.ToClientDist = model.ToClientDist;
                 entity.FromClientDist = model.FromClientDist;
                 entity.ToHaulerDist = model.ToHaulerDist;
@@ -233,11 +233,16 @@ namespace BusinessServices
                 entity.HaulsPerDay = model.HaulsPerDay;
                 entity.NumberOfDumpsters = model.NumberOfDumpsters;
 
+                // update franchise if it has changed
+                if (entity.FranchiseId != model.FranchiseId)
+                {
+                    entity.FranchiseId = model.FranchiseId;
+                }
 
                 return ctx.SaveChanges() == 1;
             }
-
         }
+
         public bool DeleteBusiness(int businessId)
         {
             using (var ctx = new ApplicationDbContext())
