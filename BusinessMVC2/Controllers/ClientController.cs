@@ -1,4 +1,5 @@
 ﻿using BusinessData;
+using BusinessData.Enum;
 using BusinessModels;
 using BusinessServices;
 using Google.Apis.Auth.OAuth2;
@@ -496,7 +497,9 @@ namespace BusinessMVC2.Controllers
                         NumberOfDumpsters = int.Parse(row[6].ToString()),
                         HaulsPerDay = int.Parse(row[7].ToString()),
                         LandfillDist = int.Parse(row[8].ToString()),
-                        // ... add other properties
+                        State = (State)Enum.Parse(typeof(State), row[9].ToString(), true), // Add State property
+                        Compactibility = (Compactibility)Enum.Parse(typeof(Compactibility), row[10].ToString(), true), // Add Compactibility property
+                                                                                                                                      // ... add other properties
                     };
 
                     clients.Add(client);

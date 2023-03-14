@@ -69,10 +69,14 @@
     }
 
 </table>
+<div id="upload-download-container">
+
 @Html.ActionLink("Update Google Sheet", "TestUpdateGoogleSheet", "Client", null, new { @class = "btn btn-primary" })
+<br />
 <br />
 @using (Html.BeginForm("ImportClientsFromGoogleSheet", "Client", FormMethod.Post))
 {
-    <input type="submit" value="Import Clients from Google Sheet" class="btn btn-primary" />
+    <input type="submit" value="Import Clients" class="btn btn-primary" />
 }
+</div>
 

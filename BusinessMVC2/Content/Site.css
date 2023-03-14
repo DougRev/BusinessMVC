@@ -267,7 +267,7 @@ input, select, textarea {
 .form-horizontal {
     margin: 0 auto;
     max-width: 800px;
-    padding: 30px;
+    padding: 25px;
     background-color: #f7f7f7;
     border: 1px solid #ddd;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
@@ -306,18 +306,21 @@ input, select, textarea {
     display: inline-block;
     background-color: #bb1e10;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     border: none;
     border-radius: 4px;
-    padding: 6px 12px;
+    padding: 10px 0 10px 0;
     margin-top: 10px;
     cursor: pointer;
+    width: 100%;
 }
 
 .form-horizontal input[type="submit"]:hover {
-    background-color: #286090;
+    background-color: #fff;
+    color: #bb1e10;
+    border: 1px #bb1e10 solid;
 }
 
 /* Add some spacing between the form elements */
@@ -343,18 +346,15 @@ input, select, textarea {
     color: #b94a48;
 }
 
-/* Add some space above the form */
-#create-form {
-    margin-top: 50px;
-}
 /* Style the page title */
 h2 {
     margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 35px;
     text-align: center;
     color: #bb1e10;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-weight: 900;
 }
 .wrapper {
     flex: 1;
@@ -362,8 +362,4 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#lfd {
-    padding-right: 50px;
 }
