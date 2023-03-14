@@ -23,7 +23,9 @@ namespace BusinessModels
         public string City { get; set; }
         public string Address { get; set; }
         [Display(Name = "Zip Code")]
+        [Range(1, 99950, ErrorMessage = "Zip code must be between 00001 and 99950.")]
         public int ZipCode { get; set; }
+
         public Guid OwnerId { get; set; }
 
         //public virtual Franchisee Franchisee { get; set; }
@@ -42,13 +44,13 @@ namespace BusinessModels
         [Display(Name = "SMT Distance from Client")]
         public float FromClientDist { get; set; }
 
-        [Display(Name = "Hauler Distance to Customer")]
+        [Display(Name = "Hauler Distance to Client")]
         public float ToHaulerDist { get; set; }
 
-        [Display(Name = "Hauler Distance from Customer")]
+        [Display(Name = "Hauler Distance from Client")]
         public float FromHaulerDist { get; set; }
 
-        [Display(Name = "Distance to Landfill")]
+        [Display(Name = "Distance to Landfill (One Way)")]
         public float LandfillDist { get; set; }
 
         [Display(Name = "Hauls Per Week")]

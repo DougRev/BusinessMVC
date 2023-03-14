@@ -25,8 +25,11 @@ namespace BusinessModels
         public string City { get; set; }
         public string Address { get; set; }
         [Display(Name = "Zip Code")]
+        [Range(1, 99950, ErrorMessage = "Zip code must be between 00001 and 99950.")]
         public int ZipCode { get; set; }
+
         public Guid OwnerId { get; set; }
+        [Display(Name = "Account")]
         public int FranchiseId { get; set; }
         public List<SelectListItem> Franchises { get; set; }
 
@@ -46,11 +49,11 @@ namespace BusinessModels
         [Display(Name = "Hauler Distance to Client")]
         public float ToHaulerDist { get; set; }
 
-        [Display(Name = "Hauler Distance to Landfill")]
-        public float LandfillDist { get; set; }
-
-        [Display(Name = "Hauler Distance to Next Customer")]
+        [Display(Name = "Hauler Distance from Client")]
         public float FromHaulerDist { get; set; }
+
+        [Display(Name = "Distance to Landfill (One Way)")]
+        public float LandfillDist { get; set; }
 
         [Display(Name = "Hauls Per Week")]
         public int HaulsPerDay { get; set; }
@@ -58,9 +61,8 @@ namespace BusinessModels
         [Display(Name = "Number of Dumpsters")]
         public int NumberOfDumpsters { get; set; }
 
-        [Display(Name = "Pre-SMT Est. Yearly Hauls ")]
+        [Display(Name = "Pre-SMT Est. Yearly Hauls")]
         public int PreSMTYearlyHauls { get; set; }
-
 
         //public virtual Franchisee Franchisee { get; set; }
     }
