@@ -154,6 +154,7 @@ namespace BusinessMVC2.Controllers
             {
                 BusinessId = detail.BusinessId,
                 BusinessName = detail.BusinessName,
+                FacilityID = detail.FacilityID,
                 State = detail.State,
                 City = detail.City,
                 Address = detail.Address,
@@ -168,11 +169,18 @@ namespace BusinessMVC2.Controllers
                 LandfillDist = detail.LandfillDist,
                 HaulsPerDay = detail.HaulsPerDay,
                 NumberOfDumpsters = detail.NumberOfDumpsters,
-                
-                
             };
+
+            // retrieve franchises and select the current franchise
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var franchiseService = new FranchiseService(userId);
+            var franchises = franchiseService.GetFranchises();
+            var selectedFranchise = franchises.FirstOrDefault(f => f.FranchiseId == detail.FranchiseId);
+            model.Franchises = franchises.Select(f => new SelectListItem { Value = f.FranchiseId.ToString(), Text = f.FranchiseName, Selected = f == selectedFranchise }).ToList();
+
             return View(model);
         }
+
 
         //POST: Edit
         //Client/Edit/{id}
@@ -351,7 +359,6 @@ namespace BusinessMVC2.Controllers
 
             return viewData;
         }
-
 
     }
 

@@ -41,19 +41,24 @@ textarea {
 }
 
 .emissions-btn {
-    background-color: #4CAF50; /* Green */
+    background-color: #bb1e10; /* SMT RED */
     border: none;
     color: white;
+    margin: 30px 10px 30px 0px;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 4px 2px;
     cursor: pointer;
     border-radius: 3px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
+
+    .emissions-btn:hover {
+        color: #bb1e10;
+        background-color: white;
+    }
 
 #client-emissions dt{
     border: 1px solid black;
@@ -67,6 +72,7 @@ display: inline-block;
 #client-inputs {
     width: 235px;
     height: 500px;
+    margin: 5px;
 }
 
 #client-inputs dl {
@@ -74,9 +80,10 @@ display: inline-block;
 }
 
 #input-header {
-    background-color: #ddd;
+    background-color: #bb1e10;
     padding: .5em;
     margin-top: 19px;
+    color: white;
 }
 #client-inputs dt {
     font-size: 12px;
@@ -108,8 +115,8 @@ display: inline-block;
     }
 
     #emissions th {
-        background-color: #ddd;
-        color: black;
+        background-color: #bb1e10;
+        color: white;
     }
 
 
@@ -155,12 +162,18 @@ a {
     font-size: 14px;
     line-height: 1.42857143;
     text-transform: uppercase;
+    background-color: #bb1e10;
+    color: #fff;
 }
 
 .btn-primary {
+    background-color: #bb1e10;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 1.42857143;
 }
 
     .btn-primary:hover {
@@ -191,6 +204,11 @@ a {
     border-spacing: 0;
 }
 
+.table th {
+    background-color: #bb1e10;
+    color: #fff;
+}
+
     .table-container td, .table-container th {
         padding: 8px;
         line-height: 1.42857143;
@@ -214,3 +232,78 @@ a {
     .table-container tbody td:first-child {
         font-weight: bold;
     }
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333;
+    background-color: #f5f5f5;
+    padding-top: 70px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+    .jumbotron h1 {
+        font-size: 60px;
+        line-height: 1;
+        color: #337ab7;
+    }
+
+    .jumbotron p {
+        font-size: 24px;
+        color: #5cb85c;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .open .dropdown-toggle.btn-primary {
+        color: #fff;
+        background-color: #286090;
+        border-color: #204d74;
+    }
+.card {
+    border: none;
+    margin-bottom: 30px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+    border: solid 2px black;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+    padding: 20px;
+}
+.card-body h5{
+    font-weight: bold ;
+}
+.card-title {
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin-bottom: 20px;
+}
+
+.align-middle {
+    display: block;
+    margin: auto;
+}
+
+@media (max-width: 767.98px) {
+    .card-img-top {
+        height: 150px;
+    }
+}
+
+

@@ -1,4 +1,5 @@
 ﻿using BusinessData;
+using BusinessModels;
 using BusinessModels.Franchise;
 using BusinessServices;
 using Microsoft.AspNet.Identity;
@@ -58,6 +59,7 @@ namespace BusinessMVC2.Controllers
             var model = svc.GetClientsByFranchiseId(id);
             return View(model);
         }
+
 
         //GET: Edit
         //Franchise/Edit/{id}
@@ -125,5 +127,29 @@ namespace BusinessMVC2.Controllers
 
             return RedirectToAction("Index");
         }
+
+        // GET: List
+        // Franchise/List/{id}
+        public ActionResult List(int id)
+        {
+            var svc = CreateFranchiseService();
+            var clients = svc.GetClientsByFranchiseId(id);
+            var model = clients.Clients.Select(c => new BusinessListItem
+            {
+                BusinessId = c.BusinessId,
+                BusinessName = c.BusinessName,
+                FranchiseName = c.Franchise.FranchiseName,
+                FacilityID = c.FacilityID,
+                Address = c.Address,
+                City = c.City,
+                State = c.State,
+                ZipCode = c.ZipCode,
+                OwnerId = c.OwnerId,
+            });
+            return View(model);
+        }
+
+
+
     }
 }

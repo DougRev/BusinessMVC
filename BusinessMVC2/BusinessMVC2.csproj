@@ -320,10 +320,11 @@
     <Content Include="Views\Franchise\Index.cshtml" />
     <Content Include="Views\Franchise\Create.cshtml" />
     <Content Include="Views\Franchise\Edit.cshtml" />
-    <Content Include="Views\Franchise\DeleteFranchise.cshtml" />
+    <Content Include="Views\Franchise\Delete.cshtml" />
     <Content Include="Views\Franchise\Details.cshtml" />
     <Content Include="Views\Client\BusinessDetailsToPdf.cshtml" />
     <Content Include="Views\Client\Quote.cshtml" />
+    <Content Include="Views\Franchise\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

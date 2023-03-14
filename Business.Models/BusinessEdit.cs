@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using System.Xml.Linq;
 
 namespace BusinessModels
@@ -27,6 +28,8 @@ namespace BusinessModels
         public int ZipCode { get; set; }
         public Guid OwnerId { get; set; }
         public int FranchiseId { get; set; }
+        public List<SelectListItem> Franchises { get; set; }
+
         public string FranchiseName { get; set; }
         public int FranchiseeId { get; set; }
         public Compactibility Compactibility { get; set; }

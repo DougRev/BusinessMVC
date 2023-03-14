@@ -143,3 +143,14 @@ C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.pdb
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.xml
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Core.pdb
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Core.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Core.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.pdb
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Core.pdb
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Core.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.zyz.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddingQuoteView.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddAddress.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addFacilityID.resources
