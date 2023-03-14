@@ -154,3 +154,10 @@ C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessDa
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddingQuoteView.resources
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.AddAddress.resources
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addFacilityID.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Auth.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Auth.pdb
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Auth.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.pdb
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.xml
