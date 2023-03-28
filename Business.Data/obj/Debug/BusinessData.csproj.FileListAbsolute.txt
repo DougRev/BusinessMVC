@@ -161,3 +161,12 @@ C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Aut
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Auth.xml
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.pdb
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Auth.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Auth.pdb
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Auth.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.pdb
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.testmig10.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addCO2EQFactsToFranchise.resources

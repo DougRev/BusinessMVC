@@ -16,6 +16,8 @@ namespace BusinessServices
         {
             _userId = userId;
         }
+        public FranchiseService() { }
+
 
         public bool CreateFranchise(FranchiseCreate model)
         {

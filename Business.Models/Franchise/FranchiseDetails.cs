@@ -20,6 +20,9 @@ namespace BusinessModels.Franchise
         public float EmissionsTotal { get; set; }
         public List<Client> Clients { get; set; }
         public double EmissionsSavedWithSmash { get; set; }
-
+        public int GallonsSaved { get; set; }
+        public int CoalSaved { get; set; }
+        public int VehiclesSaved { get; set; }
+        public int SmartPhonesSaved { get; set; }
     }
 }

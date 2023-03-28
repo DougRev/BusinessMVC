@@ -48,13 +48,10 @@ namespace BusinessMVC2.Controllers
 
             return View();
         }
-
+        [AllowAnonymous]
         public ActionResult Quote()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ClientService(userId);
-            var svc = new FranchiseService(userId);
-
+            var svc = new FranchiseService();
             ViewBag.Franchises = svc.GetFranchises().Select(f => new
             {
                 FranchiseId = f.FranchiseId,
@@ -64,20 +61,76 @@ namespace BusinessMVC2.Controllers
             return View();
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Quote(BusinessCreate model)
         {
             if (ModelState.IsValid)
             {
                 return View(model);
             }
-            var userId = Guid.Parse(User.Identity.GetUserId());
+
+            Guid userId;
+            if (User.Identity.IsAuthenticated)
+            {
+                userId = Guid.Parse(User.Identity.GetUserId());
+            }
+            else
+            {
+                // Use a default user ID if none is available
+                userId = Guid.NewGuid();
+            }
+
             var service = new ClientService(userId);
             service.CreateBusiness(model);
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult QuoteDetailsToPdf(BusinessDetails model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Quote", model);
+            }
+
+            // Perform necessary calculations here
+
+            // Pass the quote details to the view
+            var viewModel = new BusinessDetails
+            {
+                BusinessName = model.BusinessName,
+                State = model.State,
+                FacilityID = model.FacilityID,
+                City = model.City,
+                Address = model.Address,
+                ZipCode = model.ZipCode,
+                FranchiseName = model.FranchiseName,
+                HaulsPerDay = model.HaulsPerDay,
+                NumberOfDumpsters = model.NumberOfDumpsters,
+                Compactibility = model.Compactibility,
+                ToClientDist = model.ToClientDist,
+                FromClientDist = model.FromClientDist,
+                ToHaulerDist = model.ToHaulerDist,
+                LandfillDist = model.LandfillDist,
+                FromHaulerDist = model.FromHaulerDist,
+                TotalCO2SavedV2 = model.TotalCO2SavedV2,
+                AllEmissionsBaselineTotalsV2 = model.AllEmissionsBaselineTotalsV2,
+                AllEmissionsWithSmashTotalsV2 = model.AllEmissionsWithSmashTotalsV2,
+                AllEmissionsSavedWithSmashV2 = model.AllEmissionsSavedWithSmashV2,
+                AllSavingsTotalV2 = model.AllSavingsTotalV2,
+                TotalNOXBaselineTruckEmissionsV2 = model.TotalNOXBaselineTruckEmissionsV2,
+                TotalNOXEmissionsWithSmashV2 = model.TotalNOXEmissionsWithSmashV2,
+                NOXPercentSavedV2 = model.NOXPercentSavedV2
+            };
+
+            return View("QuoteDetailsToPdf", viewModel);
+        }
+
+
 
         private ClientService CreateBusinessService()
         {
@@ -336,14 +389,14 @@ namespace BusinessMVC2.Controllers
 
             // Read the JSON credentials file and create the SheetsService
             UserCredential credential;
-            using (var stream = new FileStream("C:\\Users\\xXTur\\source\\repos\\BusinesssMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.FromStream(stream).Secrets,
                     Scopes,
                     "user",
                     CancellationToken.None,
-                    new FileDataStore("C:\\Users\\xXTur\\source\\repos\\BusinesssMVC\\BusinessMVC2\\Content\\", true));
+                    new FileDataStore("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\", true));
             }
 
             var service = new SheetsService(new BaseClientService.Initializer()
@@ -425,14 +478,14 @@ namespace BusinessMVC2.Controllers
 
             // Read the JSON credentials file and create the SheetsService
             UserCredential credential;
-            using (var stream = new FileStream("C:\\Users\\xXTur\\source\\repos\\BusinesssMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.FromStream(stream).Secrets,
                     Scopes,
                     "user",
                     CancellationToken.None,
-                    new FileDataStore("C:\\Users\\xXTur\\source\\repos\\BusinesssMVC\\BusinessMVC2\\Content\\", true));
+                    new FileDataStore("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\", true));
             }
 
             var service = new SheetsService(new BaseClientService.Initializer()
@@ -459,14 +512,14 @@ namespace BusinessMVC2.Controllers
 
             // Read the JSON credentials file and create the SheetsService
             UserCredential credential;
-            using (var stream = new FileStream("C:\\Users\\xXTur\\source\\repos\\BusinesssMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.FromStream(stream).Secrets,
                     Scopes,
                     "user",
                     CancellationToken.None,
-                    new FileDataStore("C:\\Users\\xXTur\\source\\repos\\BusinesssMVC\\BusinessMVC2\\Content\\", true));
+                    new FileDataStore("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\", true));
             }
 
             var service = new SheetsService(new BaseClientService.Initializer()
@@ -493,7 +546,7 @@ namespace BusinessMVC2.Controllers
                         FacilityID = row[2].ToString(),
                         Address = row[3].ToString(),
                         City = row[4].ToString(),
-                        ZipCode = int.Parse(range[5].ToString()),
+                        ZipCode = int.Parse(row[5].ToString()),
                         NumberOfDumpsters = int.Parse(row[6].ToString()),
                         HaulsPerDay = int.Parse(row[7].ToString()),
                         LandfillDist = int.Parse(row[8].ToString()),
