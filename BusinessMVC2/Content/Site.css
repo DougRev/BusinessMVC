@@ -1,134 +1,11 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-    background-color: #777;
-    border-color: #fff
-}
-
-#client-details{
-    display: inline-block;
-}
-
-#client-emissions{
-    position: absolute;
-    display: inline-block;
-
-}
-
-.emissions-btn {
-    background-color: #bb1e10; /* SMT RED */
-    border: none;
-    color: white;
-    margin: 30px 10px 30px 0px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 3px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-    .emissions-btn:hover {
-        color: #bb1e10;
-        background-color: white;
-    }
-
-#client-emissions dt{
-    border: 1px solid black;
-}
-
-#client-emissions dd{
-display: inline-block;
-
-}
-
-#client-inputs {
-    width: 235px;
-    height: 500px;
-    margin: 5px;
-}
-
-#client-inputs dl {
-    overflow: hidden;
-}
-
-#input-header {
-    background-color: #bb1e10;
-    padding: .5em;
-    margin-top: 19px;
-    color: white;
-}
-#client-inputs dt {
-    font-size: 12px;
-    float: left;
-    padding-right: 5px;
-}
-
-#client-inputs dd {
-    font-size: 12px;
-}
-
-/**Open AI Provided CSS**/
-
-#client-emissions {
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#emissions {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-    #emissions th, #emissions td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-
-    #emissions th {
-        background-color: #bb1e10;
-        color: white;
-    }
-
-
-
-/* General styling */
-
+﻿/* Global styling */
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.428571429;
     color: #333;
     background-color: #f5f5f5;
+    padding-top: 70px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -165,7 +42,11 @@ a {
     background-color: #bb1e10;
     color: #fff;
 }
-
+.btn-default :hover {
+    color: #bb1e10;
+    background-color: #fff;
+    border-color: #bb1e10;
+}
 .btn-primary {
     background-color: #bb1e10;
     color: #fff;
@@ -177,13 +58,52 @@ a {
 }
 
     .btn-primary:hover {
-        color: #fff;
-        background-color: #286090;
-        border-color: #204d74;
+        color: #bb1e10;
+        background-color: #fff;
+        border-color: #bb1e10;
     }
 
-/* Page-specific styling */
+.card {
+    border: none;
+    margin-bottom: 30px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+}
 
+.card-img-top {
+    border: solid 2px black;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+    padding: 20px;
+}
+
+    .card-body h5 {
+        font-weight: bold;
+    }
+
+.card-title {
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin-bottom: 20px;
+}
+
+.align-middle {
+    display: block;
+    margin: auto;
+}
+
+@media (max-width: 767.98px) {
+    .card-img-top {
+        height: 150px;
+    }
+}
+
+/* Page-specific styling */
 #container {
     width: 80%;
     margin: 0 auto;
@@ -205,41 +125,32 @@ a {
 }
 
 .table th {
-    background-color: #bb1e10;
+    background-color: black;
     color: #fff;
 }
 
-    .table-container td, .table-container th {
-        padding: 8px;
-        line-height: 1.42857143;
-        vertical-align: top;
-        border-top: 1px solid #ddd;
-    }
+.table-container td, .table-container th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
 
-    .table-container th {
-        font-weight: bold;
-        background-color: #f5f5f5;
-    }
-
-    .table-container tbody tr:nth-of-type(odd) {
-        background-color: #f9f9f9;
-    }
-
-    .table-container tbody tr:hover {
-        background-color: #f5f5f5;
-    }
-
-    .table-container tbody td:first-child {
-        font-weight: bold;
-    }
-
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.428571429;
-    color: #333;
+.table-container th {
+    font-weight: bold;
     background-color: #f5f5f5;
-    padding-top: 70px;
+}
+
+.table-container tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-container tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.table-container tbody td:first-child {
+    font-weight: bold;
 }
 
 .jumbotron {
@@ -259,51 +170,196 @@ body {
         color: #5cb85c;
     }
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active,
-    .btn-primary.active,
-    .open .dropdown-toggle.btn-primary {
-        color: #fff;
-        background-color: #286090;
-        border-color: #204d74;
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #777;
+    border-color: #fff
+}
+
+#client-details {
+    display: inline-block;
+}
+
+#client-emissions {
+    position: absolute;
+    display: inline-block;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+    #client-emissions dt {
+        border: 1px solid black;
     }
-.card {
+
+    #client-emissions dd {
+        display: inline-block;
+    }
+
+#client-inputs {
+    width: 235px;
+    height: 500px;
+    margin: 5px;
+}
+
+    #client-inputs dl {
+        overflow: hidden;
+    }
+
+#input-header {
+    background-color: black;
+    padding: .5em;
+    margin-top: 19px;
+    color: white;
+}
+
+#client-inputs dt {
+    font-size: 12px;
+    float: left;
+    padding-right: 5px;
+}
+
+#client-inputs dd {
+    font-size: 12px;
+}
+
+input, select, textarea {
+    max-width: 280px;
+}
+
+.emissions-btn {
+    background-color: #bb1e10; /* SMT RED */
     border: none;
-    margin-bottom: 30px;
+    color: white;
+    margin: 30px 10px 30px 0px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+    .emissions-btn:hover {
+        color: #bb1e10;
+        background-color: white;
+    }
+
+#emissions {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #emissions th, #emissions td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    #emissions th {
+        background-color: black;
+        color: white;
+    }
+
+    /* Center the form and add some padding */
+.form-horizontal {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 25px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
-.card-img-top {
-    border: solid 2px black;
-    height: 250px;
-    object-fit: cover;
+/* Style the form labels */
+.form-horizontal label.control-label {
+
 }
 
-.card-body {
-    text-align: center;
-    padding: 20px;
-}
-.card-body h5{
-    font-weight: bold ;
-}
-.card-title {
-    margin-bottom: 10px;
-}
 
-.card-text {
-    margin-bottom: 20px;
-}
-
-.align-middle {
-    display: block;
-    margin: auto;
-}
-
-@media (max-width: 767.98px) {
-    .card-img-top {
-        height: 150px;
+    /* Style the form inputs */
+    .form-horizontal input[type="text"],
+    .form-horizontal input[type="password"],
+    .form-horizontal select {
+        height: 40px;
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     }
+
+/* Style the form buttons */
+.form-horizontal input[type="submit"] {
+    display: inline-block;
+    background-color: #bb1e10;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 0 10px 0;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
 }
 
+.form-horizontal input[type="submit"]:hover {
+    background-color: #fff;
+    color: #bb1e10;
+    border: 1px #bb1e10 solid;
+}
 
+/* Add some spacing between the form elements */
+
+
+/* Style the validation messages */
+.field-validation-error {
+    color: #b94a48;
+}
+
+/* Style the validation summary */
+.validation-summary-errors {
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Style the validation error messages */
+.text-danger {
+    color: #b94a48;
+}
+
+/* Style the page title */
+h2 {
+    margin-bottom: 30px;
+    font-size: 35px;
+    text-align: center;
+    color: #bb1e10;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

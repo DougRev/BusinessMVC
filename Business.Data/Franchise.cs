@@ -22,6 +22,10 @@ namespace BusinessData
         {
             return Clients.Where(c => c.FranchiseId == franchiseId).ToList();
         }
+        public int GallonsSaved { get; set; }
+        public int CoalSaved { get; set; }
+        public int VehiclesSaved { get; set; }
+        public int SmartPhonesSaved { get; set; }
 
     }
 }
