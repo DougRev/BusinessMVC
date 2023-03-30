@@ -7,6 +7,7 @@
     {
         public override void Up()
         {
+            AddColumn("dbo.Franchise", "TotalCO2Saved", c => c.Single(nullable: false));
             AddColumn("dbo.Franchise", "GallonsSaved", c => c.Int(nullable: false));
             AddColumn("dbo.Franchise", "CoalSaved", c => c.Int(nullable: false));
             AddColumn("dbo.Franchise", "VehiclesSaved", c => c.Int(nullable: false));
@@ -15,10 +16,7 @@
         
         public override void Down()
         {
-            DropColumn("dbo.Franchise", "SmartPhonesSaved");
-            DropColumn("dbo.Franchise", "VehiclesSaved");
-            DropColumn("dbo.Franchise", "CoalSaved");
-            DropColumn("dbo.Franchise", "GallonsSaved");
+
         }
     }
 }

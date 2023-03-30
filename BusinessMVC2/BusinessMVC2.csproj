@@ -328,6 +328,7 @@
     <Content Include="Views\Client\Quote.cshtml" />
     <Content Include="Views\Franchise\List.cshtml" />
     <Content Include="Views\Client\QuoteDetailstoPdf.cshtml" />
+    <Content Include="Views\Franchise\FranchiseDetailsToPdf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

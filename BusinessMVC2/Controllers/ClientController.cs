@@ -89,47 +89,6 @@ namespace BusinessMVC2.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult QuoteDetailsToPdf(BusinessDetails model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("Quote", model);
-            }
-
-            // Perform necessary calculations here
-
-            // Pass the quote details to the view
-            var viewModel = new BusinessDetails
-            {
-                BusinessName = model.BusinessName,
-                State = model.State,
-                FacilityID = model.FacilityID,
-                City = model.City,
-                Address = model.Address,
-                ZipCode = model.ZipCode,
-                FranchiseName = model.FranchiseName,
-                HaulsPerDay = model.HaulsPerDay,
-                NumberOfDumpsters = model.NumberOfDumpsters,
-                Compactibility = model.Compactibility,
-                ToClientDist = model.ToClientDist,
-                FromClientDist = model.FromClientDist,
-                ToHaulerDist = model.ToHaulerDist,
-                LandfillDist = model.LandfillDist,
-                FromHaulerDist = model.FromHaulerDist,
-                TotalCO2SavedV2 = model.TotalCO2SavedV2,
-                AllEmissionsBaselineTotalsV2 = model.AllEmissionsBaselineTotalsV2,
-                AllEmissionsWithSmashTotalsV2 = model.AllEmissionsWithSmashTotalsV2,
-                AllEmissionsSavedWithSmashV2 = model.AllEmissionsSavedWithSmashV2,
-                AllSavingsTotalV2 = model.AllSavingsTotalV2,
-                TotalNOXBaselineTruckEmissionsV2 = model.TotalNOXBaselineTruckEmissionsV2,
-                TotalNOXEmissionsWithSmashV2 = model.TotalNOXEmissionsWithSmashV2,
-                NOXPercentSavedV2 = model.NOXPercentSavedV2
-            };
-
-            return View("QuoteDetailsToPdf", viewModel);
-        }
-
 
 
         private ClientService CreateBusinessService()
@@ -257,7 +216,7 @@ namespace BusinessMVC2.Controllers
         }
 
         //Convert HTML to PDF
-        public ActionResult BusinessDetailsToPdf(int id)
+        /*public ActionResult BusinessDetailsToPdf(int id)
         {
             var userId = User.Identity.GetUserId();
             var svc = new ClientService(Guid.Parse(userId));
@@ -270,7 +229,7 @@ namespace BusinessMVC2.Controllers
 
             return View(model);
 
-        }
+        }*/
 
         [HttpPost]
         [ValidateInput(false)]

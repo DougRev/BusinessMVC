@@ -7,13 +7,13 @@ namespace BusinessData.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class testmig10 : IMigrationMetadata
+    public sealed partial class removeTotalCO2Franchise : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(testmig10));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(removeTotalCO2Franchise));
         
         string IMigrationMetadata.Id
         {
-            get { return "202303151221597_testmig10"; }
+            get { return "202303291757027_removeTotalCO2Franchise"; }
         }
         
         string IMigrationMetadata.Source

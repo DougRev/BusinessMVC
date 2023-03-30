@@ -200,13 +200,17 @@
     <Compile Include="Migrations\202303071423512_addFacilityID.designer.cs">
       <DependentUpon>202303071423512_addFacilityID.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303151221597_testmig10.cs" />
-    <Compile Include="Migrations\202303151221597_testmig10.designer.cs">
-      <DependentUpon>202303151221597_testmig10.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202303151411254_addCO2EQFactsToFranchise.cs" />
     <Compile Include="Migrations\202303151411254_addCO2EQFactsToFranchise.designer.cs">
       <DependentUpon>202303151411254_addCO2EQFactsToFranchise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303291751515_03292023.cs" />
+    <Compile Include="Migrations\202303291751515_03292023.designer.cs">
+      <DependentUpon>202303291751515_03292023.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303291757027_removeTotalCO2Franchise.cs" />
+    <Compile Include="Migrations\202303291757027_removeTotalCO2Franchise.designer.cs">
+      <DependentUpon>202303291757027_removeTotalCO2Franchise.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -288,11 +292,14 @@
     <EmbeddedResource Include="Migrations\202303071423512_addFacilityID.resx">
       <DependentUpon>202303071423512_addFacilityID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303151221597_testmig10.resx">
-      <DependentUpon>202303151221597_testmig10.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303151411254_addCO2EQFactsToFranchise.resx">
       <DependentUpon>202303151411254_addCO2EQFactsToFranchise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303291751515_03292023.resx">
+      <DependentUpon>202303291751515_03292023.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303291757027_removeTotalCO2Franchise.resx">
+      <DependentUpon>202303291757027_removeTotalCO2Franchise.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

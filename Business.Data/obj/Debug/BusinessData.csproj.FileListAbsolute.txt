@@ -170,3 +170,6 @@ C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Api
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Apis.Sheets.v4.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.testmig10.resources
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addCO2EQFactsToFranchise.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.addCO2EQFactsToFranchise.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations._03292023.resources
+C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.removeTotalCO2Franchise.resources
