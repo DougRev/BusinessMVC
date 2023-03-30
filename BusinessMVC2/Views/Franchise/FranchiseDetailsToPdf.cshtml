@@ -1,5 +1,4 @@
 ﻿@model BusinessModels.Franchise.FranchiseDetails
-
 <head>
     <meta charset="utf-8" />
     <title>Franchise Details PDF</title>
@@ -104,10 +103,23 @@
             <div class="certificate-franchise-info">
                 <h2>@Model.FranchiseName</h2>
                 <br />
-            
+
             </div>
             <div class="certificate-savings-info">
-                <p>Congratulations! Your franchise has saved @Model.TotalCO2Saved.ToString("N2") tons of CO2 emissions across all clients in @Model.StateReach State(s) by using our products and services. Keep up the great work!</p>
+                <p>Congratulations! Your franchise has saved @Model.TotalCO2Saved.ToString("N2") tons of CO2 emissions across @Model.Locations locations in @Model.StateReach State(s) by using our products and services. Keep up the great work!</p>
+
+            </div>
+            <div id="logo-container">
+                <div id="trinity-logo">
+                    <img src="~/Content/Images/Trinity Logo.png" alt="trinity-logo">
+                </div>
+                <div class="certificate-signature">
+                    <p>Signed by:</p>
+                    <h4>Smash My Trash</h4>
+                    <div id="gold-badge">
+                        <img src="~/Content/Images/SMT-Gold-Badge.png" alt="signature">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

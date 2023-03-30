@@ -18,7 +18,7 @@ namespace BusinessServices
             _userId = userId;
         }
 
-        public bool CreateBusiness(BusinessCreate model)
+        public bool CreateBusiness(BusinessCreate model, bool saveToDatabase = true)
         {
             var entity = new Client()
             {
@@ -42,7 +42,9 @@ namespace BusinessServices
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Clients.Add(entity);
-                return ctx.SaveChanges() == 1;
+
+                // If saveToDatabase is true, save the changes, otherwise, return true without saving
+                return saveToDatabase ? ctx.SaveChanges() == 1 : true;
             }
         }
 

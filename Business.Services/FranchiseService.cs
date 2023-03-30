@@ -180,5 +180,24 @@ namespace BusinessServices
             }
         }
 
+        public int CountClientsByFranchiseId(int franchiseId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var franchise = ctx.Franchises
+                                    .Include(f => f.Clients)
+                                    .SingleOrDefault(f => f.FranchiseId == franchiseId);
+
+                if (franchise != null)
+                {
+                    // Count the clients within the franchise
+                    return franchise.Clients.Count;
+                }
+
+                return 0;
+            }
+        }
+
+
     }
 }

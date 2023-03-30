@@ -167,6 +167,8 @@ namespace BusinessMVC2.Controllers
             // Calculate the total CO2 saved for the franchise
             double totalCO2Saved = svc.GetTotalCO2SavedForFranchiseById(franchiseId);
             int states = svc.CountDistinctStatesWithClientsByFranchiseId(franchiseId);
+            int locations = svc.CountClientsByFranchiseId(franchiseId);
+            franchise.Locations = locations;
             franchise.TotalCO2Saved = totalCO2Saved;
             franchise.StateReach = states;
 

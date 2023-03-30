@@ -69,22 +69,26 @@ namespace BusinessMVC2.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 return View(model);
             }
 
             Guid userId;
+            bool saveToDatabase;
             if (User.Identity.IsAuthenticated)
             {
                 userId = Guid.Parse(User.Identity.GetUserId());
+                saveToDatabase = true;
             }
             else
             {
                 // Use a default user ID if none is available
                 userId = Guid.NewGuid();
+                saveToDatabase = false;
             }
 
             var service = new ClientService(userId);
-            service.CreateBusiness(model);
+            service.CreateBusiness(model, saveToDatabase);
 
             return RedirectToAction("Index");
         }

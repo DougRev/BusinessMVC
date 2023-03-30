@@ -47,7 +47,7 @@ namespace BusinessModels
 
         [Display(Name = "Save")]
         public bool AddToDb { get; set; }
-
+        public double? CO2Savings { get; set; }
 
     }
 }

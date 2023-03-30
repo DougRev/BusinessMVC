@@ -21,7 +21,7 @@ namespace BusinessModels.Franchise
         public List<Client> Clients { get; set; } = new List<Client>();
         public double TotalCO2Saved { get; set; }
         public int StateReach { get; set; }
-
+        public int Locations { get; set; }
 
     }
 }
