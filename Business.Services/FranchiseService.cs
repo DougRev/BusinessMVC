@@ -3,8 +3,10 @@ using BusinessModels.Franchise;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessData.Enum;
 
 namespace BusinessServices
 {
@@ -137,5 +139,65 @@ namespace BusinessServices
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public double GetTotalCO2SavedForFranchiseById(int franchiseId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+            double totalCO2Saved = 0;
+            var franchise = ctx.Franchises
+                                .Include(f => f.Clients)
+                                .SingleOrDefault(f => f.FranchiseId == franchiseId);
+
+            if (franchise != null)
+            {
+                foreach (var client in franchise.Clients)
+                {
+                    totalCO2Saved += client.TotalCO2SavedV2;
+                }
+            }
+            return totalCO2Saved;
+
+            }
+
+        }
+        public int CountDistinctStatesWithClientsByFranchiseId(int franchiseId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                int stateReach = 0;
+                var franchise = ctx.Franchises
+                                    .Include(f => f.Clients)
+                                    .SingleOrDefault(f => f.FranchiseId == franchiseId);
+
+                if (franchise != null)
+                {
+                    // Count distinct states of the clients within the franchise
+                    return stateReach = franchise.Clients.Select(c => c.State).Distinct().Count();
+                }
+
+                return 0;
+            }
+        }
+
+        public int CountClientsByFranchiseId(int franchiseId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var franchise = ctx.Franchises
+                                    .Include(f => f.Clients)
+                                    .SingleOrDefault(f => f.FranchiseId == franchiseId);
+
+                if (franchise != null)
+                {
+                    // Count the clients within the franchise
+                    return franchise.Clients.Count;
+                }
+
+                return 0;
+            }
+        }
+
+
     }
 }

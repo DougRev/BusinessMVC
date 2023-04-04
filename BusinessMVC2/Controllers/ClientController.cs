@@ -21,6 +21,7 @@ namespace BusinessMVC2.Controllers
 {
     public class ClientController : Controller
     {
+
         // GET: Clients
         public ActionResult Index()
         {
@@ -48,6 +49,38 @@ namespace BusinessMVC2.Controllers
 
             return View();
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(BusinessCreate model)
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+
+            if (!ModelState.IsValid) // Check if the ModelState is NOT valid
+            {
+                var svc = new FranchiseService(userId);
+
+                // Make sure the Franchises list is set correctly
+                ViewBag.Franchises = svc.GetFranchises().Select(f => new
+                {
+                    FranchiseId = f.FranchiseId,
+                    FranchiseName = f.FranchiseName
+                }).ToList();
+
+                return View(model); // Return the view with the same model when ModelState is invalid
+            }
+
+            // When the ModelState is valid, proceed with the creation process
+            var service = new ClientService(userId);
+            service.CreateBusiness(model);
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
         [AllowAnonymous]
         public ActionResult Quote()
         {
@@ -63,72 +96,50 @@ namespace BusinessMVC2.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public ActionResult Quote(BusinessCreate model)
+        public ActionResult CalculateQuote(BusinessCreate quote)
         {
-            if (ModelState.IsValid)
+            foreach (var modelState in ModelState.Values)
             {
-                return View(model);
+                foreach (var error in modelState.Errors)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Error: {error.ErrorMessage}");
+                }
             }
 
-            Guid userId;
-            if (User.Identity.IsAuthenticated)
+            if (ModelState.IsValid)
             {
-                userId = Guid.Parse(User.Identity.GetUserId());
+                // Create an instance of ClientService
+                var service = new ClientService();
+
+                // Perform calculations using the PerformCalculations method
+                var calculationResults = service.PerformCalculations(quote);
+
+                // Pass the calculation results to the Result view
+                return View("Result", calculationResults);
             }
             else
             {
-                // Use a default user ID if none is available
-                userId = Guid.NewGuid();
+                var svc = new FranchiseService();
+                ViewBag.Franchises = svc.GetFranchises().Select(f => new
+                {
+                    FranchiseId = f.FranchiseId,
+                    FranchiseName = f.FranchiseName
+                }).ToList();
+
+                return View("Quote", quote);
             }
-
-            var service = new ClientService(userId);
-            service.CreateBusiness(model);
-
-            return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult QuoteDetailsToPdf(BusinessDetails model)
+
+
+
+
+        /*private double CalculateCO2Emission(double haulerEmissions, double smtEmissions)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Quote", model);
-            }
-
-            // Perform necessary calculations here
-
-            // Pass the quote details to the view
-            var viewModel = new BusinessDetails
-            {
-                BusinessName = model.BusinessName,
-                State = model.State,
-                FacilityID = model.FacilityID,
-                City = model.City,
-                Address = model.Address,
-                ZipCode = model.ZipCode,
-                FranchiseName = model.FranchiseName,
-                HaulsPerDay = model.HaulsPerDay,
-                NumberOfDumpsters = model.NumberOfDumpsters,
-                Compactibility = model.Compactibility,
-                ToClientDist = model.ToClientDist,
-                FromClientDist = model.FromClientDist,
-                ToHaulerDist = model.ToHaulerDist,
-                LandfillDist = model.LandfillDist,
-                FromHaulerDist = model.FromHaulerDist,
-                TotalCO2SavedV2 = model.TotalCO2SavedV2,
-                AllEmissionsBaselineTotalsV2 = model.AllEmissionsBaselineTotalsV2,
-                AllEmissionsWithSmashTotalsV2 = model.AllEmissionsWithSmashTotalsV2,
-                AllEmissionsSavedWithSmashV2 = model.AllEmissionsSavedWithSmashV2,
-                AllSavingsTotalV2 = model.AllSavingsTotalV2,
-                TotalNOXBaselineTruckEmissionsV2 = model.TotalNOXBaselineTruckEmissionsV2,
-                TotalNOXEmissionsWithSmashV2 = model.TotalNOXEmissionsWithSmashV2,
-                NOXPercentSavedV2 = model.NOXPercentSavedV2
-            };
-
-            return View("QuoteDetailsToPdf", viewModel);
-        }
+            double fuelConsumed = distance / (fuelEfficiency * 0.425143707); // Convert miles per gallon to liters per 100 km
+            double co2Emission = fuelConsumed * emissionFactor;
+            return co2Emission;
+        }*/
 
 
 
@@ -139,20 +150,6 @@ namespace BusinessMVC2.Controllers
             return businessService;
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(BusinessCreate model)
-        {
-            if (ModelState.IsValid)
-            {
-                return View(model);
-            }
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ClientService(userId);
-            service.CreateBusiness(model);
-
-            return RedirectToAction("Index");
-        }
 
         //GET: Details
         //Client/Details/{id}
@@ -257,7 +254,7 @@ namespace BusinessMVC2.Controllers
         }
 
         //Convert HTML to PDF
-        public ActionResult BusinessDetailsToPdf(int id)
+        /*public ActionResult BusinessDetailsToPdf(int id)
         {
             var userId = User.Identity.GetUserId();
             var svc = new ClientService(Guid.Parse(userId));
@@ -270,7 +267,7 @@ namespace BusinessMVC2.Controllers
 
             return View(model);
 
-        }
+        }*/
 
         [HttpPost]
         [ValidateInput(false)]

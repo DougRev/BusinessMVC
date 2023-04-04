@@ -15,6 +15,7 @@ namespace BusinessModels.Franchise
         public int FranchiseId { get; set; }
         [Display(Name = "Account Name")]
         public string FranchiseName { get; set; }
+        [Required]
         public State State { get; set; }
         //public Guid OwnerId { get; set; }
 

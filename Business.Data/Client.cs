@@ -92,6 +92,21 @@ namespace BusinessData
             }
         }
 
+        /*public Client(int franchiseId, string businessName, string facilityId, string address, string city, State state, int numberOfDumpsters, int haulsPerDay, Compactibility compactibility, float landfillDist)
+        {
+            FranchiseId = franchiseId;
+            BusinessName = businessName;
+            FacilityID = facilityId;
+            Address = address;
+            City = city;
+            State = state;
+            NumberOfDumpsters = numberOfDumpsters;
+            HaulsPerDay = haulsPerDay;
+            Compactibility = compactibility;
+            LandfillDist = landfillDist;
+        }
+        */
+
         //Emissions Added Totals
 
 

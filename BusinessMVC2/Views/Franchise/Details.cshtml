@@ -1,20 +1,21 @@
 ﻿@model BusinessModels.Franchise.FranchiseDetails
-    @{
-        double totalCO2Saved = 0;
-        double gallons = 0;
-        double coal = 0;
-        double vehicle = 0;
-        double smartphones = 0;
+@using Microsoft.AspNet.Identity;
+@{
+    double totalCO2Saved = 0;
+    double gallons = 0;
+    double coal = 0;
+    double vehicle = 0;
+    double smartphones = 0;
 
-        foreach (var client in Model.Clients)
-        {
-            totalCO2Saved += client.TotalCO2SavedV2;
-        }
-        gallons = (float)(totalCO2Saved / 19.64);
-        coal = (float)(totalCO2Saved / 2);
-        vehicle = (float)(totalCO2Saved / .88);
-        smartphones = (float)(totalCO2Saved / .02);
+    foreach (var client in Model.Clients)
+    {
+        totalCO2Saved += client.TotalCO2SavedV2;
     }
+    gallons = (float)(totalCO2Saved / 19.64);
+    coal = (float)(totalCO2Saved / 2);
+    vehicle = (float)(totalCO2Saved / .88);
+    smartphones = (float)(totalCO2Saved / .02);
+}
 
 
 @{
@@ -83,6 +84,28 @@
 
     <br />
 </div>
+@using (Html.BeginForm("SubmitAction", "Franchise", new { id = Model.FranchiseId }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="TxtUrl"></label>
+        <input type="hidden" name="TxtUrl" id="TxtUrl" class="form-control" value="https://localhost:44394/Franchise/FranchiseDetailsToPdf/@Model.FranchiseId" required />
+    </div>
+
+    <input type="hidden" name="DdlPageSize" value="Letter" />
+    <input type="hidden" name="DdlPageOrientation" value="Landscape" />
+    <input type="hidden" name="TxtWidth" value="1024" />
+    <input type="hidden" name="TxtHeight" value="0" />
+    <input type="hidden" name="FranchiseId" value="@Model.FranchiseId" />
+    @Html.Hidden("UserId", User.Identity.GetUserId())
+
+    <button type="submit" class="btn btn-primary">
+        Generate PDF
+    </button>
+}
+
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
