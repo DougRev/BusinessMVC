@@ -21,6 +21,7 @@ namespace BusinessMVC2.Controllers
 {
     public class ClientController : Controller
     {
+
         // GET: Clients
         public ActionResult Index()
         {
@@ -48,6 +49,38 @@ namespace BusinessMVC2.Controllers
 
             return View();
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(BusinessCreate model)
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+
+            if (!ModelState.IsValid) // Check if the ModelState is NOT valid
+            {
+                var svc = new FranchiseService(userId);
+
+                // Make sure the Franchises list is set correctly
+                ViewBag.Franchises = svc.GetFranchises().Select(f => new
+                {
+                    FranchiseId = f.FranchiseId,
+                    FranchiseName = f.FranchiseName
+                }).ToList();
+
+                return View(model); // Return the view with the same model when ModelState is invalid
+            }
+
+            // When the ModelState is valid, proceed with the creation process
+            var service = new ClientService(userId);
+            service.CreateBusiness(model);
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
         [AllowAnonymous]
         public ActionResult Quote()
         {
@@ -63,35 +96,50 @@ namespace BusinessMVC2.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public ActionResult Quote(BusinessCreate model)
+        public ActionResult CalculateQuote(BusinessCreate quote)
         {
-            if (ModelState.IsValid)
+            foreach (var modelState in ModelState.Values)
             {
-
-                return View(model);
+                foreach (var error in modelState.Errors)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Error: {error.ErrorMessage}");
+                }
             }
 
-            Guid userId;
-            bool saveToDatabase;
-            if (User.Identity.IsAuthenticated)
+            if (ModelState.IsValid)
             {
-                userId = Guid.Parse(User.Identity.GetUserId());
-                saveToDatabase = true;
+                // Create an instance of ClientService
+                var service = new ClientService();
+
+                // Perform calculations using the PerformCalculations method
+                var calculationResults = service.PerformCalculations(quote);
+
+                // Pass the calculation results to the Result view
+                return View("Result", calculationResults);
             }
             else
             {
-                // Use a default user ID if none is available
-                userId = Guid.NewGuid();
-                saveToDatabase = false;
+                var svc = new FranchiseService();
+                ViewBag.Franchises = svc.GetFranchises().Select(f => new
+                {
+                    FranchiseId = f.FranchiseId,
+                    FranchiseName = f.FranchiseName
+                }).ToList();
+
+                return View("Quote", quote);
             }
-
-            var service = new ClientService(userId);
-            service.CreateBusiness(model, saveToDatabase);
-
-            return RedirectToAction("Index");
         }
+
+
+
+
+
+        /*private double CalculateCO2Emission(double haulerEmissions, double smtEmissions)
+        {
+            double fuelConsumed = distance / (fuelEfficiency * 0.425143707); // Convert miles per gallon to liters per 100 km
+            double co2Emission = fuelConsumed * emissionFactor;
+            return co2Emission;
+        }*/
 
 
 
@@ -102,20 +150,6 @@ namespace BusinessMVC2.Controllers
             return businessService;
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(BusinessCreate model)
-        {
-            if (ModelState.IsValid)
-            {
-                return View(model);
-            }
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ClientService(userId);
-            service.CreateBusiness(model);
-
-            return RedirectToAction("Index");
-        }
 
         //GET: Details
         //Client/Details/{id}

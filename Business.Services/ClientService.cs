@@ -1,35 +1,47 @@
 ﻿using BusinessData;
 using BusinessModels;
-using BusinesssData;
+using BusinessShared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace BusinessServices
 {
     public class ClientService
     {
         private readonly Guid _userId;
 
-        public ClientService(Guid userId)
+        public ClientService(Guid? userId = null)
         {
-            _userId = userId;
+            _userId = userId ?? Guid.Empty;
         }
+
+        public QuoteResultViewModel PerformCalculations(BusinessCreate model)
+        {
+            // Perform calculations here and return the results
+            double co2 = model.TotalCO2SavedV2;
+
+            var quoteResult = new QuoteResultViewModel
+            {
+                CO2Emission = co2
+            };
+
+            return quoteResult;
+        }
+
+
 
         public bool CreateBusiness(BusinessCreate model, bool saveToDatabase = true)
         {
             var entity = new Client()
             {
                 OwnerId = _userId,
-                BusinessId = model.BusinessId,
+                BusinessId = model.BusinessId ?? 0,
                 BusinessName = model.BusinessName,
                 FacilityID = model.FacilityID,
                 State = model.State,
                 City = model.City,
                 Address = model.Address,
-                ZipCode = model.ZipCode,
+                ZipCode = model.ZipCode ?? 0,
                 FranchiseId = model.FranchiseId,
                 HaulsPerDay = model.HaulsPerDay,
                 NumberOfDumpsters = model.NumberOfDumpsters,
@@ -37,8 +49,8 @@ namespace BusinessServices
                 Compactibility = model.Compactibility,
                 AddToDb = model.AddToDb,
                 //FranchiseeId = model.FranchiseeId,
-
             };
+
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Clients.Add(entity);
@@ -47,6 +59,8 @@ namespace BusinessServices
                 return saveToDatabase ? ctx.SaveChanges() == 1 : true;
             }
         }
+
+
 
         public IEnumerable<BusinessListItem> GetBusinesses()
         {

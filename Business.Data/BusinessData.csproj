@@ -204,10 +204,6 @@
     <Compile Include="Migrations\202303151411254_addCO2EQFactsToFranchise.designer.cs">
       <DependentUpon>202303151411254_addCO2EQFactsToFranchise.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303291751515_03292023.cs" />
-    <Compile Include="Migrations\202303291751515_03292023.designer.cs">
-      <DependentUpon>202303291751515_03292023.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202303291757027_removeTotalCO2Franchise.cs" />
     <Compile Include="Migrations\202303291757027_removeTotalCO2Franchise.designer.cs">
       <DependentUpon>202303291757027_removeTotalCO2Franchise.cs</DependentUpon>
@@ -294,9 +290,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303151411254_addCO2EQFactsToFranchise.resx">
       <DependentUpon>202303151411254_addCO2EQFactsToFranchise.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303291751515_03292023.resx">
-      <DependentUpon>202303291751515_03292023.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303291757027_removeTotalCO2Franchise.resx">
       <DependentUpon>202303291757027_removeTotalCO2Franchise.cs</DependentUpon>

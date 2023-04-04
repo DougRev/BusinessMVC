@@ -11,7 +11,6 @@
             DropColumn("dbo.Franchise", "CoalSaved");
             DropColumn("dbo.Franchise", "VehiclesSaved");
             DropColumn("dbo.Franchise", "SmartPhonesSaved");
-            DropColumn("dbo.Franchise", "TotalCO2Saved");
         }
         
         public override void Down()

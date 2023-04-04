@@ -254,6 +254,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\navi-MGSdS-gXpoc-unsplash %281%29.png" />
     <Content Include="Content\Images\Trinity Logo.png" />
     <Content Include="Content\Home.css" />
     <Content Include="favicon.ico" />
@@ -329,6 +330,8 @@
     <Content Include="Views\Franchise\List.cshtml" />
     <Content Include="Views\Client\QuoteDetailstoPdf.cshtml" />
     <Content Include="Views\Franchise\FranchiseDetailsToPdf.cshtml" />
+    <Content Include="Views\Client\QuoteSummary.cshtml" />
+    <Content Include="Views\Client\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -358,6 +361,10 @@
     <ProjectReference Include="..\Business.Services\BusinessServices.csproj">
       <Project>{2c4f0ad6-d53c-4358-a8fd-44a2a1bfcb2c}</Project>
       <Name>BusinessServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessShared\BusinessShared.csproj">
+      <Project>{D01D000D-D2DC-4DBF-8933-CA784A4B9C03}</Project>
+      <Name>BusinessShared</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

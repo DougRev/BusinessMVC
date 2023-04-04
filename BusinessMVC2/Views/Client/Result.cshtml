@@ -1,0 +1,13 @@
+﻿@model BusinessShared.QuoteResultViewModel
+
+@{
+    ViewData["Title"] = "CO2 Emission Calculation Result";
+}
+
+<h2>CO2 Emission Calculation Result</h2>
+
+<p>Your CO2 emission for the provided distance and fuel efficiency is: @Model.CO2Emission kg</p>
+
+
+<a class="btn btn-primary" href="@Url.Action("Quote", "Client")">Calculate another quote</a>
+

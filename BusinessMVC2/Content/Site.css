@@ -8,6 +8,12 @@ body {
     padding-top: 70px;
 }
 
+
+/* Option to change css when someone is logged in*/
+body.logged-in {
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -55,6 +61,7 @@ a {
     font-size: 14px;
     text-transform: uppercase;
     line-height: 1.42857143;
+    border: solid 1px #fff;
 }
 
     .btn-primary:hover {
@@ -67,6 +74,7 @@ a {
     border: none;
     margin-bottom: 30px;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
 }
 
 .card-img-top {
@@ -74,6 +82,61 @@ a {
     height: 250px;
     object-fit: cover;
 }
+/* Home Page Quote Card  */
+#enviro .card-body {
+    position: relative;
+    overflow: hidden;
+}
+
+    #enviro .card-body * {
+        position: relative;
+        z-index: 2;
+    }
+
+    #enviro .card-body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #7A8450;
+        transition: left 0.3s;
+        z-index: 1;
+    }
+
+    #enviro .card-body:hover::before {
+        left: 0;
+    }
+
+/* Home Page Webpage Redirect Card */
+
+#webpage .card-body {
+    position: relative;
+    overflow: hidden;
+}
+
+    #webpage .card-body * {
+        position: relative;
+        z-index: 2;
+    }
+
+    #webpage .card-body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #bb1e10;
+        transition: right 0.3s;
+        z-index: 1;
+    }
+
+    #webpage .card-body:hover::before {
+        right: 0;
+    }
+
 
 .card-body {
     text-align: center;
@@ -154,21 +217,58 @@ a {
 }
 
 .jumbotron {
+    position: relative;
     text-align: center;
-    background-color: #fff;
+    background-color: #f5f5f5;
     border-bottom: 1px solid #d4d4d4;
+    transition: background-color 0.5s, transform 0.3s;
 }
+    .jumbotron .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('images/navi-mgsds-gxpoc-unsplash (1).png');
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+    .jumbotron:hover .background-image {
+        opacity: 0.5;
+    }
+    .jumbotron h1,
+    .jumbotron p {
+        position: relative;
+        z-index: 1;
+    }
+    .jumbotron:hover {
+        background-color: #eaeaea;
+        transform: scale(1.02);
+    }
 
     .jumbotron h1 {
         font-size: 60px;
         line-height: 1;
         color: #337ab7;
+        transition: color 0.5s;
+    }
+
+    .jumbotron:hover h1 {
+        color: #23527c;
     }
 
     .jumbotron p {
         font-size: 24px;
         color: #5cb85c;
+        transition: color 0.5s;
     }
+
+    .jumbotron:hover p {
+        color: #449d44;
+    }
+
 
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
@@ -363,3 +463,4 @@ h2 {
     justify-content: center;
     align-items: center;
 }
+

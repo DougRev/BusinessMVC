@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body class="@(User.Identity.IsAuthenticated ? "logged-in" : "")">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,12 +22,11 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Account Overview", "Index", "Franchise")</li>
-                    <li>@Html.ActionLink("Clients", "Index", "Client")</li>
-
-
-
-
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Account Overview", "Index", "Franchise")</li>
+                        <li>@Html.ActionLink("Clients", "Index", "Client")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
