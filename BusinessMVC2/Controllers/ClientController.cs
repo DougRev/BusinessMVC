@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 using SelectPdf;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -379,6 +380,9 @@ namespace BusinessMVC2.Controllers
 
         public async Task UpdateGoogleSheet(Client client, int startRow)
         {
+            string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
+            string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
+
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
             string ApplicationName = "Smash Calc";
             string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
@@ -386,14 +390,14 @@ namespace BusinessMVC2.Controllers
 
             // Read the JSON credentials file and create the SheetsService
             UserCredential credential;
-            using (var stream = new FileStream("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.FromStream(stream).Secrets,
                     Scopes,
                     "user",
                     CancellationToken.None,
-                    new FileDataStore("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\", true));
+                    new FileDataStore(tokenFolderPath, true));
             }
 
             var service = new SheetsService(new BaseClientService.Initializer()
@@ -467,7 +471,9 @@ namespace BusinessMVC2.Controllers
 
         public async Task<int> GetLastUsedRow()
         {
-            // Your existing variables for SheetsService
+            string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
+            string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
+
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
             string ApplicationName = "Smash Calc";
             string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
@@ -475,14 +481,14 @@ namespace BusinessMVC2.Controllers
 
             // Read the JSON credentials file and create the SheetsService
             UserCredential credential;
-            using (var stream = new FileStream("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.FromStream(stream).Secrets,
                     Scopes,
                     "user",
                     CancellationToken.None,
-                    new FileDataStore("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\", true));
+                    new FileDataStore(tokenFolderPath, true));
             }
 
             var service = new SheetsService(new BaseClientService.Initializer()
@@ -498,10 +504,13 @@ namespace BusinessMVC2.Controllers
             // Return the last used row index
             return values.Count - 1;
         }
+
         [HttpPost]
         public async Task<ActionResult> ImportClientsFromGoogleSheet()
         {
-            // Your existing variables for SheetsService
+            string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
+            string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
+
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
             string ApplicationName = "Smash Calc";
             string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
@@ -509,14 +518,14 @@ namespace BusinessMVC2.Controllers
 
             // Read the JSON credentials file and create the SheetsService
             UserCredential credential;
-            using (var stream = new FileStream("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.FromStream(stream).Secrets,
                     Scopes,
                     "user",
                     CancellationToken.None,
-                    new FileDataStore("C:\\Users\\Doug Revell\\source\\repos\\BusinessMVC\\BusinessMVC2\\Content\\", true));
+                    new FileDataStore(tokenFolderPath, true));
             }
 
             var service = new SheetsService(new BaseClientService.Initializer()

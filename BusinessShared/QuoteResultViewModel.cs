@@ -8,6 +8,12 @@ namespace BusinessShared
 {
     public class QuoteResultViewModel
     {
-        public double CO2Emission { get; set; }
+        public string BusinessName { get; set; }
+        public int PreSMTYearlyHauls { get; set; }
+        public double TotalCO2BaselineTruckEmissionsV2 { get; set; }
+        public double TotalCO2EmissionsWithSmashV2 { get; set; }
+        public double TotalCO2SavedV2 { get; set; }
+        public string CO2PercentSavedV2 { get; set; }
+
     }
 }

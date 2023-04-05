@@ -62,6 +62,7 @@ a {
     text-transform: uppercase;
     line-height: 1.42857143;
     border: solid 1px #fff;
+
 }
 
     .btn-primary:hover {
@@ -238,13 +239,15 @@ a {
     .jumbotron:hover .background-image {
         opacity: 0.5;
     }
+    .jumbotron:hover p {
+        opacity:0;
+    }
     .jumbotron h1,
     .jumbotron p {
         position: relative;
         z-index: 1;
     }
     .jumbotron:hover {
-        background-color: #eaeaea;
         transform: scale(1.02);
     }
 
@@ -464,3 +467,57 @@ h2 {
     align-items: center;
 }
 
+/* Landing Page  */
+
+/* Result Page */
+
+.result-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.result-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 30px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+    .result-row:last-child {
+        border-bottom: none;
+    }
+
+    .result-row h4 {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .result-row p {
+        font-size: 1.2rem;
+        color: #333;
+        margin: 0;
+    }
+
+#another-quote .btn-primary{
+    display: block;
+    margin: 10px 20% 10px 20%;
+}
