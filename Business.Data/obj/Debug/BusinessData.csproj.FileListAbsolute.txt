@@ -173,3 +173,26 @@ C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Mi
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations._03292023.resources
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Debug\BusinessData.Migrations.removeTotalCO2Franchise.resources
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.removeTotalCO2Franchise.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Protobuf.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Buffers.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Memory.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Protobuf.pdb
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\Google.Protobuf.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Buffers.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Memory.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Threading.Tasks.Extensions.xml

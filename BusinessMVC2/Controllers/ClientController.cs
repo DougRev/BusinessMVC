@@ -380,8 +380,9 @@ namespace BusinessMVC2.Controllers
 
         public async Task UpdateGoogleSheet(Client client, int startRow)
         {
-            string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
-            string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
+            string credentialsPath = Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"]);
+            string tokenFolderPath = Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"]);
+
 
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
             string ApplicationName = "Smash Calc";
@@ -471,8 +472,9 @@ namespace BusinessMVC2.Controllers
 
         public async Task<int> GetLastUsedRow()
         {
-            string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
-            string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
+            string credentialsPath = Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"]);
+            string tokenFolderPath = Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"]);
+
 
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
             string ApplicationName = "Smash Calc";
@@ -508,8 +510,9 @@ namespace BusinessMVC2.Controllers
         [HttpPost]
         public async Task<ActionResult> ImportClientsFromGoogleSheet()
         {
-            string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
-            string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
+            string credentialsPath = Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"]);
+            string tokenFolderPath = Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"]);
+
 
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
             string ApplicationName = "Smash Calc";
