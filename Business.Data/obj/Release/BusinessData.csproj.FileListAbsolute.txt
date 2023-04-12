@@ -91,3 +91,5 @@ C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Release\System.M
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Release\System.Numerics.Vectors.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Release\BusinessData.Migrations.addContactInfoPhoneNumber.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Release\BusinessData.Migrations.addEmail.resources

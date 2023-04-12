@@ -85,12 +85,12 @@ namespace BusinessMVC2.Controllers
         [AllowAnonymous]
         public ActionResult Quote()
         {
-            var svc = new FranchiseService();
+            /*var svc = new FranchiseService();
             ViewBag.Franchises = svc.GetFranchises().Select(f => new
             {
                 FranchiseId = f.FranchiseId,
                 FranchiseName = f.FranchiseName
-            }).ToList();
+            }).ToList();*/
 
             return View();
         }
@@ -323,7 +323,7 @@ namespace BusinessMVC2.Controllers
             converter.Options.WebPageHeight = webPageHeight;
 
             // create a new pdf document converting an url
-            PdfDocument doc = converter.ConvertHtmlString(htmlString, "https://localhost:44394/");
+            PdfDocument doc = converter.ConvertHtmlString(htmlString, "https://businessmvc220230407125015.azurewebsites.net/");
 
             // save pdf document
             byte[] pdf = doc.Save();
@@ -385,9 +385,9 @@ namespace BusinessMVC2.Controllers
 
 
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
-            string ApplicationName = "Smash Calc";
-            string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
-            string range = "Sheet1!A3"; // Adjust the range as needed
+            string ApplicationName = "Smash-Dashboard";
+            string sheetId = "1uyFl8JgzIzZ67lpFvE9et4cSOcziPrPA";
+            string range = "Sheet1!A2"; // Adjust the range as needed
 
             // Read the JSON credentials file and create the SheetsService
             UserCredential credential;
@@ -421,7 +421,10 @@ namespace BusinessMVC2.Controllers
             client.ZipCode,
             client.OwnerId,
             client.FranchiseId,
-            client.FranchiseName
+            client.FranchiseName,
+            client.FirstName, 
+            client.LastName, 
+            client.PhoneNumber,
             // Add more client properties as needed
         }
     };
@@ -477,8 +480,8 @@ namespace BusinessMVC2.Controllers
 
 
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
-            string ApplicationName = "Smash Calc";
-            string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
+            string ApplicationName = "Smash-Dashboard";
+            string sheetId = "1uyFl8JgzIzZ67lpFvE9et4cSOcziPrPA";
             string range = "Sheet1"; // Adjust the range as needed to cover the entire sheet
 
             // Read the JSON credentials file and create the SheetsService
@@ -515,9 +518,9 @@ namespace BusinessMVC2.Controllers
 
 
             string[] Scopes = { SheetsService.Scope.Spreadsheets };
-            string ApplicationName = "Smash Calc";
-            string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
-            string range = "Sheet2!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
+            string ApplicationName = "Smash-Dashboard";
+            string sheetId = "1uyFl8JgzIzZ67lpFvE9et4cSOcziPrPA";
+            string range = "Sheet1!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
 
             // Read the JSON credentials file and create the SheetsService
             UserCredential credential;
@@ -562,6 +565,22 @@ namespace BusinessMVC2.Controllers
                         State = (State)Enum.Parse(typeof(State), row[9].ToString(), true), // Add State property
                         Compactibility = (Compactibility)Enum.Parse(typeof(Compactibility), row[10].ToString(), true), // Add Compactibility property
                                                                                                                                       // ... add other properties
+
+                       /* FranchiseId = franchiseId,
+                        FacilityID = row[1].ToString(),
+                        BusinessName = row[2].ToString(),
+                        FirstName = row[3].ToString(),
+                        LastName = row[4].ToString(),
+                        PhoneNumber = int.Parse(row[5].ToString()),
+                        Email = row[6].ToString(),
+                        Address = row[7].ToString(),
+                        City = row[8].ToString(),
+                        State = (State)Enum.Parse(typeof(State), row[9].ToString(), true),
+                        ZipCode = int.Parse((string)row[10].ToString()),
+                        NumberOfDumpsters = int.Parse(row[6].ToString()),
+                        HaulsPerDay = int.Parse(row[7].ToString()),
+                        LandfillDist = int.Parse(row[8].ToString()),
+                        Compactibility = (Compactibility)Enum.Parse(typeof(Compactibility), row[10].ToString(), true),*/
                     };
 
                     clients.Add(client);

@@ -247,6 +247,14 @@
     <Compile Include="Migrations\202303291757027_removeTotalCO2Franchise.designer.cs">
       <DependentUpon>202303291757027_removeTotalCO2Franchise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304121212417_addContactInfo+PhoneNumber.cs" />
+    <Compile Include="Migrations\202304121212417_addContactInfo+PhoneNumber.designer.cs">
+      <DependentUpon>202304121212417_addContactInfo+PhoneNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304121218372_addEmail.cs" />
+    <Compile Include="Migrations\202304121218372_addEmail.designer.cs">
+      <DependentUpon>202304121218372_addEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -332,6 +340,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303291757027_removeTotalCO2Franchise.resx">
       <DependentUpon>202303291757027_removeTotalCO2Franchise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304121212417_addContactInfo+PhoneNumber.resx">
+      <DependentUpon>202304121212417_addContactInfo+PhoneNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304121218372_addEmail.resx">
+      <DependentUpon>202304121218372_addEmail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

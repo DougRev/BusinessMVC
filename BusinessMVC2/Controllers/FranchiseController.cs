@@ -213,7 +213,7 @@ namespace BusinessMVC2.Controllers
             converter.Options.WebPageHeight = webPageHeight;
 
             // create a new pdf document converting an url
-            PdfDocument doc = converter.ConvertHtmlString(htmlString, "https://localhost:44394/");
+            PdfDocument doc = converter.ConvertHtmlString(htmlString, "https://businessmvc220230407125015.azurewebsites.net/");
 
             // save pdf document
             byte[] pdf = doc.Save();

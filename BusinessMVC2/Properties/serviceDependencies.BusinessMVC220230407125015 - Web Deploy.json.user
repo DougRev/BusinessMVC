@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "identityapp1": {
-      "restored": true,
-      "restoreTime": "2023-04-10T17:30:17.2842154Z"
-    },
     "mssql1": {
       "restored": true,
       "restoreTime": "2023-04-10T15:48:07.1038184Z"
+    },
+    "identityapp1": {
+      "restored": true,
+      "restoreTime": "2023-04-10T17:30:17.2842154Z"
     }
   },
   "parameters": {
@@ -18,7 +18,7 @@
     "mssql1.resourceGroupName": {
       "Name": "mssql1.resourceGroupName",
       "Type": "resourceGroup",
-      "Value": "NetworkWatcherRG"
+      "Value": "Smash-Dashboard_group"
     }
   }
 }

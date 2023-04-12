@@ -322,6 +322,7 @@
     <Content Include="Content\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json" />
     <Content Include="libman.json" />
     <Content Include="Content\DigiCertGlobalRootCA.crt.pem" />
+    <Content Include="Content\client_secret_846675010514-t19fk9msgqdg5au5g4utq8ice7029hh3.apps.googleusercontent.com.json" />
     <None Include="Properties\PublishProfiles\BusinessMVC220230407125015 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

@@ -196,3 +196,5 @@ C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Dia
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addContactInfoPhoneNumber.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Debug\BusinessData.Migrations.addEmail.resources

@@ -43,7 +43,7 @@
             {
                 <tr>
                     <td>@client.BusinessName</td>
-                    <td>@client.AllEmissionsSavedWithSmashV2.ToString("N2")</td>
+                    <td>@client.TotalCO2SavedV2.ToString("N2")</td>
                 </tr>
             }
             <tr>
@@ -90,7 +90,7 @@
 
     <div class="form-group">
         <label for="TxtUrl"></label>
-        <input type="hidden" name="TxtUrl" id="TxtUrl" class="form-control" value="https://localhost:44394/Franchise/FranchiseDetailsToPdf/@Model.FranchiseId" required />
+        <input type="hidden" name="TxtUrl" id="TxtUrl" class="form-control" value="https://businessmvc220230407125015.azurewebsites.net/Franchise/FranchiseDetailsToPdf/@Model.FranchiseId" required />
     </div>
 
     <input type="hidden" name="DdlPageSize" value="Letter" />
