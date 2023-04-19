@@ -108,7 +108,7 @@
       <HintPath>..\packages\Microsoft.Owin.Security.OpenIdConnect.4.0.1\lib\net45\Microsoft.Owin.Security.OpenIdConnect.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Select.HtmlToPdf, Version=22.2.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
       <HintPath>..\packages\Select.HtmlToPdf.22.2.0\lib\net40\Select.HtmlToPdf.dll</HintPath>
@@ -322,7 +322,8 @@
     <Content Include="Content\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json" />
     <Content Include="libman.json" />
     <Content Include="Content\DigiCertGlobalRootCA.crt.pem" />
-    <Content Include="Content\client_secret_846675010514-t19fk9msgqdg5au5g4utq8ice7029hh3.apps.googleusercontent.com.json" />
+    <Content Include="Content\client_secret_846675010514-e9t86c8fo11l295jtkj15c5e8gf6m381.apps.googleusercontent.com.json" />
+    <Content Include="Content\smash-dashboard-6598082ac1fd.json" />
     <None Include="Properties\PublishProfiles\BusinessMVC220230407125015 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

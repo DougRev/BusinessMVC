@@ -22,6 +22,8 @@ namespace BusinessMVC2.Controllers
 {
     public class ClientController : Controller
     {
+        private readonly SheetsService _sheetsService;
+
 
         // GET: Clients
         public ActionResult Index()
@@ -422,8 +424,8 @@ namespace BusinessMVC2.Controllers
             client.OwnerId,
             client.FranchiseId,
             client.FranchiseName,
-            client.FirstName, 
-            client.LastName, 
+            client.FirstName,
+            client.LastName,
             client.PhoneNumber,
             // Add more client properties as needed
         }
@@ -564,23 +566,23 @@ namespace BusinessMVC2.Controllers
                         LandfillDist = int.Parse(row[8].ToString()),
                         State = (State)Enum.Parse(typeof(State), row[9].ToString(), true), // Add State property
                         Compactibility = (Compactibility)Enum.Parse(typeof(Compactibility), row[10].ToString(), true), // Add Compactibility property
-                                                                                                                                      // ... add other properties
+                                                                                                                       // ... add other properties
 
-                       /* FranchiseId = franchiseId,
-                        FacilityID = row[1].ToString(),
-                        BusinessName = row[2].ToString(),
-                        FirstName = row[3].ToString(),
-                        LastName = row[4].ToString(),
-                        PhoneNumber = int.Parse(row[5].ToString()),
-                        Email = row[6].ToString(),
-                        Address = row[7].ToString(),
-                        City = row[8].ToString(),
-                        State = (State)Enum.Parse(typeof(State), row[9].ToString(), true),
-                        ZipCode = int.Parse((string)row[10].ToString()),
-                        NumberOfDumpsters = int.Parse(row[6].ToString()),
-                        HaulsPerDay = int.Parse(row[7].ToString()),
-                        LandfillDist = int.Parse(row[8].ToString()),
-                        Compactibility = (Compactibility)Enum.Parse(typeof(Compactibility), row[10].ToString(), true),*/
+                        /* FranchiseId = franchiseId,
+                         FacilityID = row[1].ToString(),
+                         BusinessName = row[2].ToString(),
+                         FirstName = row[3].ToString(),
+                         LastName = row[4].ToString(),
+                         PhoneNumber = int.Parse(row[5].ToString()),
+                         Email = row[6].ToString(),
+                         Address = row[7].ToString(),
+                         City = row[8].ToString(),
+                         State = (State)Enum.Parse(typeof(State), row[9].ToString(), true),
+                         ZipCode = int.Parse((string)row[10].ToString()),
+                         NumberOfDumpsters = int.Parse(row[6].ToString()),
+                         HaulsPerDay = int.Parse(row[7].ToString()),
+                         LandfillDist = int.Parse(row[8].ToString()),
+                         Compactibility = (Compactibility)Enum.Parse(typeof(Compactibility), row[10].ToString(), true),*/
                     };
 
                     clients.Add(client);
