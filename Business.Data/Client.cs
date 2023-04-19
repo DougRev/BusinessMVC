@@ -28,7 +28,17 @@ namespace BusinessData
 
         [ForeignKey(nameof(Franchise))]
         public virtual Franchise Franchise { get; set; }
+        [Display(Name = "Contact First Name")]
+        public string FirstName { get; set; }
 
+        [Display(Name = "Contact Last Name")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Phone Number")]
+        public int PhoneNumber { get; set; }
+
+        [Display(Name = "Email Address")]
+        public string Email { get; set; }
 
         [Display(Name = "Save")]
         public bool AddToDb { get; set; }

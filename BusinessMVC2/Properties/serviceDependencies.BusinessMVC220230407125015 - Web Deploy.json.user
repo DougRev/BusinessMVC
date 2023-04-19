@@ -1,12 +1,21 @@
 {
   "dependencies": {
     "mssql1": {
+<<<<<<< HEAD
       "restored": false,
       "restoreTime": "2023-04-18T15:07:31.8750954Z"
     },
     "identityapp1": {
       "restored": true,
       "restoreTime": "2023-04-11T19:51:32.7715688Z"
+=======
+      "restored": true,
+      "restoreTime": "2023-04-10T15:48:07.1038184Z"
+    },
+    "identityapp1": {
+      "restored": true,
+      "restoreTime": "2023-04-10T17:30:17.2842154Z"
+>>>>>>> 47eaaac24556e519a0bc389f2d89df145243a903
     }
   },
   "parameters": {
@@ -38,6 +47,7 @@
     "mssql1.resourceGroupName": {
       "Name": "mssql1.resourceGroupName",
       "Type": "resourceGroup",
+<<<<<<< HEAD
       "Value": "NetworkWatcherRG"
     },
     "BusinessMVC220230407125015.resourceName": {
@@ -49,6 +59,9 @@
       "Name": "BusinessMVC220230407125015.resourceGroupName",
       "Type": "resourceGroup",
       "Value": "NetworkWatcherRG"
+=======
+      "Value": "Smash-Dashboard_group"
+>>>>>>> 47eaaac24556e519a0bc389f2d89df145243a903
     }
   }
 }

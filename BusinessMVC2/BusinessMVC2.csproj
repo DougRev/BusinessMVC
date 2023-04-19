@@ -405,6 +405,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\client_secret_432455542638-cj5rs7gp7f7e5r7sua1kqqvjg8lmn6ap.apps.googleusercontent.com.json" />
     <Content Include="libman.json" />
+<<<<<<< HEAD
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -425,6 +426,11 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="App_Data\client_secret_846675010514-avrmk1feujf45l32pnt55bpsv74smkl4.apps.googleusercontent.com.json" />
+=======
+    <Content Include="Content\DigiCertGlobalRootCA.crt.pem" />
+    <Content Include="Content\client_secret_846675010514-t19fk9msgqdg5au5g4utq8ice7029hh3.apps.googleusercontent.com.json" />
+    <None Include="Properties\PublishProfiles\BusinessMVC220230407125015 - Web Deploy.pubxml" />
+>>>>>>> 47eaaac24556e519a0bc389f2d89df145243a903
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery-3.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-3.6.4.js" />

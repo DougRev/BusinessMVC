@@ -91,6 +91,7 @@ C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Release\System.M
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Release\System.Numerics.Vectors.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\bin\Release\System.Threading.Tasks.Extensions.xml
+<<<<<<< HEAD
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Release\BusinessData.dll.config
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Release\BusinessData.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\bin\Release\BusinessData.pdb
@@ -183,3 +184,7 @@ C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Release\BusinessData.
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Release\BusinessData.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Release\BusinessData.pdb
 C:\Users\xXTur\source\repos\BusinesssMVC\Business.Data\obj\Release\BusinessData.Migrations.fixingdbmodel.resources
+=======
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Release\BusinessData.Migrations.addContactInfoPhoneNumber.resources
+C:\Users\Doug Revell\source\repos\BusinessMVC\Business.Data\obj\Release\BusinessData.Migrations.addEmail.resources
+>>>>>>> 47eaaac24556e519a0bc389f2d89df145243a903
