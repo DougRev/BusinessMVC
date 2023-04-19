@@ -81,6 +81,7 @@
     <Compile Include="ClientService.cs" />
     <Compile Include="FranchiseeService.cs" />
     <Compile Include="FranchiseService.cs" />
+    <Compile Include="GoogleSheetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
