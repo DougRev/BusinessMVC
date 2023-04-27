@@ -4,9 +4,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-
-
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -1447,19 +1444,12 @@ dl {
 dt,
 dd {
   line-height: 1.42857143;
-  padding-top: 5px;
 }
 dt {
   font-weight: 700;
-  float:left;
-  padding-right: 5px;
 }
 dd {
   margin-left: 0;
-}
-
-dt::after {
-    content: ":";
 }
 @media (min-width: 768px) {
   .dl-horizontal dt {
@@ -4675,10 +4665,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-    background-color: #222;
-    padding: 10px;
-    border-radius: 0 0 50px 50px;
-    border-color: #080808;
+  background-color: #222;
+  border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;

@@ -17,7 +17,15 @@ namespace BusinessMVC2
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+
             );
+            routes.MapRoute(
+               name: "AuthCallback",
+               url: "AuthCallback/IndexAsync",
+               defaults: new { controller = "AuthCallback", action = "IndexAsync" }
+            );
+
+
         }
     }
 }
