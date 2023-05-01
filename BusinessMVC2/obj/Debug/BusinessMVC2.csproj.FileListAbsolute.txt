@@ -326,9 +326,15 @@ C:\Users\Doug Revell\Source\Repos\BusinessMVC\BusinessMVC2\obj\Debug\BusinessMVC
 C:\Users\Doug Revell\Source\Repos\BusinessMVC\BusinessMVC2\obj\Debug\BusinessMVC2.csproj.CopyComplete
 C:\Users\Doug Revell\Source\Repos\BusinessMVC\BusinessMVC2\obj\Debug\BusinessMVC2.dll
 C:\Users\Doug Revell\Source\Repos\BusinessMVC\BusinessMVC2\obj\Debug\BusinessMVC2.pdb
+<<<<<<< HEAD
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\BouncyCastle.Crypto.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\itextsharp.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\itextsharp.xml
+=======
+C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\BouncyCastle.Crypto.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\itextsharp.dll
+C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\itextsharp.xml
+>>>>>>> e41d42dc51362b20d9845e9c0e7b0707d2f9256f
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Select.HtmlToPdf.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Select.HtmlToPdf.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Select.Html.dep
@@ -341,7 +347,6 @@ C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Core.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.PlatformServices.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Sheets.v4.dll
-C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.pdb
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.xml
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Auth.pdb
@@ -350,7 +355,6 @@ C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Core.pdb
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Core.xml
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Sheets.v4.pdb
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Sheets.v4.xml
-C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Google.Apis.Auth.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Google.Apis.Auth.PlatformServices.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Google.Apis.Core.dll
@@ -398,6 +402,7 @@ C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Microsoft.Identit
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Tokens.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Microsoft.Owin.Security.OpenIdConnect.xml
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\System.IdentityModel.Tokens.Jwt.xml
+<<<<<<< HEAD
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Microsoft.Azure.Cosmos.ServiceInterop.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\Cosmos.CRTCompat.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\msvcp140.dll
@@ -486,3 +491,117 @@ C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\pt-BR\Microsoft.D
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\ru\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Doug Revell\source\repos\BusinessMVC\BusinessMVC2\bin\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+=======
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Identity.Client.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Memory.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Numerics.Vectors.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Buffers.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Identity.Client.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Abstractions.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Memory.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Azure.Core.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Azure.Identity.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Data.SqlClient.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Configuration.ConfigurationManager.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Memory.Data.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Security.AccessControl.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Security.Cryptography.ProtectedData.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Security.Permissions.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Security.Principal.Windows.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Text.Encodings.Web.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Text.Json.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.ValueTuple.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Azure.Core.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Azure.Identity.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Data.SqlClient.pdb
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Data.SqlClient.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Configuration.ConfigurationManager.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Memory.Data.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Security.AccessControl.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Security.Cryptography.ProtectedData.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Security.Permissions.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Security.Principal.Windows.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Text.Encodings.Web.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Text.Json.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.ValueTuple.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\roslyn\System.Buffers.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\roslyn\System.Memory.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Protobuf.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\K4os.Compression.LZ4.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\K4os.Compression.LZ4.Streams.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\K4os.Hash.xxHash.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.IO.Pipelines.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Protobuf.pdb
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Protobuf.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\K4os.Compression.LZ4.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\K4os.Compression.LZ4.Streams.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\K4os.Hash.xxHash.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.IO.Pipelines.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Auth.Mvc.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Auth.Mvc.pdb
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Google.Apis.Auth.Mvc.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Azure.Storage.Blobs.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Azure.Storage.Common.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.IO.Hashing.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Azure.Storage.Blobs.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Azure.Storage.Common.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.IO.Hashing.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Azure.Cosmos.ServiceInterop.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Cosmos.CRTCompat.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\msvcp140.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\vcruntime140.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\vcruntime140_1.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Azure.Cosmos.Client.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Azure.Cosmos.Core.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Azure.Cosmos.Direct.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Azure.Cosmos.Serialization.HybridRow.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Bcl.HashCode.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Collections.Immutable.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Net.Http.Formatting.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Web.Http.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Web.Http.Owin.dll
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Azure.Cosmos.Client.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\Microsoft.Bcl.HashCode.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Collections.Immutable.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Net.Http.Formatting.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Web.Http.xml
+C:\Users\xXTur\source\repos\BusinesssMVC\BusinessMVC2\bin\System.Web.Http.Owin.xml
+>>>>>>> e41d42dc51362b20d9845e9c0e7b0707d2f9256f

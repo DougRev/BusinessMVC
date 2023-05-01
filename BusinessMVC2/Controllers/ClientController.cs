@@ -516,6 +516,7 @@ namespace BusinessMVC2.Controllers
         [HttpPost]
         public async Task<ActionResult> ImportClientsFromGoogleSheet()
         {
+<<<<<<< HEAD
             string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
             string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
 
@@ -523,23 +524,34 @@ namespace BusinessMVC2.Controllers
             string ApplicationName = "Smash Calc";
             string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
             string range = "Sheet2!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
+=======
+<<<<<<< HEAD
+            string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
+            string range = "Sheet2!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
+=======
+            string credentialsPath = Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"]);
+            string tokenFolderPath = Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"]);
 
-            // Read the JSON credentials file and create the SheetsService
-            UserCredential credential;
-            using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
+
+            string[] Scopes = { SheetsService.Scope.Spreadsheets };
+            string ApplicationName = "Smash-Dashboard";
+            string sheetId = "1uyFl8JgzIzZ67lpFvE9et4cSOcziPrPA";
+            string range = "Sheet1!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
+>>>>>>> 47eaaac24556e519a0bc389f2d89df145243a903
+>>>>>>> e41d42dc51362b20d9845e9c0e7b0707d2f9256f
+
+            // Authorize using the custom AppFlowMetadata class
+            var authResult = await new AuthorizationCodeMvcApp(this, new AppFlowMetadata()).AuthorizeAsync(CancellationToken.None);
+            if (authResult.Credential == null)
             {
-                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.FromStream(stream).Secrets,
-                    Scopes,
-                    "user",
-                    CancellationToken.None,
-                    new FileDataStore(tokenFolderPath, true));
+                return new RedirectResult(authResult.RedirectUri);
             }
 
+            // Create the SheetsService
             var service = new SheetsService(new BaseClientService.Initializer()
             {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
+                HttpClientInitializer = authResult.Credential,
+                ApplicationName = "Smash-Dashboard",
             });
 
             // Read the sheet data
@@ -590,6 +602,10 @@ namespace BusinessMVC2.Controllers
 
             return RedirectToAction("Index");
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e41d42dc51362b20d9845e9c0e7b0707d2f9256f
     }
 
 }

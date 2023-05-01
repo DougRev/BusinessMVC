@@ -344,9 +344,15 @@ namespace BusinessMVC2.Controllers
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+
+                    // Sign in the user with the external login info
+                    var claimsIdentity = new ClaimsIdentity(loginInfo.ExternalIdentity.Claims, "ApplicationCookie");
+                    AuthenticationManager.SignIn(claimsIdentity);
+
                     return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
             }
         }
+
 
         //
         // POST: /Account/ExternalLoginConfirmation

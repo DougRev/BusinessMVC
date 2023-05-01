@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
-using BusinessMVC2.Models;
-using Google.Apis.Auth.OAuth2.Mvc;
+using Google.Apis.Auth.OAuth2.Requests;
+using Google.Apis.Auth.OAuth2.Responses;
 
 namespace BusinessMVC2.Controllers
 {
@@ -18,14 +18,12 @@ namespace BusinessMVC2.Controllers
             get { return new Models.AppFlowMetadata(); }
         }
 
-        public override async Task<ActionResult> IndexAsync(AuthorizationCodeResponseUrl url, CancellationToken cancellationToken)
+        public override async Task<ActionResult> IndexAsync(AuthorizationCodeResponseUrl url,CancellationToken cancellationToken)
         {
             // Call the base method to handle the callback and store the tokens.
-            ActionResult result = await base.IndexAsync(url, cancellationToken);
+            ActionResult result = await base.IndexAsync(url,cancellationToken);
 
-            // Store the UserCredential in the Session
-            var authResult = await new AuthorizationCodeMvcApp(this, new AppFlowMetadata()).AuthorizeAsync(cancellationToken);
-            Session["UserCredential"] = authResult.Credential;
+            // You can add any additional logic after the callback is handled, if necessary.
 
             // Redirect the user back to the original page they were on.
             return RedirectToAction("ImportClientsFromGoogleSheet", "Client");
