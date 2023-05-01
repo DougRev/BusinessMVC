@@ -71,12 +71,13 @@
 </table>
 <div id="upload-download-container">
 
-@Html.ActionLink("Export Google Sheet", "TestUpdateGoogleSheet", "Client", null, new { @class = "btn btn-primary" })
-<br />
-<br />
-@using (Html.BeginForm("ImportClientsFromGoogleSheet", "Client", FormMethod.Post))
-{
-    <input type="submit" value="Import Clients" class="btn btn-primary" />
-}
+    @Html.ActionLink("Export Google Sheet", "TestUpdateGoogleSheet", "Client", null, new { @class = "btn btn-primary" })
+    <br />
+    <br />
+    @using (Html.BeginForm("ImportClientsFromGoogleSheet", "Client", FormMethod.Get))
+    {
+        <input type="submit" value="Import Clients" class="btn btn-primary" />
+    }
+
 </div>
 

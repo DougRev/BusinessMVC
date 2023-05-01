@@ -86,6 +86,9 @@
       <HintPath>..\packages\Google.Protobuf.3.22.3\lib\net45\Google.Protobuf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GoogleAuthentication, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleAuthentication.1.0.0\lib\net46\GoogleAuthentication.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
       <Private>True</Private>
@@ -400,6 +403,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\AuthCallbackController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\FranchiseController.cs" />
@@ -411,12 +415,12 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppFlowMetaData.cs" />
-    <Compile Include="Models\GoogleSheetsService.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Code2Night.jpeg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -439,12 +443,11 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="App_Data\client_secret_846675010514-avrmk1feujf45l32pnt55bpsv74smkl4.apps.googleusercontent.com.json" />
     <Content Include="Content\DigiCertGlobalRootCA.crt.pem" />
     <Content Include="Content\smash-dashboard-6598082ac1fd.json" />
     <Content Include="Content\client_secret_846675010514-avrmk1feujf45l32pnt55bpsv74smkl4.apps.googleusercontent.com %281%29.json" />
     <Content Include="Content\smash-dashboard-2c07132e45eb.json" />
-    <Content Include="Content\client_secret_846675010514-e9t86c8fo11l295jtkj15c5e8gf6m381.apps.googleusercontent.com.json" />
+    <Content Include="Content\smt-web-client.json" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -454,6 +457,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\desktop-client-secret.json" />
+    <Content Include="Content\web-client.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\BusinessMVC220230407125015 - Web Deploy.pubxml" />
     <Content Include="Scripts\index.js.flow" />
     <None Include="Scripts\jquery-3.6.4.intellisense.js" />
@@ -609,8 +615,11 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Api\" />
     <Folder Include="Views\AuthCallback\" />
     <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

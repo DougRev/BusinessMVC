@@ -6,6 +6,7 @@ using BusinessServices;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Auth.OAuth2.Mvc;
 using Google.Apis.Auth.OAuth2.Mvc.Filters;
+using Google.Apis.Sample.MVC4;
 using Google.Apis.Services;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
@@ -513,28 +514,26 @@ namespace BusinessMVC2.Controllers
             return values.Count - 1;
         }
 
-        [HttpPost]
-        public async Task<ActionResult> ImportClientsFromGoogleSheet()
+        public async Task<ActionResult> ImportClientsFromGoogleSheet(CancellationToken cancellationToken)
         {
-            string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
-            string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
+            var result = await new AuthorizationCodeMvcApp(this, new AppFlowMetadata()).AuthorizeAsync(cancellationToken);
 
-            string[] Scopes = { SheetsService.Scope.Spreadsheets };
+            if (result.Credential != null)
+            {
+                await ImportClients(result.Credential);
+                return RedirectToAction("Index"); // Redirect to the desired view after importing clients
+            }
+            else
+            {
+                return new RedirectResult(result.RedirectUri);
+            }
+        }
+
+        private async Task ImportClients(UserCredential credential)
+        {
             string ApplicationName = "Smash Calc";
             string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
             string range = "Sheet2!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
-
-            // Read the JSON credentials file and create the SheetsService
-            UserCredential credential;
-            using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
-            {
-                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.FromStream(stream).Secrets,
-                    Scopes,
-                    "user",
-                    CancellationToken.None,
-                    new FileDataStore(tokenFolderPath, true));
-            }
 
             var service = new SheetsService(new BaseClientService.Initializer()
             {
@@ -578,8 +577,6 @@ namespace BusinessMVC2.Controllers
                 }
             }
 
-
-
             // Insert the Client objects into your SQL Server database using Entity Framework
             var db = new ApplicationDbContext();
             foreach (var client in clients)
@@ -587,9 +584,8 @@ namespace BusinessMVC2.Controllers
                 db.Clients.Add(client);
             }
             await db.SaveChangesAsync();
-
-            return RedirectToAction("Index");
         }
+
     }
 
 }
