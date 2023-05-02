@@ -403,7 +403,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\AuthCallbackController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\FranchiseController.cs" />
@@ -616,7 +615,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Api\" />
     <Folder Include="Views\AuthCallback\" />
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Login\" />

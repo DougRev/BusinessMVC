@@ -533,7 +533,7 @@ namespace BusinessMVC2.Controllers
         {
             string ApplicationName = "Smash Calc";
             string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
-            string range = "Sheet2!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
+            string range = "Sheet1!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
 
             var service = new SheetsService(new BaseClientService.Initializer()
             {
