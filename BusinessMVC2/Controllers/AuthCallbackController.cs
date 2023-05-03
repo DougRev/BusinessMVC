@@ -5,6 +5,8 @@ using Google.Apis.Services;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Web.Mvc;
+using Google.Apis.Auth.OAuth2.Requests;
+using Google.Apis.Auth.OAuth2.Responses;
 using Google.Apis.Sheets.v4;
 
 namespace Google.Apis.Sample.MVC4.Controllers

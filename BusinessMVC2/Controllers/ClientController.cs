@@ -516,18 +516,8 @@ namespace BusinessMVC2.Controllers
 
         public async Task<ActionResult> ImportClientsFromGoogleSheet(CancellationToken cancellationToken)
         {
-            var result = await new AuthorizationCodeMvcApp(this, new AppFlowMetadata()).AuthorizeAsync(cancellationToken);
-
-            if (result.Credential != null)
-            {
-                await ImportClients(result.Credential);
-                return RedirectToAction("Index"); // Redirect to the desired view after importing clients
-            }
-            else
-            {
-                return new RedirectResult(result.RedirectUri);
-            }
-        }
+            string credentialsPath = ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"];
+            string tokenFolderPath = ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"];
 
         private async Task ImportClients(UserCredential credential)
         {
@@ -535,10 +525,11 @@ namespace BusinessMVC2.Controllers
             string sheetId = "17PA6YsX6PaCSQfHWYyNZmIvZp_WOMYBNtfa-7eZWldE";
             string range = "Sheet1!A2:Z"; // Adjust the range as needed to cover the entire sheet, starting from the second row
 
+            // Create the SheetsService
             var service = new SheetsService(new BaseClientService.Initializer()
             {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
+                HttpClientInitializer = authResult.Credential,
+                ApplicationName = "Smash-Dashboard",
             });
 
             // Read the sheet data

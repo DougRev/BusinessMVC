@@ -7,7 +7,9 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using BusinessMVC2.Models;
 using BusinessData;
+using System.Security.Claims;
 
+[assembly: OwinStartup(typeof(BusinessMVC2.Startup))]
 namespace BusinessMVC2
 {
     public partial class Startup
@@ -59,11 +61,22 @@ namespace BusinessMVC2
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+
+                ClientId = "846675010514-avrmk1feujf45l32pnt55bpsv74smkl4.apps.googleusercontent.com",
+                ClientSecret = "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",
+                Provider = new GoogleOAuth2AuthenticationProvider
+                {
+                    OnAuthenticated = async context =>
+                    {
+                        foreach (var claim in context.User)
+                        {
+                            context.Identity.AddClaim(new Claim(claim.Key, claim.Value.ToString()));
+                        }
+                    }
+                }
+            });
         }
     }
 }
