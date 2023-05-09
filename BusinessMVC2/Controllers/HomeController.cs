@@ -26,5 +26,6 @@ namespace BusinessMVC2.Controllers
 
             return View();
         }
+
     }
 }

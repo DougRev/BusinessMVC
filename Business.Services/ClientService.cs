@@ -4,6 +4,8 @@ using BusinessShared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+
 namespace BusinessServices
 {
     public class ClientService
@@ -283,5 +285,25 @@ namespace BusinessServices
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        // Add this method to your ClientService class
+        public async Task<bool> SaveClientsAsync(List<Client> clients)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                foreach (var client in clients)
+                {
+                    // Assuming you have a function to create a new Client entity and add it to the database
+                    // You may need to modify this line to match your actual implementation
+                    ctx.Clients.Add(client);
+                }
+
+                // Save the changes
+                await ctx.SaveChangesAsync();
+            }
+
+            return true;
+        }
+
     }
 }
