@@ -1,28 +1,28 @@
-﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Flows;
+﻿using Google.Apis.Auth.OAuth2.Flows;
 using Google.Apis.Auth.OAuth2.Mvc;
-using Google.Apis.Auth.OAuth2.Responses;
-using Google.Apis.Services;
+using Google.Apis.Auth.OAuth2;
 using Google.Apis.Sheets.v4;
-using Google.Apis.Util.Store;
-using Microsoft.AspNet.Identity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using Google.Apis.Util.Store;
+using System.IO;
+using System.Configuration;
 
 namespace BusinessMVC2.Models
 {
     public class AppFlowMetadata : FlowMetadata
     {
         private static readonly IAuthorizationCodeFlow flow =
-            new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
-            {
-                ClientSecrets = new ClientSecrets
-                {
-                    ClientId = "846675010514-avrmk1feujf45l32pnt55bpsv74smkl4.apps.googleusercontent.com",
-                    ClientSecret = "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"
-                },
-                Scopes = new[] { SheetsService.Scope.SpreadsheetsReadonly }, // Set the required scopes
-                DataStore = new EntityFrameworkDataStore()
-            });
+         new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
+         {
+             ClientSecrets = GoogleClientSecrets.FromStream(new FileStream(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsCredentialsPath"]), FileMode.Open)).Secrets,
+             Scopes = new[] { SheetsService.Scope.SpreadsheetsReadonly },
+             DataStore = new FileDataStore(HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["GoogleSheetsTokenFolderPath"]), true),
+         });
+
 
         public override IAuthorizationCodeFlow Flow
         {
@@ -37,5 +37,4 @@ namespace BusinessMVC2.Models
             return "user@example.com";
         }
     }
-
 }

@@ -466,12 +466,6 @@
               The token to monitor for cancellation requests.
               The default value is <see cref="P:System.Threading.CancellationToken.None"/>.
             </param>
-<<<<<<< HEAD
-            <returns>
-              A task that represents the asynchronous append operation.
-            </returns>
-=======
->>>>>>> e41d42dc51362b20d9845e9c0e7b0707d2f9256f
             <exception cref="T:System.ArgumentNullException">
               <paramref name="stream"/> is <see langword="null"/>.
             </exception>
@@ -480,12 +474,6 @@
             <summary>
               Gets the current computed hash value without modifying accumulated state.
             </summary>
-<<<<<<< HEAD
-            <returns>
-              The hash value for the data already provided.
-            </returns>
-=======
->>>>>>> e41d42dc51362b20d9845e9c0e7b0707d2f9256f
         </member>
         <member name="M:System.IO.Hashing.NonCryptographicHashAlgorithm.TryGetCurrentHash(System.Span{System.Byte},System.Int32@)">
             <summary>
@@ -519,12 +507,6 @@
             <summary>
               Gets the current computed hash value and clears the accumulated state.
             </summary>
-<<<<<<< HEAD
-            <returns>
-              The hash value for the data already provided.
-            </returns>
-=======
->>>>>>> e41d42dc51362b20d9845e9c0e7b0707d2f9256f
         </member>
         <member name="M:System.IO.Hashing.NonCryptographicHashAlgorithm.TryGetHashAndReset(System.Span{System.Byte},System.Int32@)">
             <summary>
@@ -595,80 +577,6 @@
         <member name="P:System.SR.NotSupported_GetHashCode">
             <summary>The GetHashCode method is not supported on this object. Use GetCurrentHash or GetHashAndReset to retrieve the hash code computed by this object.</summary>
         </member>
-<<<<<<< HEAD
-        <member name="T:System.Runtime.InteropServices.LibraryImportAttribute">
-            <summary>
-            Attribute used to indicate a source generator should create a function for marshalling
-            arguments instead of relying on the runtime to generate an equivalent marshalling function at run-time.
-            </summary>
-            <remarks>
-            This attribute is meaningless if the source generator associated with it is not enabled.
-            The current built-in source generator only supports C# and only supplies an implementation when
-            applied to static, partial, non-generic methods.
-            </remarks>
-        </member>
-        <member name="M:System.Runtime.InteropServices.LibraryImportAttribute.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:System.Runtime.InteropServices.LibraryImportAttribute"/>.
-            </summary>
-            <param name="libraryName">Name of the library containing the import.</param>
-        </member>
-        <member name="P:System.Runtime.InteropServices.LibraryImportAttribute.LibraryName">
-            <summary>
-            Gets the name of the library containing the import.
-            </summary>
-        </member>
-        <member name="P:System.Runtime.InteropServices.LibraryImportAttribute.EntryPoint">
-            <summary>
-            Gets or sets the name of the entry point to be called.
-            </summary>
-        </member>
-        <member name="P:System.Runtime.InteropServices.LibraryImportAttribute.StringMarshalling">
-            <summary>
-            Gets or sets how to marshal string arguments to the method.
-            </summary>
-            <remarks>
-            If this field is set to a value other than <see cref="F:System.Runtime.InteropServices.StringMarshalling.Custom" />,
-            <see cref="P:System.Runtime.InteropServices.LibraryImportAttribute.StringMarshallingCustomType" /> must not be specified.
-            </remarks>
-        </member>
-        <member name="P:System.Runtime.InteropServices.LibraryImportAttribute.StringMarshallingCustomType">
-            <summary>
-            Gets or sets the <see cref="T:System.Type"/> used to control how string arguments to the method are marshalled.
-            </summary>
-            <remarks>
-            If this field is specified, <see cref="P:System.Runtime.InteropServices.LibraryImportAttribute.StringMarshalling" /> must not be specified
-            or must be set to <see cref="F:System.Runtime.InteropServices.StringMarshalling.Custom" />.
-            </remarks>
-        </member>
-        <member name="P:System.Runtime.InteropServices.LibraryImportAttribute.SetLastError">
-            <summary>
-            Gets or sets whether the callee sets an error (SetLastError on Windows or errno
-            on other platforms) before returning from the attributed method.
-            </summary>
-        </member>
-        <member name="T:System.Runtime.InteropServices.StringMarshalling">
-            <summary>
-            Specifies how strings should be marshalled for generated p/invokes
-            </summary>
-        </member>
-        <member name="F:System.Runtime.InteropServices.StringMarshalling.Custom">
-            <summary>
-            Indicates the user is suppling a specific marshaller in <see cref="P:System.Runtime.InteropServices.LibraryImportAttribute.StringMarshallingCustomType"/>.
-            </summary>
-        </member>
-        <member name="F:System.Runtime.InteropServices.StringMarshalling.Utf8">
-            <summary>
-            Use the platform-provided UTF-8 marshaller.
-            </summary>
-        </member>
-        <member name="F:System.Runtime.InteropServices.StringMarshalling.Utf16">
-            <summary>
-            Use the platform-provided UTF-16 marshaller.
-            </summary>
-        </member>
-=======
->>>>>>> e41d42dc51362b20d9845e9c0e7b0707d2f9256f
         <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
             <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
         </member>

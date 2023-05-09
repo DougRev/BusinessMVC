@@ -10,3 +10,9 @@ C:\Users\xXTur\source\repos\BusinesssMVC\BusinessShared\obj\Release\BusinessShar
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessShared\obj\Release\BusinessShared.csproj.CoreCompileInputs.cache
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessShared\obj\Release\BusinessShared.dll
 C:\Users\xXTur\source\repos\BusinesssMVC\BusinessShared\obj\Release\BusinessShared.pdb
+C:\Users\xXTur\source\repos\BusinessMVC\BusinessShared\bin\Release\BusinessShared.dll
+C:\Users\xXTur\source\repos\BusinessMVC\BusinessShared\bin\Release\BusinessShared.pdb
+C:\Users\xXTur\source\repos\BusinessMVC\BusinessShared\obj\Release\BusinessShared.csproj.AssemblyReference.cache
+C:\Users\xXTur\source\repos\BusinessMVC\BusinessShared\obj\Release\BusinessShared.csproj.CoreCompileInputs.cache
+C:\Users\xXTur\source\repos\BusinessMVC\BusinessShared\obj\Release\BusinessShared.dll
+C:\Users\xXTur\source\repos\BusinessMVC\BusinessShared\obj\Release\BusinessShared.pdb

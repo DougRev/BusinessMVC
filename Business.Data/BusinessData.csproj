@@ -244,11 +244,6 @@
     <Compile Include="Migrations\202303291757027_removeTotalCO2Franchise.designer.cs">
       <DependentUpon>202303291757027_removeTotalCO2Franchise.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Migrations\202304181739163_fixingdbmodel.cs" />
-    <Compile Include="Migrations\202304181739163_fixingdbmodel.designer.cs">
-      <DependentUpon>202304181739163_fixingdbmodel.cs</DependentUpon>
-=======
     <Compile Include="Migrations\202304121212417_addContactInfo+PhoneNumber.cs" />
     <Compile Include="Migrations\202304121212417_addContactInfo+PhoneNumber.designer.cs">
       <DependentUpon>202304121212417_addContactInfo+PhoneNumber.cs</DependentUpon>
@@ -256,7 +251,6 @@
     <Compile Include="Migrations\202304121218372_addEmail.cs" />
     <Compile Include="Migrations\202304121218372_addEmail.designer.cs">
       <DependentUpon>202304121218372_addEmail.cs</DependentUpon>
->>>>>>> 47eaaac24556e519a0bc389f2d89df145243a903
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -344,16 +338,11 @@
     <EmbeddedResource Include="Migrations\202303291757027_removeTotalCO2Franchise.resx">
       <DependentUpon>202303291757027_removeTotalCO2Franchise.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Migrations\202304181739163_fixingdbmodel.resx">
-      <DependentUpon>202304181739163_fixingdbmodel.cs</DependentUpon>
-=======
     <EmbeddedResource Include="Migrations\202304121212417_addContactInfo+PhoneNumber.resx">
       <DependentUpon>202304121212417_addContactInfo+PhoneNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304121218372_addEmail.resx">
       <DependentUpon>202304121218372_addEmail.cs</DependentUpon>
->>>>>>> 47eaaac24556e519a0bc389f2d89df145243a903
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
