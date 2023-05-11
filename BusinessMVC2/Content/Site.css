@@ -120,6 +120,7 @@ a {
     #webpage .card-body * {
         position: relative;
         z-index: 2;
+        transition: color 0.3s; /* Add transition for color */
     }
 
     #webpage .card-body::before {
@@ -136,6 +137,9 @@ a {
 
     #webpage .card-body:hover::before {
         right: 0;
+    }
+    #webpage .card-body:hover * { /* Add this rule to change the text color on hover */
+        color: #ffffff;
     }
 
 

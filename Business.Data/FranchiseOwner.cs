@@ -11,10 +11,12 @@ namespace BusinesssData
     {
         [Key]
         public int FranchiseeId { get; set; }
+        public int FranchiseId { get; set; }
         public string FranchiseeName { get; set; }
 
         public Guid OwnerId { get; set; }
         public virtual ICollection<Client> Businesses { get; set; }
+        public virtual Franchise Franchise { get; set; }
 
     }
 }

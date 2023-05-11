@@ -119,7 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Data\BusinessData.csproj">
-      <Project>{cc01f131-a388-4024-9696-106eb13772d0}</Project>
+      <Project>{CC01F131-A388-4024-9696-106EB13772D0}</Project>
       <Name>BusinessData</Name>
     </ProjectReference>
   </ItemGroup>

@@ -22,7 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name.EndsWith("@smashmytrash.com"))
                     {
                         <li>@Html.ActionLink("Account Overview", "Index", "Franchise")</li>
                         <li>@Html.ActionLink("Clients", "Index", "Client")</li>

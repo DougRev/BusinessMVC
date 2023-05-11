@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Smash Dashboard</title>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUeytI5VKd8lPU9fqf8JsC7E2oeqln8NM&libraries=places,geometry&callback=initMap"></script>
+
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <meta name="robots" content="noindex">
@@ -22,7 +25,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name.EndsWith("@smashmytrash.com"))
                     {
                         <li>@Html.ActionLink("Account Overview", "Index", "Franchise")</li>
                         <li>@Html.ActionLink("Clients", "Index", "Client")</li>

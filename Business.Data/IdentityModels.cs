@@ -26,7 +26,7 @@ namespace BusinessData
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("LocalConnection", throwIfV1Schema: false)
         {
         }
 
@@ -51,9 +51,10 @@ namespace BusinessData
                 .Add(new IdentityUserRoleConfiguration());
 
             modelBuilder.Entity<Franchise>()
-                .HasMany(f => f.Clients)
-                .WithRequired(c => c.Franchise)
-                .HasForeignKey(c => c.FranchiseId);
+                .HasMany(f => f.FranchiseOwners)
+                .WithRequired(fo => fo.Franchise)
+                .HasForeignKey(fo => fo.FranchiseId);
+
 
         }
     }

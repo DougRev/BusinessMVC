@@ -255,6 +255,14 @@
     <Compile Include="Migrations\202304121218372_addEmail.designer.cs">
       <DependentUpon>202304121218372_addEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305092322474_addItemstoFranchisefromIFX.cs" />
+    <Compile Include="Migrations\202305092322474_addItemstoFranchisefromIFX.designer.cs">
+      <DependentUpon>202305092322474_addItemstoFranchisefromIFX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305100002570_updateFranchiseState.cs" />
+    <Compile Include="Migrations\202305100002570_updateFranchiseState.designer.cs">
+      <DependentUpon>202305100002570_updateFranchiseState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -346,6 +354,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304121218372_addEmail.resx">
       <DependentUpon>202304121218372_addEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305092322474_addItemstoFranchisefromIFX.resx">
+      <DependentUpon>202305092322474_addItemstoFranchisefromIFX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305100002570_updateFranchiseState.resx">
+      <DependentUpon>202305100002570_updateFranchiseState.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
